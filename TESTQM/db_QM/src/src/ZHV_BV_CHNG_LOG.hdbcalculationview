@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="algoma.general::ZHV_BV_CHNG_LOG" applyPrivilegeType="NONE" defaultClient="" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="ZHV_BV_CHNG_LOG"/>
+  <metadata activatedAt="2021-05-02 21:59:25.0" changedAt="2021-05-05 10:44:34.456" createdAt="2021-05-05 10:44:34.455"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="29"/>
+  <dataSources>
+    <DataSource id="CDHDR">
+      <resourceUri>algoma.general::CDHDR</resourceUri>
+    </DataSource>
+    <DataSource id="CDPOS">
+      <resourceUri>algoma.general::CDPOS</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDANT"/>
+        <viewAttribute id="_DATAAGING"/>
+        <viewAttribute id="MANDANT_1"/>
+        <viewAttribute id="OBJECTCLAS"/>
+        <viewAttribute id="OBJECTID"/>
+        <viewAttribute id="CHANGENR"/>
+        <viewAttribute id="USERNAME"/>
+        <viewAttribute id="UDATE"/>
+        <viewAttribute id="UTIME"/>
+        <viewAttribute id="TCODE"/>
+        <viewAttribute id="PLANCHNGNR"/>
+        <viewAttribute id="ACT_CHNGNO"/>
+        <viewAttribute id="WAS_PLANND"/>
+        <viewAttribute id="CHANGE_IND"/>
+        <viewAttribute id="LANGU"/>
+        <viewAttribute id="VERSION"/>
+        <viewAttribute id="_DATAAGING_1"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#CDHDR">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDANT" source="MANDANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_DATAAGING" source="_DATAAGING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDANT_1" source="MANDANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTCLAS" source="OBJECTCLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTID" source="OBJECTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHANGENR" source="CHANGENR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="USERNAME" source="USERNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UDATE" source="UDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UTIME" source="UTIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TCODE" source="TCODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANCHNGNR" source="PLANCHNGNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ACT_CHNGNO" source="ACT_CHNGNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAS_PLANND" source="WAS_PLANND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHANGE_IND" source="CHANGE_IND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LANGU" source="LANGU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VERSION" source="VERSION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_DATAAGING_1" source="_DATAAGING"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDANT"/>
+        <viewAttribute id="OBJECTCLAS"/>
+        <viewAttribute id="OBJECTID"/>
+        <viewAttribute id="CHANGENR"/>
+        <viewAttribute id="TABNAME"/>
+        <viewAttribute id="TABKEY"/>
+        <viewAttribute id="FNAME"/>
+        <viewAttribute id="CHNGIND"/>
+        <viewAttribute id="TEXT_CASE"/>
+        <viewAttribute id="UNIT_OLD"/>
+        <viewAttribute id="UNIT_NEW"/>
+        <viewAttribute id="CUKY_OLD"/>
+        <viewAttribute id="CUKY_NEW"/>
+        <viewAttribute id="VALUE_NEW"/>
+        <viewAttribute id="VALUE_OLD"/>
+        <viewAttribute id="_DATAAGING"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#CDPOS">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDANT" source="MANDANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTCLAS" source="OBJECTCLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTID" source="OBJECTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHANGENR" source="CHANGENR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TABNAME" source="TABNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TABKEY" source="TABKEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FNAME" source="FNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHNGIND" source="CHNGIND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TEXT_CASE" source="TEXT_CASE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNIT_OLD" source="UNIT_OLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNIT_NEW" source="UNIT_NEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CUKY_OLD" source="CUKY_OLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CUKY_NEW" source="CUKY_NEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE_NEW" source="VALUE_NEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE_OLD" source="VALUE_OLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_DATAAGING" source="_DATAAGING"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinOrder="OUTSIDE_IN" joinType="inner">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDANT"/>
+        <viewAttribute id="_DATAAGING"/>
+        <viewAttribute id="MANDANT_1"/>
+        <viewAttribute id="OBJECTCLAS"/>
+        <viewAttribute id="OBJECTID"/>
+        <viewAttribute id="CHANGENR"/>
+        <viewAttribute id="USERNAME"/>
+        <viewAttribute id="UDATE"/>
+        <viewAttribute id="UTIME"/>
+        <viewAttribute id="TCODE"/>
+        <viewAttribute id="PLANCHNGNR"/>
+        <viewAttribute id="ACT_CHNGNO"/>
+        <viewAttribute id="WAS_PLANND"/>
+        <viewAttribute id="CHANGE_IND"/>
+        <viewAttribute id="LANGU"/>
+        <viewAttribute id="VERSION"/>
+        <viewAttribute id="_DATAAGING_1"/>
+        <viewAttribute id="MANDANT_2"/>
+        <viewAttribute id="OBJECTCLAS_1"/>
+        <viewAttribute id="OBJECTID_1"/>
+        <viewAttribute id="CHANGENR_1"/>
+        <viewAttribute id="TABNAME"/>
+        <viewAttribute id="TABKEY"/>
+        <viewAttribute id="FNAME"/>
+        <viewAttribute id="CHNGIND"/>
+        <viewAttribute id="TEXT_CASE"/>
+        <viewAttribute id="UNIT_OLD"/>
+        <viewAttribute id="UNIT_NEW"/>
+        <viewAttribute id="CUKY_OLD"/>
+        <viewAttribute id="CUKY_NEW"/>
+        <viewAttribute id="VALUE_NEW"/>
+        <viewAttribute id="VALUE_OLD"/>
+        <viewAttribute id="_DATAAGING_2"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDANT" source="MANDANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_DATAAGING" source="_DATAAGING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDANT_1" source="MANDANT_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTCLAS" source="OBJECTCLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTID" source="OBJECTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHANGENR" source="CHANGENR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="USERNAME" source="USERNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UDATE" source="UDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UTIME" source="UTIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TCODE" source="TCODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANCHNGNR" source="PLANCHNGNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ACT_CHNGNO" source="ACT_CHNGNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAS_PLANND" source="WAS_PLANND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHANGE_IND" source="CHANGE_IND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LANGU" source="LANGU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VERSION" source="VERSION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_DATAAGING_1" source="_DATAAGING_1"/>
+      </input>
+      <input node="#Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDANT_2" source="MANDANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTCLAS_1" source="OBJECTCLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTID_1" source="OBJECTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHANGENR_1" source="CHANGENR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TABNAME" source="TABNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TABKEY" source="TABKEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FNAME" source="FNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHNGIND" source="CHNGIND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TEXT_CASE" source="TEXT_CASE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNIT_OLD" source="UNIT_OLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNIT_NEW" source="UNIT_NEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CUKY_OLD" source="CUKY_OLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CUKY_NEW" source="CUKY_NEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE_NEW" source="VALUE_NEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE_OLD" source="VALUE_OLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_DATAAGING_2" source="_DATAAGING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDANT" source="MANDANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTCLAS" source="OBJECTCLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJECTID" source="OBJECTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHANGENR" source="CHANGENR"/>
+      </input>
+      <joinAttribute name="MANDANT"/>
+      <joinAttribute name="OBJECTCLAS"/>
+      <joinAttribute name="OBJECTID"/>
+      <joinAttribute name="CHANGENR"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDANT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Join_1" columnName="MANDANT"/>
+      </attribute>
+      <attribute id="_DATAAGING" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data Filter Value for Data Aging"/>
+        <keyMapping columnObjectName="Join_1" columnName="_DATAAGING"/>
+      </attribute>
+      <attribute id="OBJECTCLAS" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object class"/>
+        <keyMapping columnObjectName="Join_1" columnName="OBJECTCLAS"/>
+      </attribute>
+      <attribute id="OBJECTID" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Value"/>
+        <keyMapping columnObjectName="Join_1" columnName="OBJECTID"/>
+      </attribute>
+      <attribute id="CHANGENR" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change Number of Document"/>
+        <keyMapping columnObjectName="Join_1" columnName="CHANGENR"/>
+      </attribute>
+      <attribute id="USERNAME" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User name of the person responsible in change document"/>
+        <keyMapping columnObjectName="Join_1" columnName="USERNAME"/>
+      </attribute>
+      <attribute id="UDATE" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Creation date of the change document"/>
+        <keyMapping columnObjectName="Join_1" columnName="UDATE"/>
+      </attribute>
+      <attribute id="UTIME" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time changed"/>
+        <keyMapping columnObjectName="Join_1" columnName="UTIME"/>
+      </attribute>
+      <attribute id="TCODE" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Transaction in which a change was made"/>
+        <keyMapping columnObjectName="Join_1" columnName="TCODE"/>
+      </attribute>
+      <attribute id="PLANCHNGNR" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planned change number"/>
+        <keyMapping columnObjectName="Join_1" columnName="PLANCHNGNR"/>
+      </attribute>
+      <attribute id="ACT_CHNGNO" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change number of the document created by this change"/>
+        <keyMapping columnObjectName="Join_1" columnName="ACT_CHNGNO"/>
+      </attribute>
+      <attribute id="WAS_PLANND" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Flag: Change created from planned changes"/>
+        <keyMapping columnObjectName="Join_1" columnName="WAS_PLANND"/>
+      </attribute>
+      <attribute id="CHANGE_IND" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Application object change type (U, I, E, D)"/>
+        <keyMapping columnObjectName="Join_1" columnName="CHANGE_IND"/>
+      </attribute>
+      <attribute id="LANGU" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Language Key"/>
+        <keyMapping columnObjectName="Join_1" columnName="LANGU"/>
+      </attribute>
+      <attribute id="VERSION" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="3-Byte field"/>
+        <keyMapping columnObjectName="Join_1" columnName="VERSION"/>
+      </attribute>
+      <attribute id="TABNAME" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Table Name"/>
+        <keyMapping columnObjectName="Join_1" columnName="TABNAME"/>
+      </attribute>
+      <attribute id="TABKEY" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Changed table record key"/>
+        <keyMapping columnObjectName="Join_1" columnName="TABKEY"/>
+      </attribute>
+      <attribute id="FNAME" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Field Name"/>
+        <keyMapping columnObjectName="Join_1" columnName="FNAME"/>
+      </attribute>
+      <attribute id="CHNGIND" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change Type (U, I, E, D)"/>
+        <keyMapping columnObjectName="Join_1" columnName="CHNGIND"/>
+      </attribute>
+      <attribute id="TEXT_CASE" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Flag: X=Text change"/>
+        <keyMapping columnObjectName="Join_1" columnName="TEXT_CASE"/>
+      </attribute>
+      <attribute id="UNIT_OLD" order="21" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change documents, unit referenced"/>
+        <keyMapping columnObjectName="Join_1" columnName="UNIT_OLD"/>
+      </attribute>
+      <attribute id="UNIT_NEW" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change documents, unit referenced"/>
+        <keyMapping columnObjectName="Join_1" columnName="UNIT_NEW"/>
+      </attribute>
+      <attribute id="CUKY_OLD" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change documents, referenced currency"/>
+        <keyMapping columnObjectName="Join_1" columnName="CUKY_OLD"/>
+      </attribute>
+      <attribute id="CUKY_NEW" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change documents, referenced currency"/>
+        <keyMapping columnObjectName="Join_1" columnName="CUKY_NEW"/>
+      </attribute>
+      <attribute id="VALUE_NEW" order="25" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="New contents of changed field"/>
+        <keyMapping columnObjectName="Join_1" columnName="VALUE_NEW"/>
+      </attribute>
+      <attribute id="VALUE_OLD" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Old contents of changed field"/>
+        <keyMapping columnObjectName="Join_1" columnName="VALUE_OLD"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures>
+      <measure id="Count_ObjectID" hidden="false" order="27" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Count_ObjectID"/>
+        <formula>&quot;MANDANT&quot;</formula>
+      </measure>
+    </calculatedMeasures>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="99" y="87"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>
