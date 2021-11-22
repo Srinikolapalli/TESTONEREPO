@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="algoma.pm::ZHV_BV_MAINTENANCE_NOTIFICATION_ITEM" applyPrivilegeType="NONE" defaultClient="" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Projection" runWithInvokerPrivileges="false" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="ZHV_BV_MAINTENANCE_NOTIFICATION_ITEM"/>
+  <metadata changedAt="2021-10-08 12:57:59.698"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="QMFE">
+      <resourceUri>algoma.pm::QMFE</resourceUri>
+    </DataSource>
+    <DataSource id="ZHV_BV_CODENAME">
+      <resourceUri>algoma.pm::ZHV_BV_CODENAME</resourceUri>
+    </DataSource>
+    <DataSource id="ZHV_BV_CODEGROUPNAME">
+      <resourceUri>algoma.pm::ZHV_BV_CODEGROUPNAME</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="MaintenanceNotification"/>
+        <viewAttribute id="MaintenanceNotificationItem"/>
+        <viewAttribute id="IsDeleted"/>
+        <viewAttribute id="MaintNotificationDamageCode"/>
+        <viewAttribute id="MaintNotifDamageCodeGroup"/>
+        <viewAttribute id="MaintNotifDamageCodeCatalog"/>
+        <viewAttribute id="MaintNotifDamageCodeVersNumber"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="FETXT"/>
+        <viewAttribute id="OTKAT"/>
+        <viewAttribute id="OTGRP"/>
+        <viewAttribute id="OTEIL"/>
+        <viewAttribute id="OTVER"/>
+        <viewAttribute id="BAUTL"/>
+        <viewAttribute id="EBORT"/>
+        <viewAttribute id="INDTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="ERZEIT"/>
+        <viewAttribute id="AEZEIT"/>
+        <viewAttribute id="KZORG"/>
+        <viewAttribute id="WDFEH"/>
+        <viewAttribute id="FEQKLAS"/>
+        <viewAttribute id="FCOAUFNR"/>
+        <viewAttribute id="FMGFRD"/>
+        <viewAttribute id="FMGEIG"/>
+        <viewAttribute id="FMGEIN"/>
+        <viewAttribute id="ANZFEHLER"/>
+        <viewAttribute id="FEHLBEW"/>
+        <viewAttribute id="UNITFLBEW"/>
+        <viewAttribute id="FEART"/>
+        <viewAttribute id="PNLKN"/>
+        <viewAttribute id="MERKNR"/>
+        <viewAttribute id="PROBENR"/>
+        <viewAttribute id="PHYNR"/>
+        <viewAttribute id="PRUEFLINR"/>
+        <viewAttribute id="CROBJTY"/>
+        <viewAttribute id="ARBPL"/>
+        <viewAttribute id="ARBPLWERK"/>
+        <viewAttribute id="FENUMORG"/>
+        <viewAttribute id="KZSYSFE"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="HERPOS"/>
+        <viewAttribute id="AUTKZ"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="EKORG"/>
+        <viewAttribute id="INFNR"/>
+        <viewAttribute id="KOSTL"/>
+        <viewAttribute id="LSTAR"/>
+        <viewAttribute id="PRZNR"/>
+        <viewAttribute id="MENGE"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="TPLNR"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#QMFE">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotification" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotificationItem" source="FENUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IsDeleted" source="KZLOESCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationDamageCode" source="FECOD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeGroup" source="FEGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeCatalog" source="FEKAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeVersNumber" source="FEVER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FETXT" source="FETXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTKAT" source="OTKAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTGRP" source="OTGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTEIL" source="OTEIL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTVER" source="OTVER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BAUTL" source="BAUTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EBORT" source="EBORT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDTX" source="INDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZMLA" source="KZMLA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERZEIT" source="ERZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEZEIT" source="AEZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZORG" source="KZORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WDFEH" source="WDFEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEQKLAS" source="FEQKLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FCOAUFNR" source="FCOAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGFRD" source="FMGFRD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGEIG" source="FMGEIG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGEIN" source="FMGEIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANZFEHLER" source="ANZFEHLER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEHLBEW" source="FEHLBEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNITFLBEW" source="UNITFLBEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEART" source="FEART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PNLKN" source="PNLKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MERKNR" source="MERKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PROBENR" source="PROBENR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PHYNR" source="PHYNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRUEFLINR" source="PRUEFLINR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CROBJTY" source="CROBJTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBPL" source="ARBPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBPLWERK" source="ARBPLWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FENUMORG" source="FENUMORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZSYSFE" source="KZSYSFE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HERPOS" source="HERPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUTKZ" source="AUTKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EKORG" source="EKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INFNR" source="INFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOSTL" source="KOSTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LSTAR" source="LSTAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRZNR" source="PRZNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="MENGE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="C1_1" joinOrder="OUTSIDE_IN" joinType="textTable" languageColumn="Language">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="MaintenanceNotification"/>
+        <viewAttribute id="MaintenanceNotificationItem"/>
+        <viewAttribute id="MaintNotifDamageCodeCatalog"/>
+        <viewAttribute id="MaintNotifDamageCodeGroup"/>
+        <viewAttribute id="MaintNotificationDamageCode"/>
+        <viewAttribute id="MaintNotifDamageCodeVersNumber"/>
+        <viewAttribute id="IsDeleted"/>
+        <viewAttribute id="MaintNotifDamageCodeName"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="FETXT"/>
+        <viewAttribute id="OTKAT"/>
+        <viewAttribute id="OTGRP"/>
+        <viewAttribute id="OTEIL"/>
+        <viewAttribute id="OTVER"/>
+        <viewAttribute id="BAUTL"/>
+        <viewAttribute id="EBORT"/>
+        <viewAttribute id="INDTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="ERZEIT"/>
+        <viewAttribute id="AEZEIT"/>
+        <viewAttribute id="KZORG"/>
+        <viewAttribute id="WDFEH"/>
+        <viewAttribute id="FEQKLAS"/>
+        <viewAttribute id="FCOAUFNR"/>
+        <viewAttribute id="FMGFRD"/>
+        <viewAttribute id="FMGEIG"/>
+        <viewAttribute id="FMGEIN"/>
+        <viewAttribute id="ANZFEHLER"/>
+        <viewAttribute id="FEHLBEW"/>
+        <viewAttribute id="UNITFLBEW"/>
+        <viewAttribute id="FEART"/>
+        <viewAttribute id="PNLKN"/>
+        <viewAttribute id="MERKNR"/>
+        <viewAttribute id="PROBENR"/>
+        <viewAttribute id="PHYNR"/>
+        <viewAttribute id="PRUEFLINR"/>
+        <viewAttribute id="CROBJTY"/>
+        <viewAttribute id="ARBPL"/>
+        <viewAttribute id="ARBPLWERK"/>
+        <viewAttribute id="FENUMORG"/>
+        <viewAttribute id="KZSYSFE"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="HERPOS"/>
+        <viewAttribute id="AUTKZ"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="EKORG"/>
+        <viewAttribute id="INFNR"/>
+        <viewAttribute id="KOSTL"/>
+        <viewAttribute id="LSTAR"/>
+        <viewAttribute id="PRZNR"/>
+        <viewAttribute id="MENGE"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="TPLNR"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotification" source="MaintenanceNotification"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotificationItem" source="MaintenanceNotificationItem"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeCatalog" source="MaintNotifDamageCodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeGroup" source="MaintNotifDamageCodeGroup"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationDamageCode" source="MaintNotificationDamageCode"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeVersNumber" source="MaintNotifDamageCodeVersNumber"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IsDeleted" source="IsDeleted"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FETXT" source="FETXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTKAT" source="OTKAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTGRP" source="OTGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTEIL" source="OTEIL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTVER" source="OTVER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BAUTL" source="BAUTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EBORT" source="EBORT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDTX" source="INDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZMLA" source="KZMLA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERZEIT" source="ERZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEZEIT" source="AEZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZORG" source="KZORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WDFEH" source="WDFEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEQKLAS" source="FEQKLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FCOAUFNR" source="FCOAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGFRD" source="FMGFRD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGEIG" source="FMGEIG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGEIN" source="FMGEIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANZFEHLER" source="ANZFEHLER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEHLBEW" source="FEHLBEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNITFLBEW" source="UNITFLBEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEART" source="FEART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PNLKN" source="PNLKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MERKNR" source="MERKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PROBENR" source="PROBENR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PHYNR" source="PHYNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRUEFLINR" source="PRUEFLINR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CROBJTY" source="CROBJTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBPL" source="ARBPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBPLWERK" source="ARBPLWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FENUMORG" source="FENUMORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZSYSFE" source="KZSYSFE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HERPOS" source="HERPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUTKZ" source="AUTKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EKORG" source="EKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INFNR" source="INFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOSTL" source="KOSTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LSTAR" source="LSTAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRZNR" source="PRZNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="MENGE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+      </input>
+      <input node="#ZHV_BV_CODENAME">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeName" source="CodeName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeCatalog" source="CodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeGroup" source="CodeGroup"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationDamageCode" source="Code"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeVersNumber" source="CodeVersionNumber"/>
+      </input>
+      <joinAttribute name="SAPClient"/>
+      <joinAttribute name="MaintNotifDamageCodeCatalog"/>
+      <joinAttribute name="MaintNotifDamageCodeGroup"/>
+      <joinAttribute name="MaintNotificationDamageCode"/>
+      <joinAttribute name="MaintNotifDamageCodeVersNumber"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="C1_1" joinOrder="OUTSIDE_IN" joinType="textTable" languageColumn="Language">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="MaintenanceNotification"/>
+        <viewAttribute id="MaintenanceNotificationItem"/>
+        <viewAttribute id="MaintNotifDamageCodeCatalog"/>
+        <viewAttribute id="MaintNotifDamageCodeGroup"/>
+        <viewAttribute id="MaintNotificationDamageCode"/>
+        <viewAttribute id="MaintNotifDamageCodeVersNumber"/>
+        <viewAttribute id="IsDeleted"/>
+        <viewAttribute id="MaintNotifDamageCodeName"/>
+        <viewAttribute id="MaintNotifDamageCodeGroupName"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="FETXT"/>
+        <viewAttribute id="OTKAT"/>
+        <viewAttribute id="OTGRP"/>
+        <viewAttribute id="OTEIL"/>
+        <viewAttribute id="OTVER"/>
+        <viewAttribute id="BAUTL"/>
+        <viewAttribute id="EBORT"/>
+        <viewAttribute id="INDTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="ERZEIT"/>
+        <viewAttribute id="AEZEIT"/>
+        <viewAttribute id="KZORG"/>
+        <viewAttribute id="WDFEH"/>
+        <viewAttribute id="FEQKLAS"/>
+        <viewAttribute id="FCOAUFNR"/>
+        <viewAttribute id="FMGFRD"/>
+        <viewAttribute id="FMGEIG"/>
+        <viewAttribute id="FMGEIN"/>
+        <viewAttribute id="ANZFEHLER"/>
+        <viewAttribute id="FEHLBEW"/>
+        <viewAttribute id="UNITFLBEW"/>
+        <viewAttribute id="FEART"/>
+        <viewAttribute id="PNLKN"/>
+        <viewAttribute id="MERKNR"/>
+        <viewAttribute id="PROBENR"/>
+        <viewAttribute id="PHYNR"/>
+        <viewAttribute id="PRUEFLINR"/>
+        <viewAttribute id="CROBJTY"/>
+        <viewAttribute id="ARBPL"/>
+        <viewAttribute id="ARBPLWERK"/>
+        <viewAttribute id="FENUMORG"/>
+        <viewAttribute id="KZSYSFE"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="HERPOS"/>
+        <viewAttribute id="AUTKZ"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="EKORG"/>
+        <viewAttribute id="INFNR"/>
+        <viewAttribute id="KOSTL"/>
+        <viewAttribute id="LSTAR"/>
+        <viewAttribute id="PRZNR"/>
+        <viewAttribute id="MENGE"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="TPLNR"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="NumberOfMaintNotifDamages" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;MaintNotificationDamageCode&quot; != '', if(&quot;IsDeleted&quot; = '', 1, 0), 0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#Join_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotification" source="MaintenanceNotification"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotificationItem" source="MaintenanceNotificationItem"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeCatalog" source="MaintNotifDamageCodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeGroup" source="MaintNotifDamageCodeGroup"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationDamageCode" source="MaintNotificationDamageCode"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeVersNumber" source="MaintNotifDamageCodeVersNumber"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IsDeleted" source="IsDeleted"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeName" source="MaintNotifDamageCodeName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FETXT" source="FETXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTKAT" source="OTKAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTGRP" source="OTGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTEIL" source="OTEIL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OTVER" source="OTVER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BAUTL" source="BAUTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EBORT" source="EBORT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDTX" source="INDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZMLA" source="KZMLA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERZEIT" source="ERZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEZEIT" source="AEZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZORG" source="KZORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WDFEH" source="WDFEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEQKLAS" source="FEQKLAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FCOAUFNR" source="FCOAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGFRD" source="FMGFRD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGEIG" source="FMGEIG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FMGEIN" source="FMGEIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANZFEHLER" source="ANZFEHLER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEHLBEW" source="FEHLBEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNITFLBEW" source="UNITFLBEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FEART" source="FEART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PNLKN" source="PNLKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MERKNR" source="MERKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PROBENR" source="PROBENR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PHYNR" source="PHYNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRUEFLINR" source="PRUEFLINR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CROBJTY" source="CROBJTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBPL" source="ARBPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBPLWERK" source="ARBPLWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FENUMORG" source="FENUMORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZSYSFE" source="KZSYSFE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HERPOS" source="HERPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUTKZ" source="AUTKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EKORG" source="EKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INFNR" source="INFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOSTL" source="KOSTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LSTAR" source="LSTAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRZNR" source="PRZNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="MENGE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+      </input>
+      <input node="#ZHV_BV_CODEGROUPNAME">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeGroupName" source="CodeGroupName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeCatalog" source="CodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifDamageCodeGroup" source="CodeGroup"/>
+      </input>
+      <joinAttribute name="SAPClient"/>
+      <joinAttribute name="MaintNotifDamageCodeCatalog"/>
+      <joinAttribute name="MaintNotifDamageCodeGroup"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_3">
+    <descriptions/>
+    <attributes>
+      <attribute id="SAPClient" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Client"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="SAPClient"/>
+      </attribute>
+      <attribute id="MaintenanceNotification" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintenanceNotification"/>
+      </attribute>
+      <attribute id="MaintenanceNotificationItem" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Item"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintenanceNotificationItem"/>
+      </attribute>
+      <attribute id="MaintNotificationDamageCode" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Damage Code"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotificationDamageCode"/>
+      </attribute>
+      <attribute id="MaintNotifDamageCodeName" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Damage Code Name"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifDamageCodeName"/>
+      </attribute>
+      <attribute id="MaintNotifDamageCodeGroup" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Damage Code Group"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifDamageCodeGroup"/>
+      </attribute>
+      <attribute id="MaintNotifDamageCodeGroupName" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Damage Code Group Name"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifDamageCodeGroupName"/>
+      </attribute>
+      <attribute id="MaintNotifDamageCodeCatalog" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Damage Code Catalog"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifDamageCodeCatalog"/>
+      </attribute>
+      <attribute id="MaintNotifDamageCodeVersNumber" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Damage Code Version Number"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifDamageCodeVersNumber"/>
+      </attribute>
+      <attribute id="IsDeleted" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Is Deleted"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="IsDeleted"/>
+      </attribute>
+      <attribute id="ERNAM" order="12" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of Person Who Created the Object"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERNAM"/>
+      </attribute>
+      <attribute id="ERDAT" order="13" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date on Which Record Was Created"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERDAT"/>
+      </attribute>
+      <attribute id="AENAM" order="14" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of person who changed object"/>
+        <keyMapping columnObjectName="Join_3" columnName="AENAM"/>
+      </attribute>
+      <attribute id="AEDAT" order="15" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Last Change"/>
+        <keyMapping columnObjectName="Join_3" columnName="AEDAT"/>
+      </attribute>
+      <attribute id="FETXT" order="16" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Notification Item Short Text"/>
+        <keyMapping columnObjectName="Join_3" columnName="FETXT"/>
+      </attribute>
+      <attribute id="OTKAT" order="17" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Catalog Type - Object Parts"/>
+        <keyMapping columnObjectName="Join_3" columnName="OTKAT"/>
+      </attribute>
+      <attribute id="OTGRP" order="18" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Code Group - Object Parts"/>
+        <keyMapping columnObjectName="Join_3" columnName="OTGRP"/>
+      </attribute>
+      <attribute id="OTEIL" order="19" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Part of Object"/>
+        <keyMapping columnObjectName="Join_3" columnName="OTEIL"/>
+      </attribute>
+      <attribute id="OTVER" order="20" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Version Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="OTVER"/>
+      </attribute>
+      <attribute id="BAUTL" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Assembly"/>
+        <keyMapping columnObjectName="Join_3" columnName="BAUTL"/>
+      </attribute>
+      <attribute id="EBORT" order="22" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Installation Point for Subitem"/>
+        <keyMapping columnObjectName="Join_3" columnName="EBORT"/>
+      </attribute>
+      <attribute id="INDTX" order="23" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Long Text Available"/>
+        <keyMapping columnObjectName="Join_3" columnName="INDTX"/>
+      </attribute>
+      <attribute id="KZMLA" order="24" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Primary language indicator for text segment"/>
+        <keyMapping columnObjectName="Join_3" columnName="KZMLA"/>
+      </attribute>
+      <attribute id="ERZEIT" order="25" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time, at Which Record Was Added"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERZEIT"/>
+      </attribute>
+      <attribute id="AEZEIT" order="26" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time of Change"/>
+        <keyMapping columnObjectName="Join_3" columnName="AEZEIT"/>
+      </attribute>
+      <attribute id="KZORG" order="27" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Originating Defect"/>
+        <keyMapping columnObjectName="Join_3" columnName="KZORG"/>
+      </attribute>
+      <attribute id="WDFEH" order="28" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Repetitive Defect"/>
+        <keyMapping columnObjectName="Join_3" columnName="WDFEH"/>
+      </attribute>
+      <attribute id="FEQKLAS" order="29" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Defect Class"/>
+        <keyMapping columnObjectName="Join_3" columnName="FEQKLAS"/>
+      </attribute>
+      <attribute id="FCOAUFNR" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Number (CO Order) for Item"/>
+        <keyMapping columnObjectName="Join_3" columnName="FCOAUFNR"/>
+      </attribute>
+      <attribute id="FMGEIN" order="33" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of Measure for Item"/>
+        <keyMapping columnObjectName="Join_3" columnName="FMGEIN"/>
+      </attribute>
+      <attribute id="UNITFLBEW" order="36" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for Defect Valuation"/>
+        <keyMapping columnObjectName="Join_3" columnName="UNITFLBEW"/>
+      </attribute>
+      <attribute id="FEART" order="37" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Report Type for Defects Recording"/>
+        <keyMapping columnObjectName="Join_3" columnName="FEART"/>
+      </attribute>
+      <attribute id="PNLKN" order="38" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Current Node Number from Order Counter APLZL"/>
+        <keyMapping columnObjectName="Join_3" columnName="PNLKN"/>
+      </attribute>
+      <attribute id="MERKNR" order="39" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Inspection Characteristic Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="MERKNR"/>
+      </attribute>
+      <attribute id="PROBENR" order="40" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sample Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="PROBENR"/>
+      </attribute>
+      <attribute id="PHYNR" order="41" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Physical Sample Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="PHYNR"/>
+      </attribute>
+      <attribute id="PRUEFLINR" order="42" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Single-Unit Number for the Unit to Be Inspected"/>
+        <keyMapping columnObjectName="Join_3" columnName="PRUEFLINR"/>
+      </attribute>
+      <attribute id="CROBJTY" order="43" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object types of the CIM resource"/>
+        <keyMapping columnObjectName="Join_3" columnName="CROBJTY"/>
+      </attribute>
+      <attribute id="ARBPL" order="44" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID of the Work Center"/>
+        <keyMapping columnObjectName="Join_3" columnName="ARBPL"/>
+      </attribute>
+      <attribute id="ARBPLWERK" order="45" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant for Work Center"/>
+        <keyMapping columnObjectName="Join_3" columnName="ARBPLWERK"/>
+      </attribute>
+      <attribute id="FENUMORG" order="46" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of Original Item to Which Reference Is Made"/>
+        <keyMapping columnObjectName="Join_3" columnName="FENUMORG"/>
+      </attribute>
+      <attribute id="KZSYSFE" order="47" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Systematic Defect"/>
+        <keyMapping columnObjectName="Join_3" columnName="KZSYSFE"/>
+      </attribute>
+      <attribute id="POSNR" order="48" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sort Number for Item"/>
+        <keyMapping columnObjectName="Join_3" columnName="POSNR"/>
+      </attribute>
+      <attribute id="HERPOS" order="49" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Origin of Item Record"/>
+        <keyMapping columnObjectName="Join_3" columnName="HERPOS"/>
+      </attribute>
+      <attribute id="AUTKZ" order="50" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data Record Created with Function 'Create with Copy Model'"/>
+        <keyMapping columnObjectName="Join_3" columnName="AUTKZ"/>
+      </attribute>
+      <attribute id="MATNR" order="51" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="MATNR"/>
+      </attribute>
+      <attribute id="WERKS" order="52" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Join_3" columnName="WERKS"/>
+      </attribute>
+      <attribute id="EKORG" order="53" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchasing Organization"/>
+        <keyMapping columnObjectName="Join_3" columnName="EKORG"/>
+      </attribute>
+      <attribute id="INFNR" order="54" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of purchasing info record"/>
+        <keyMapping columnObjectName="Join_3" columnName="INFNR"/>
+      </attribute>
+      <attribute id="KOSTL" order="55" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Cost Center"/>
+        <keyMapping columnObjectName="Join_3" columnName="KOSTL"/>
+      </attribute>
+      <attribute id="LSTAR" order="56" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_3" columnName="LSTAR"/>
+      </attribute>
+      <attribute id="PRZNR" order="57" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business Process"/>
+        <keyMapping columnObjectName="Join_3" columnName="PRZNR"/>
+      </attribute>
+      <attribute id="EQUNR" order="59" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="EQUNR"/>
+      </attribute>
+      <attribute id="TPLNR" order="60" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location"/>
+        <keyMapping columnObjectName="Join_3" columnName="TPLNR"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="NumberOfMaintNotifDamages" order="11" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Number Of Maintenance Notification Damages"/>
+        <measureMapping columnObjectName="Join_3" columnName="NumberOfMaintNotifDamages"/>
+      </measure>
+      <measure id="FMGFRD" order="31" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Defective Quantity for Item (External)"/>
+        <measureMapping columnObjectName="Join_3" columnName="FMGFRD"/>
+      </measure>
+      <measure id="FMGEIG" order="32" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Defective Quantity for Item (Internal)"/>
+        <measureMapping columnObjectName="Join_3" columnName="FMGEIG"/>
+      </measure>
+      <measure id="ANZFEHLER" order="34" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Number of Defects Found"/>
+        <measureMapping columnObjectName="Join_3" columnName="ANZFEHLER"/>
+      </measure>
+      <measure id="FEHLBEW" order="35" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Defect Valuation"/>
+        <measureMapping columnObjectName="Join_3" columnName="FEHLBEW"/>
+      </measure>
+      <measure id="MENGE" order="58" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Defective Quantity for Item (Internal)"/>
+        <measureMapping columnObjectName="Join_3" columnName="MENGE"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="362"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="264"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="166"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

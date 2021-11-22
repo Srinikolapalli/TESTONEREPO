@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="algoma.pm::ZHV_BV_MAINTENANCE_NOTIFICATION_ACTIVITY" applyPrivilegeType="NONE" defaultClient="" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Projection" runWithInvokerPrivileges="false" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="ZHV_BV_MAINTENANCE_NOTIFICATION_ACTIV"/>
+  <metadata changedAt="2021-10-08 13:14:43.516"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="QMMA">
+      <resourceUri>algoma.pm::QMMA</resourceUri>
+    </DataSource>
+    <DataSource id="ZHV_BV_CODENAME">
+      <resourceUri>algoma.pm::ZHV_BV_CODENAME</resourceUri>
+    </DataSource>
+    <DataSource id="ZHV_BV_CODEGROUPNAME">
+      <resourceUri>algoma.pm::ZHV_BV_CODEGROUPNAME</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="MaintenanceNotification"/>
+        <viewAttribute id="MaintenanceNotificationItem"/>
+        <viewAttribute id="MaintNotificationActivity"/>
+        <viewAttribute id="MaintNotificationActivityCode"/>
+        <viewAttribute id="MaintNotifActivityCodeGroup"/>
+        <viewAttribute id="MaintNotifActivityCodeCatalog"/>
+        <viewAttribute id="MaintNotifActivityCodeVersNmbr"/>
+        <viewAttribute id="IsDeleted"/>
+        <viewAttribute id="URNUM"/>
+        <viewAttribute id="MATXT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="MAKLS"/>
+        <viewAttribute id="KLAKZ"/>
+        <viewAttribute id="PSTER"/>
+        <viewAttribute id="PETER"/>
+        <viewAttribute id="INDTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="MNGFA"/>
+        <viewAttribute id="PSTUR"/>
+        <viewAttribute id="PETUR"/>
+        <viewAttribute id="ERZEIT"/>
+        <viewAttribute id="AEZEIT"/>
+        <viewAttribute id="QMANUM"/>
+        <viewAttribute id="AUTKZ"/>
+        <viewAttribute id="KZACTIONBOX"/>
+        <viewAttribute id="FUNKTION"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#QMMA">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotification" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotificationItem" source="FENUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationActivity" source="MANUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationActivityCode" source="MNCOD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeGroup" source="MNGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeCatalog" source="MNKAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeVersNmbr" source="MNVER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IsDeleted" source="KZLOESCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="URNUM" source="URNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATXT" source="MATXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAKLS" source="MAKLS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLAKZ" source="KLAKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTER" source="PSTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PETER" source="PETER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDTX" source="INDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZMLA" source="KZMLA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MNGFA" source="MNGFA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTUR" source="PSTUR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PETUR" source="PETUR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERZEIT" source="ERZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEZEIT" source="AEZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMANUM" source="QMANUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUTKZ" source="AUTKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZACTIONBOX" source="KZACTIONBOX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FUNKTION" source="FUNKTION"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="C1_1" joinOrder="OUTSIDE_IN" joinType="textTable" languageColumn="Language">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="MaintenanceNotification"/>
+        <viewAttribute id="MaintenanceNotificationItem"/>
+        <viewAttribute id="MaintNotificationActivity"/>
+        <viewAttribute id="MaintNotifActivityCodeCatalog"/>
+        <viewAttribute id="MaintNotifActivityCodeGroup"/>
+        <viewAttribute id="MaintNotificationActivityCode"/>
+        <viewAttribute id="MaintNotifActivityCodeName"/>
+        <viewAttribute id="MaintNotifActivityCodeVersNmbr"/>
+        <viewAttribute id="IsDeleted"/>
+        <viewAttribute id="URNUM"/>
+        <viewAttribute id="MATXT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="MAKLS"/>
+        <viewAttribute id="KLAKZ"/>
+        <viewAttribute id="PSTER"/>
+        <viewAttribute id="PETER"/>
+        <viewAttribute id="INDTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="MNGFA"/>
+        <viewAttribute id="PSTUR"/>
+        <viewAttribute id="PETUR"/>
+        <viewAttribute id="ERZEIT"/>
+        <viewAttribute id="AEZEIT"/>
+        <viewAttribute id="QMANUM"/>
+        <viewAttribute id="AUTKZ"/>
+        <viewAttribute id="KZACTIONBOX"/>
+        <viewAttribute id="FUNKTION"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotification" source="MaintenanceNotification"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotificationItem" source="MaintenanceNotificationItem"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationActivity" source="MaintNotificationActivity"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeCatalog" source="MaintNotifActivityCodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeGroup" source="MaintNotifActivityCodeGroup"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationActivityCode" source="MaintNotificationActivityCode"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeVersNmbr" source="MaintNotifActivityCodeVersNmbr"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IsDeleted" source="IsDeleted"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="URNUM" source="URNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATXT" source="MATXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAKLS" source="MAKLS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLAKZ" source="KLAKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTER" source="PSTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PETER" source="PETER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDTX" source="INDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZMLA" source="KZMLA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MNGFA" source="MNGFA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTUR" source="PSTUR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PETUR" source="PETUR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERZEIT" source="ERZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEZEIT" source="AEZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMANUM" source="QMANUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUTKZ" source="AUTKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZACTIONBOX" source="KZACTIONBOX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FUNKTION" source="FUNKTION"/>
+      </input>
+      <input node="#ZHV_BV_CODENAME">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeName" source="CodeName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeCatalog" source="CodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeGroup" source="CodeGroup"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationActivityCode" source="Code"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeVersNmbr" source="CodeVersionNumber"/>
+      </input>
+      <joinAttribute name="SAPClient"/>
+      <joinAttribute name="MaintNotifActivityCodeCatalog"/>
+      <joinAttribute name="MaintNotifActivityCodeGroup"/>
+      <joinAttribute name="MaintNotificationActivityCode"/>
+      <joinAttribute name="MaintNotifActivityCodeVersNmbr"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="C1_1" joinOrder="OUTSIDE_IN" joinType="textTable" languageColumn="Language">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="MaintenanceNotification"/>
+        <viewAttribute id="MaintenanceNotificationItem"/>
+        <viewAttribute id="MaintNotificationActivity"/>
+        <viewAttribute id="MaintNotifActivityCodeCatalog"/>
+        <viewAttribute id="MaintNotifActivityCodeGroup"/>
+        <viewAttribute id="MaintNotifActivityCodeGrpName"/>
+        <viewAttribute id="MaintNotificationActivityCode"/>
+        <viewAttribute id="MaintNotifActivityCodeName"/>
+        <viewAttribute id="MaintNotifActivityCodeVersNmbr"/>
+        <viewAttribute id="IsDeleted"/>
+        <viewAttribute id="URNUM"/>
+        <viewAttribute id="MATXT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="MAKLS"/>
+        <viewAttribute id="KLAKZ"/>
+        <viewAttribute id="PSTER"/>
+        <viewAttribute id="PETER"/>
+        <viewAttribute id="INDTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="MNGFA"/>
+        <viewAttribute id="PSTUR"/>
+        <viewAttribute id="PETUR"/>
+        <viewAttribute id="ERZEIT"/>
+        <viewAttribute id="AEZEIT"/>
+        <viewAttribute id="QMANUM"/>
+        <viewAttribute id="AUTKZ"/>
+        <viewAttribute id="KZACTIONBOX"/>
+        <viewAttribute id="FUNKTION"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="NumberOfMaintNotifActivities" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;MaintNotificationActivityCode&quot; != '', if(&quot;IsDeleted&quot; = '', 1, 0) ,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#Join_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotification" source="MaintenanceNotification"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintenanceNotificationItem" source="MaintenanceNotificationItem"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationActivity" source="MaintNotificationActivity"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeCatalog" source="MaintNotifActivityCodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeGroup" source="MaintNotifActivityCodeGroup"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotificationActivityCode" source="MaintNotificationActivityCode"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeName" source="MaintNotifActivityCodeName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeVersNmbr" source="MaintNotifActivityCodeVersNmbr"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IsDeleted" source="IsDeleted"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="URNUM" source="URNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATXT" source="MATXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAKLS" source="MAKLS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLAKZ" source="KLAKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTER" source="PSTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PETER" source="PETER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDTX" source="INDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZMLA" source="KZMLA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MNGFA" source="MNGFA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTUR" source="PSTUR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PETUR" source="PETUR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERZEIT" source="ERZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEZEIT" source="AEZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMANUM" source="QMANUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUTKZ" source="AUTKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZACTIONBOX" source="KZACTIONBOX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FUNKTION" source="FUNKTION"/>
+      </input>
+      <input node="#ZHV_BV_CODEGROUPNAME">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeGrpName" source="CodeGroupName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeCatalog" source="CodeCatalog"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MaintNotifActivityCodeGroup" source="CodeGroup"/>
+      </input>
+      <joinAttribute name="SAPClient"/>
+      <joinAttribute name="MaintNotifActivityCodeCatalog"/>
+      <joinAttribute name="MaintNotifActivityCodeGroup"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_3">
+    <descriptions/>
+    <attributes>
+      <attribute id="SAPClient" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Client"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="SAPClient"/>
+      </attribute>
+      <attribute id="MaintenanceNotification" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintenanceNotification"/>
+      </attribute>
+      <attribute id="MaintenanceNotificationItem" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Item"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintenanceNotificationItem"/>
+      </attribute>
+      <attribute id="MaintNotificationActivity" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Activity"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotificationActivity"/>
+      </attribute>
+      <attribute id="MaintNotificationActivityCode" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Activity Code"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotificationActivityCode"/>
+      </attribute>
+      <attribute id="MaintNotifActivityCodeName" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Activity Code Name"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifActivityCodeName"/>
+      </attribute>
+      <attribute id="MaintNotifActivityCodeGroup" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notifification Activity Code Group"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifActivityCodeGroup"/>
+      </attribute>
+      <attribute id="MaintNotifActivityCodeGrpName" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notifification Activity Code Group Name"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifActivityCodeGrpName"/>
+      </attribute>
+      <attribute id="MaintNotifActivityCodeCatalog" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Activity Code Catalog"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifActivityCodeCatalog"/>
+      </attribute>
+      <attribute id="MaintNotifActivityCodeVersNmbr" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Notification Activity Code Version Number"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="MaintNotifActivityCodeVersNmbr"/>
+      </attribute>
+      <attribute id="IsDeleted" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Is Deleted"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="Join_3" columnName="IsDeleted"/>
+      </attribute>
+      <attribute id="URNUM" order="13" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sequential Number for Cause"/>
+        <keyMapping columnObjectName="Join_3" columnName="URNUM"/>
+      </attribute>
+      <attribute id="MATXT" order="14" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Text"/>
+        <keyMapping columnObjectName="Join_3" columnName="MATXT"/>
+      </attribute>
+      <attribute id="ERNAM" order="15" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of Person Who Created the Object"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERNAM"/>
+      </attribute>
+      <attribute id="ERDAT" order="16" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date on Which Record Was Created"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERDAT"/>
+      </attribute>
+      <attribute id="AENAM" order="17" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of person who changed object"/>
+        <keyMapping columnObjectName="Join_3" columnName="AENAM"/>
+      </attribute>
+      <attribute id="AEDAT" order="18" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Last Change"/>
+        <keyMapping columnObjectName="Join_3" columnName="AEDAT"/>
+      </attribute>
+      <attribute id="MAKLS" order="19" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task Class"/>
+        <keyMapping columnObjectName="Join_3" columnName="MAKLS"/>
+      </attribute>
+      <attribute id="KLAKZ" order="20" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Classification exists"/>
+        <keyMapping columnObjectName="Join_3" columnName="KLAKZ"/>
+      </attribute>
+      <attribute id="PSTER" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Start Date"/>
+        <keyMapping columnObjectName="Join_3" columnName="PSTER"/>
+      </attribute>
+      <attribute id="PETER" order="22" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="End Date"/>
+        <keyMapping columnObjectName="Join_3" columnName="PETER"/>
+      </attribute>
+      <attribute id="INDTX" order="23" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Long Text Available"/>
+        <keyMapping columnObjectName="Join_3" columnName="INDTX"/>
+      </attribute>
+      <attribute id="KZMLA" order="24" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Primary language indicator for text segment"/>
+        <keyMapping columnObjectName="Join_3" columnName="KZMLA"/>
+      </attribute>
+      <attribute id="MNGFA" order="25" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Quantity Factor for Activities"/>
+        <keyMapping columnObjectName="Join_3" columnName="MNGFA"/>
+      </attribute>
+      <attribute id="PSTUR" order="26" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Start Time of Activity"/>
+        <keyMapping columnObjectName="Join_3" columnName="PSTUR"/>
+      </attribute>
+      <attribute id="PETUR" order="27" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="End Time of Activity"/>
+        <keyMapping columnObjectName="Join_3" columnName="PETUR"/>
+      </attribute>
+      <attribute id="ERZEIT" order="28" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time, at Which Record Was Added"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERZEIT"/>
+      </attribute>
+      <attribute id="AEZEIT" order="29" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time of Change"/>
+        <keyMapping columnObjectName="Join_3" columnName="AEZEIT"/>
+      </attribute>
+      <attribute id="QMANUM" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sort Number for Activity"/>
+        <keyMapping columnObjectName="Join_3" columnName="QMANUM"/>
+      </attribute>
+      <attribute id="AUTKZ" order="31" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data Record Created with Function 'Create with Copy Model'"/>
+        <keyMapping columnObjectName="Join_3" columnName="AUTKZ"/>
+      </attribute>
+      <attribute id="KZACTIONBOX" order="32" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Created Using Action Box"/>
+        <keyMapping columnObjectName="Join_3" columnName="KZACTIONBOX"/>
+      </attribute>
+      <attribute id="FUNKTION" order="33" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for Function in Action Box"/>
+        <keyMapping columnObjectName="Join_3" columnName="FUNKTION"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="NumberOfMaintNotifActivities" order="12" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Number Of Maintenance Notification Activities"/>
+        <measureMapping columnObjectName="Join_3" columnName="NumberOfMaintNotifActivities"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="362"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="264"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="166"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>
