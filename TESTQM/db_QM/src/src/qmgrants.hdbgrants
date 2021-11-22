@@ -5,7 +5,7 @@
           "schema_privileges" : [
             {
               "schema" : "ECCDEV2CLOUD_DEV",   // optional; override schema defined in grantor service
-              "privileges" : ["SELECT"  ],
+              "privileges" : ["SELECT" ,"INSERT" ],
               "privileges_with_grant_option" : [ "SELECT" ]
             }
           ]
@@ -15,7 +15,7 @@
      "schema_privileges" : [
             {
               "schema" : "ECCDEV2CLOUD_DEV",   // optional; override schema defined in grantor service
-              "privileges" : ["SELECT" ],
+              "privileges" : ["SELECT","INSERT" ],
               "privileges_with_grant_option" : [ "SELECT" ]
             }
           ]
