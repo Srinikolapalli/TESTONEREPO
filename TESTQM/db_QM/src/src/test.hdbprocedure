@@ -6,7 +6,7 @@ PROCEDURE "algoma.general::test" ( )
 	AS
 BEGIN
 /***************************** 
-	Write your procedure logic 
+	Write your procedure logic --- test add
  *****************************/
  INSERT INTO "algoma.general::BPJA_HISTORY" (
 "MANDT","LEDNR","OBJNR","POSIT","TRGKZ","WRTTP","GJAHR","GEBER","VERSN",
