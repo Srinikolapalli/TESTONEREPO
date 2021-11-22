@@ -1,0 +1,1368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="algoma.pm::ZHV_BV_PGP_SCHEDULER" applyPrivilegeType="NONE" defaultClient="" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="ZHV_BV_PGP_SCHEDULER"/>
+  <metadata changedAt="2021-09-17 09:39:26.361"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="44"/>
+  <dataSources>
+    <DataSource id="ZPM20_PGP_SCHDER">
+      <resourceUri>algoma.pm::ZPM20_PGP_SCHDER</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="VORNR"/>
+        <viewAttribute id="ABCKZ"/>
+        <viewAttribute id="ABLAD"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="ABRHO"/>
+        <viewAttribute id="ABRNA"/>
+        <viewAttribute id="ABRUD"/>
+        <viewAttribute id="ACTCOST"/>
+        <viewAttribute id="ADDAT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="AFNAM"/>
+        <viewAttribute id="AGE"/>
+        <viewAttribute id="ANLNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANZZL"/>
+        <viewAttribute id="APFKT"/>
+        <viewAttribute id="ARBPL"/>
+        <viewAttribute id="ARTPR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="AUFKT"/>
+        <viewAttribute id="AUSZT"/>
+        <viewAttribute id="BANFN"/>
+        <viewAttribute id="BAUTL"/>
+        <viewAttribute id="BEBER"/>
+        <viewAttribute id="BEDNR"/>
+        <viewAttribute id="BNFPO"/>
+        <viewAttribute id="BREAKS"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="CALL_STATUS"/>
+        <viewAttribute id="CITY1"/>
+        <viewAttribute id="ZCOUNT"/>
+        <viewAttribute id="CRHD_KAPID"/>
+        <viewAttribute id="CRITICAL"/>
+        <viewAttribute id="DAUME"/>
+        <viewAttribute id="DAUMI"/>
+        <viewAttribute id="DAUNE"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="DAYS_SPANNED"/>
+        <viewAttribute id="DELIV_DATE"/>
+        <viewAttribute id="DEVICEID"/>
+        <viewAttribute id="DUE_PACKAGES"/>
+        <viewAttribute id="DUEDATE"/>
+        <viewAttribute id="EBELN"/>
+        <viewAttribute id="EKGRP"/>
+        <viewAttribute id="ELEMENT_TEXT"/>
+        <viewAttribute id="EQ_POSNR"/>
+        <viewAttribute id="EQFNR"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ESTCOST"/>
+        <viewAttribute id="FINISH_FLOAT"/>
+        <viewAttribute id="FL_POSNR"/>
+        <viewAttribute id="FNSH_CONSTRAINT"/>
+        <viewAttribute id="FSAVD"/>
+        <viewAttribute id="FSAVZ"/>
+        <viewAttribute id="FSEDD"/>
+        <viewAttribute id="FSEDZ"/>
+        <viewAttribute id="FTRMI"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="GEUZI"/>
+        <viewAttribute id="GLTRP"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="GLUZP"/>
+        <viewAttribute id="GLUZS"/>
+        <viewAttribute id="GSBER"/>
+        <viewAttribute id="GSTRI"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GSUZI"/>
+        <viewAttribute id="GSUZP"/>
+        <viewAttribute id="GSUZS"/>
+        <viewAttribute id="HAS_RELATIONS"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="HORIZ"/>
+        <viewAttribute id="HR_NAMES"/>
+        <viewAttribute id="HR_NUMBERS"/>
+        <viewAttribute id="IEDD"/>
+        <viewAttribute id="IEDZ"/>
+        <viewAttribute id="ILOM_ORDST"/>
+        <viewAttribute id="INDET"/>
+        <viewAttribute id="INDTX"/>
+        <viewAttribute id="INFNR"/>
+        <viewAttribute id="INNAM"/>
+        <viewAttribute id="ISDD"/>
+        <viewAttribute id="ISDZ"/>
+        <viewAttribute id="ISMNW"/>
+        <viewAttribute id="ISTRU"/>
+        <viewAttribute id="ISTRUX"/>
+        <viewAttribute id="IWERK"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="KOSTV"/>
+        <viewAttribute id="LARNT"/>
+        <viewAttribute id="LEAD_AUFNR"/>
+        <viewAttribute id="LIFNR"/>
+        <viewAttribute id="LOANZ"/>
+        <viewAttribute id="LTXA1"/>
+        <viewAttribute id="MAC_LATEST_DELIV_DATE"/>
+        <viewAttribute id="MAC_ORD_LATEST_DELIV_DATE"/>
+        <viewAttribute id="MAC_STATUS"/>
+        <viewAttribute id="MAC_STATUS_DESCRIPTION"/>
+        <viewAttribute id="MANDA"/>
+        <viewAttribute id="MATKL"/>
+        <viewAttribute id="MAUEH"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="MEINH"/>
+        <viewAttribute id="MGVRG"/>
+        <viewAttribute id="MITEM_STORT"/>
+        <viewAttribute id="MPTYP"/>
+        <viewAttribute id="MSAUS"/>
+        <viewAttribute id="NAME1"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="NTANF"/>
+        <viewAttribute id="NTANZ"/>
+        <viewAttribute id="NTEND"/>
+        <viewAttribute id="NTENZ"/>
+        <viewAttribute id="OFMNW"/>
+        <viewAttribute id="OP_CALCWORK"/>
+        <viewAttribute id="OP_EQUNR"/>
+        <viewAttribute id="OP_LEKNW"/>
+        <viewAttribute id="OP_REMDAUNO"/>
+        <viewAttribute id="OP_REMNW"/>
+        <viewAttribute id="OP_SLWID"/>
+        <viewAttribute id="OP_STTXT"/>
+        <viewAttribute id="OP_TPLNR"/>
+        <viewAttribute id="OP_USTXT"/>
+        <viewAttribute id="OP_WCDESCRIPT"/>
+        <viewAttribute id="OP_WORK"/>
+        <viewAttribute id="OP_WORK_UNIT"/>
+        <viewAttribute id="ORD_ANLZU"/>
+        <viewAttribute id="ORD_ARBPL"/>
+        <viewAttribute id="ORD_ILART"/>
+        <viewAttribute id="ORD_INGPR"/>
+        <viewAttribute id="ORD_KOSTL"/>
+        <viewAttribute id="ORD_LOC_ARBPL"/>
+        <viewAttribute id="ORD_MSGRP"/>
+        <viewAttribute id="ORD_PERTEXT"/>
+        <viewAttribute id="ORD_REVNR"/>
+        <viewAttribute id="ORD_VORUE"/>
+        <viewAttribute id="ORD_WERKS"/>
+        <viewAttribute id="ORDNET_ERNAM"/>
+        <viewAttribute id="ORDNET_GSBER"/>
+        <viewAttribute id="PAKET"/>
+        <viewAttribute id="PAKET_KTEX1"/>
+        <viewAttribute id="PARVW"/>
+        <viewAttribute id="PEINH"/>
+        <viewAttribute id="PERC_COMP"/>
+        <viewAttribute id="PERMIT_STATUS"/>
+        <viewAttribute id="PERNUM"/>
+        <viewAttribute id="PERTEXT"/>
+        <viewAttribute id="PLDCOST"/>
+        <viewAttribute id="PLIFZ"/>
+        <viewAttribute id="PLKNZ"/>
+        <viewAttribute id="PLKOD_KTEXT"/>
+        <viewAttribute id="PLKOD_VAGRP"/>
+        <viewAttribute id="PLNAL"/>
+        <viewAttribute id="PLNKN"/>
+        <viewAttribute id="PLNNR"/>
+        <viewAttribute id="PLNTY"/>
+        <viewAttribute id="PREIS"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="PRIOKX"/>
+        <viewAttribute id="PROG_GRDTX"/>
+        <viewAttribute id="PROJECT_UNIT"/>
+        <viewAttribute id="PRZNT"/>
+        <viewAttribute id="PUFFR"/>
+        <viewAttribute id="QMART"/>
+        <viewAttribute id="QMCOD"/>
+        <viewAttribute id="QMDAT"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="REVTX"/>
+        <viewAttribute id="ROLLUP_END_DATE"/>
+        <viewAttribute id="ROLLUP_END_TIME"/>
+        <viewAttribute id="ROLLUP_START_DATE"/>
+        <viewAttribute id="ROLLUP_START_TIME"/>
+        <viewAttribute id="RSANZ"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="RUECK"/>
+        <viewAttribute id="SAKTO"/>
+        <viewAttribute id="SERIALNR"/>
+        <viewAttribute id="SERMAT"/>
+        <viewAttribute id="SORTL"/>
+        <viewAttribute id="SOWRK"/>
+        <viewAttribute id="SSAVD"/>
+        <viewAttribute id="SSAVZ"/>
+        <viewAttribute id="SSEDD"/>
+        <viewAttribute id="SSEDZ"/>
+        <viewAttribute id="STADT"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="STICH"/>
+        <viewAttribute id="STORT"/>
+        <viewAttribute id="STRAT"/>
+        <viewAttribute id="STRMN"/>
+        <viewAttribute id="STRT_CONSTRAINT"/>
+        <viewAttribute id="SWERK"/>
+        <viewAttribute id="TERKZ"/>
+        <viewAttribute id="TEXTWC"/>
+        <viewAttribute id="TPLNR"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="UNASSIGNED_RESOURCES"/>
+        <viewAttribute id="USTXT"/>
+        <viewAttribute id="UVORN"/>
+        <viewAttribute id="VERSA"/>
+        <viewAttribute id="VSNEG"/>
+        <viewAttribute id="VSPOS"/>
+        <viewAttribute id="VSTXT"/>
+        <viewAttribute id="WAERS"/>
+        <viewAttribute id="WAPOS"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="WEMPF"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="WOGBTR"/>
+        <viewAttribute id="WRTFW_KPF"/>
+        <viewAttribute id="ZEIEH"/>
+        <viewAttribute id="ZTEHT"/>
+        <viewAttribute id="ZYKL1"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#ZPM20_PGP_SCHDER">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VORNR" source="VORNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABCKZ" source="ABCKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABLAD" source="ABLAD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABRHO" source="ABRHO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABRNA" source="ABRNA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABRUD" source="ABRUD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ACTCOST" source="ACTCOST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ADDAT" source="ADDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AFNAM" source="AFNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AGE" source="AGE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLNR" source="ANLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANZZL" source="ANZZL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="APFKT" source="APFKT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBPL" source="ARBPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTPR" source="ARTPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFKT" source="AUFKT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUSZT" source="AUSZT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BANFN" source="BANFN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BAUTL" source="BAUTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BEBER" source="BEBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BEDNR" source="BEDNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BNFPO" source="BNFPO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BREAKS" source="BREAKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALL_STATUS" source="CALL_STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CITY1" source="CITY1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZCOUNT" source="ZCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CRHD_KAPID" source="CRHD_KAPID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CRITICAL" source="CRITICAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUME" source="DAUME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUMI" source="DAUMI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUNE" source="DAUNE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUNO" source="DAUNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAYS_SPANNED" source="DAYS_SPANNED"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DELIV_DATE" source="DELIV_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DEVICEID" source="DEVICEID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DUE_PACKAGES" source="DUE_PACKAGES"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DUEDATE" source="DUEDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EBELN" source="EBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EKGRP" source="EKGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ELEMENT_TEXT" source="ELEMENT_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQ_POSNR" source="EQ_POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQFNR" source="EQFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ESTCOST" source="ESTCOST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FINISH_FLOAT" source="FINISH_FLOAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FL_POSNR" source="FL_POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FNSH_CONSTRAINT" source="FNSH_CONSTRAINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSAVD" source="FSAVD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSAVZ" source="FSAVZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSEDD" source="FSEDD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSEDZ" source="FSEDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FTRMI" source="FTRMI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEUZI" source="GEUZI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRP" source="GLTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRS" source="GLTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLUZP" source="GLUZP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLUZS" source="GLUZS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSBER" source="GSBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRI" source="GSTRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSUZI" source="GSUZI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSUZP" source="GSUZP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSUZS" source="GSUZS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HAS_RELATIONS" source="HAS_RELATIONS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HORDA" source="HORDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HORIZ" source="HORIZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HR_NAMES" source="HR_NAMES"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HR_NUMBERS" source="HR_NUMBERS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IEDD" source="IEDD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IEDZ" source="IEDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOM_ORDST" source="ILOM_ORDST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDET" source="INDET"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INDTX" source="INDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INFNR" source="INFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INNAM" source="INNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISDD" source="ISDD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISDZ" source="ISDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISMNW" source="ISMNW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISTRU" source="ISTRU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISTRUX" source="ISTRUX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IWERK" source="IWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOKRS" source="KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOSTV" source="KOSTV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LARNT" source="LARNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEAD_AUFNR" source="LEAD_AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LIFNR" source="LIFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LOANZ" source="LOANZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LTXA1" source="LTXA1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAC_LATEST_DELIV_DATE" source="MAC_LATEST_DELIV_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAC_ORD_LATEST_DELIV_DATE" source="MAC_ORD_LATEST_DELIV_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAC_STATUS" source="MAC_STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAC_STATUS_DESCRIPTION" source="MAC_STATUS_DESCRIPTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDA" source="MANDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATKL" source="MATKL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUEH" source="MAUEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUFNR" source="MAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MEINH" source="MEINH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MGVRG" source="MGVRG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MITEM_STORT" source="MITEM_STORT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MPTYP" source="MPTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSAUS" source="MSAUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NAME1" source="NAME1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NTANF" source="NTANF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NTANZ" source="NTANZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NTEND" source="NTEND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NTENZ" source="NTENZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OFMNW" source="OFMNW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_CALCWORK" source="OP_CALCWORK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_EQUNR" source="OP_EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_LEKNW" source="OP_LEKNW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_REMDAUNO" source="OP_REMDAUNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_REMNW" source="OP_REMNW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_SLWID" source="OP_SLWID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_STTXT" source="OP_STTXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_TPLNR" source="OP_TPLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_USTXT" source="OP_USTXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_WCDESCRIPT" source="OP_WCDESCRIPT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_WORK" source="OP_WORK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OP_WORK_UNIT" source="OP_WORK_UNIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_ANLZU" source="ORD_ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_ARBPL" source="ORD_ARBPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_ILART" source="ORD_ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_INGPR" source="ORD_INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_KOSTL" source="ORD_KOSTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_LOC_ARBPL" source="ORD_LOC_ARBPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_MSGRP" source="ORD_MSGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_PERTEXT" source="ORD_PERTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_REVNR" source="ORD_REVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_VORUE" source="ORD_VORUE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORD_WERKS" source="ORD_WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORDNET_ERNAM" source="ORDNET_ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ORDNET_GSBER" source="ORDNET_GSBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAKET" source="PAKET"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAKET_KTEX1" source="PAKET_KTEX1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARVW" source="PARVW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PEINH" source="PEINH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PERC_COMP" source="PERC_COMP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PERMIT_STATUS" source="PERMIT_STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PERNUM" source="PERNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PERTEXT" source="PERTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLDCOST" source="PLDCOST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLIFZ" source="PLIFZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKNZ" source="PLKNZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKOD_KTEXT" source="PLKOD_KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKOD_VAGRP" source="PLKOD_VAGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLNAL" source="PLNAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLNKN" source="PLNKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLNNR" source="PLNNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLNTY" source="PLNTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PREIS" source="PREIS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOK" source="PRIOK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOKX" source="PRIOKX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PROG_GRDTX" source="PROG_GRDTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PROJECT_UNIT" source="PROJECT_UNIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRZNT" source="PRZNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PUFFR" source="PUFFR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMART" source="QMART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMCOD" source="QMCOD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMDAT" source="QMDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="REVTX" source="REVTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ROLLUP_END_DATE" source="ROLLUP_END_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ROLLUP_END_TIME" source="ROLLUP_END_TIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ROLLUP_START_DATE" source="ROLLUP_START_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ROLLUP_START_TIME" source="ROLLUP_START_TIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSANZ" source="RSANZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSNUM" source="RSNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RUECK" source="RUECK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAKTO" source="SAKTO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SERIALNR" source="SERIALNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SERMAT" source="SERMAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SORTL" source="SORTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SOWRK" source="SOWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SSAVD" source="SSAVD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SSAVZ" source="SSAVZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SSEDD" source="SSEDD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SSEDZ" source="SSEDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STADT" source="STADT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STEUS" source="STEUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STICH" source="STICH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STORT" source="STORT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRAT" source="STRAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRMN" source="STRMN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRT_CONSTRAINT" source="STRT_CONSTRAINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SWERK" source="SWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TERKZ" source="TERKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TEXTWC" source="TEXTWC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENQ" source="TSENQ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSVBT" source="TSVBT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UNASSIGNED_RESOURCES" source="UNASSIGNED_RESOURCES"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="USTXT" source="USTXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UVORN" source="UVORN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VERSA" source="VERSA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VSNEG" source="VSNEG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VSPOS" source="VSPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VSTXT" source="VSTXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAERS" source="WAERS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAPOS" source="WAPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WEMPF" source="WEMPF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WOGBTR" source="WOGBTR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WRTFW_KPF" source="WRTFW_KPF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZEIEH" source="ZEIEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZTEHT" source="ZTEHT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZYKL1" source="ZYKL1"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="AUFNR" order="1" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="AUFNR"/>
+      </attribute>
+      <attribute id="VORNR" order="2" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="VORNR"/>
+      </attribute>
+      <attribute id="ABCKZ" order="3" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ABC indicator for technical object"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ABCKZ"/>
+      </attribute>
+      <attribute id="ABLAD" order="4" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unloading Point"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ABLAD"/>
+      </attribute>
+      <attribute id="ABRHO" order="6" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling Period"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ABRHO"/>
+      </attribute>
+      <attribute id="ABRNA" order="7" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of the person who made the call"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ABRNA"/>
+      </attribute>
+      <attribute id="ABRUD" order="8" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of the call"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ABRUD"/>
+      </attribute>
+      <attribute id="ADDAT" order="10" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PM Order: Reference Date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ADDAT"/>
+      </attribute>
+      <attribute id="AEDAT" order="11" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change date for Order Master"/>
+        <keyMapping columnObjectName="Projection_1" columnName="AEDAT"/>
+      </attribute>
+      <attribute id="AENAM" order="12" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Last changed by"/>
+        <keyMapping columnObjectName="Projection_1" columnName="AENAM"/>
+      </attribute>
+      <attribute id="AFNAM" order="13" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of requisitioner/requester"/>
+        <keyMapping columnObjectName="Projection_1" columnName="AFNAM"/>
+      </attribute>
+      <attribute id="ANLNR" order="15" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Main Asset Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ANLNR"/>
+      </attribute>
+      <attribute id="ANLZU" order="16" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ANLZU"/>
+      </attribute>
+      <attribute id="ARBPL" order="19" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Work center"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ARBPL"/>
+      </attribute>
+      <attribute id="ARTPR" order="20" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Priority Type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ARTPR"/>
+      </attribute>
+      <attribute id="AUART" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="AUART"/>
+      </attribute>
+      <attribute id="BANFN" order="24" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchase Requisition Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BANFN"/>
+      </attribute>
+      <attribute id="BAUTL" order="25" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Assembly"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BAUTL"/>
+      </attribute>
+      <attribute id="BEBER" order="26" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant section"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BEBER"/>
+      </attribute>
+      <attribute id="BEDNR" order="27" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Requirement Tracking Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BEDNR"/>
+      </attribute>
+      <attribute id="BNFPO" order="28" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Item number of purchase requisition"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BNFPO"/>
+      </attribute>
+      <attribute id="BREAKS" order="29" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Scheduling allowing for breaks"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BREAKS"/>
+      </attribute>
+      <attribute id="BUKRS" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company Code"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BUKRS"/>
+      </attribute>
+      <attribute id="CALL_STATUS" order="31" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description of Scheduling Type and Call Status"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CALL_STATUS"/>
+      </attribute>
+      <attribute id="CITY1" order="32" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="City"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CITY1"/>
+      </attribute>
+      <attribute id="CRHD_KAPID" order="34" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Capacity ID"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CRHD_KAPID"/>
+      </attribute>
+      <attribute id="CRITICAL" order="35" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Critical"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CRITICAL"/>
+      </attribute>
+      <attribute id="DAUME" order="36" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the minimum duration"/>
+        <keyMapping columnObjectName="Projection_1" columnName="DAUME"/>
+      </attribute>
+      <attribute id="DAUNE" order="38" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Normal duration/unit"/>
+        <keyMapping columnObjectName="Projection_1" columnName="DAUNE"/>
+      </attribute>
+      <attribute id="DELIV_DATE" order="41" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Item delivery date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="DELIV_DATE"/>
+      </attribute>
+      <attribute id="DEVICEID" order="42" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Additional Device Data"/>
+        <keyMapping columnObjectName="Projection_1" columnName="DEVICEID"/>
+      </attribute>
+      <attribute id="DUE_PACKAGES" order="43" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Short Text for Due Packages"/>
+        <keyMapping columnObjectName="Projection_1" columnName="DUE_PACKAGES"/>
+      </attribute>
+      <attribute id="DUEDATE" order="44" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PM NOTIFICATION DUE DATE"/>
+        <keyMapping columnObjectName="Projection_1" columnName="DUEDATE"/>
+      </attribute>
+      <attribute id="EBELN" order="45" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchasing Document Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="EBELN"/>
+      </attribute>
+      <attribute id="EKGRP" order="46" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchasing Group"/>
+        <keyMapping columnObjectName="Projection_1" columnName="EKGRP"/>
+      </attribute>
+      <attribute id="ELEMENT_TEXT" order="47" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="GS Element Text"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ELEMENT_TEXT"/>
+      </attribute>
+      <attribute id="EQ_POSNR" order="48" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Position Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="EQ_POSNR"/>
+      </attribute>
+      <attribute id="EQFNR" order="49" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sort field"/>
+        <keyMapping columnObjectName="Projection_1" columnName="EQFNR"/>
+      </attribute>
+      <attribute id="EQUNR" order="50" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="EQUNR"/>
+      </attribute>
+      <attribute id="ERDAT" order="51" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Created on"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ERDAT"/>
+      </attribute>
+      <attribute id="ERNAM" order="52" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of Person Who Created the Object"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ERNAM"/>
+      </attribute>
+      <attribute id="FL_POSNR" order="55" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location Position Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FL_POSNR"/>
+      </attribute>
+      <attribute id="FNSH_CONSTRAINT" order="56" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Short Text for Fixed Values"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FNSH_CONSTRAINT"/>
+      </attribute>
+      <attribute id="FSAVD" order="57" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Earliest scheduled start: Execution (date)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSAVD"/>
+      </attribute>
+      <attribute id="FSAVZ" order="58" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Earliest scheduled start: Execution (time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSAVZ"/>
+      </attribute>
+      <attribute id="FSEDD" order="59" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Earliest scheduled finish: Execution (date)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSEDD"/>
+      </attribute>
+      <attribute id="FSEDZ" order="60" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Earliest scheduled finish: Execution (time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSEDZ"/>
+      </attribute>
+      <attribute id="FTRMI" order="61" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Actual release date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FTRMI"/>
+      </attribute>
+      <attribute id="GETRI" order="62" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Confirmed Order Finish Date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GETRI"/>
+      </attribute>
+      <attribute id="GEUZI" order="63" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Confirmed Order Finish (Time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GEUZI"/>
+      </attribute>
+      <attribute id="GLTRP" order="64" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic finish date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GLTRP"/>
+      </attribute>
+      <attribute id="GLTRS" order="65" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled finish"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GLTRS"/>
+      </attribute>
+      <attribute id="GLUZP" order="66" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic finish (time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GLUZP"/>
+      </attribute>
+      <attribute id="GLUZS" order="67" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled Finish (Time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GLUZS"/>
+      </attribute>
+      <attribute id="GSBER" order="68" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business Area"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSBER"/>
+      </attribute>
+      <attribute id="GSTRI" order="69" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Actual start date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSTRI"/>
+      </attribute>
+      <attribute id="GSTRP" order="70" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic start date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSTRP"/>
+      </attribute>
+      <attribute id="GSTRS" order="71" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled start"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSTRS"/>
+      </attribute>
+      <attribute id="GSUZI" order="72" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Actual start time"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSUZI"/>
+      </attribute>
+      <attribute id="GSUZP" order="73" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic Start (Time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSUZP"/>
+      </attribute>
+      <attribute id="GSUZS" order="74" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled Start (Time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSUZS"/>
+      </attribute>
+      <attribute id="HAS_RELATIONS" order="75" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="General Flag"/>
+        <keyMapping columnObjectName="Projection_1" columnName="HAS_RELATIONS"/>
+      </attribute>
+      <attribute id="HORDA" order="76" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Call date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="HORDA"/>
+      </attribute>
+      <attribute id="HORIZ" order="77" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Call horizon for maintenance plan calls"/>
+        <keyMapping columnObjectName="Projection_1" columnName="HORIZ"/>
+      </attribute>
+      <attribute id="HR_NAMES" order="78" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Resource Total (Names)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="HR_NAMES"/>
+      </attribute>
+      <attribute id="HR_NUMBERS" order="79" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Resource Total (Names)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="HR_NUMBERS"/>
+      </attribute>
+      <attribute id="IEDD" order="80" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Actual finish: Execution (date)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="IEDD"/>
+      </attribute>
+      <attribute id="IEDZ" order="81" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Actual Finish: Execution (Time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="IEDZ"/>
+      </attribute>
+      <attribute id="ILOM_ORDST" order="82" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Settlement order"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ILOM_ORDST"/>
+      </attribute>
+      <attribute id="INDET" order="83" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for calculation"/>
+        <keyMapping columnObjectName="Projection_1" columnName="INDET"/>
+      </attribute>
+      <attribute id="INDTX" order="84" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Long Text Available"/>
+        <keyMapping columnObjectName="Projection_1" columnName="INDTX"/>
+      </attribute>
+      <attribute id="INFNR" order="85" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of purchasing info record"/>
+        <keyMapping columnObjectName="Projection_1" columnName="INFNR"/>
+      </attribute>
+      <attribute id="INNAM" order="86" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of the Maintenance Planner Group"/>
+        <keyMapping columnObjectName="Projection_1" columnName="INNAM"/>
+      </attribute>
+      <attribute id="ISDD" order="87" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Actual start: Execution (date)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ISDD"/>
+      </attribute>
+      <attribute id="ISDZ" order="88" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Actual Start: Execution/Setup (Time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ISDZ"/>
+      </attribute>
+      <attribute id="ISTRU" order="90" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Assembly"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ISTRU"/>
+      </attribute>
+      <attribute id="ISTRUX" order="91" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description of PM Assembly"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ISTRUX"/>
+      </attribute>
+      <attribute id="IWERK" order="92" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Planning Plant"/>
+        <keyMapping columnObjectName="Projection_1" columnName="IWERK"/>
+      </attribute>
+      <attribute id="KOKRS" order="93" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Controlling Area"/>
+        <keyMapping columnObjectName="Projection_1" columnName="KOKRS"/>
+      </attribute>
+      <attribute id="KOSTV" order="94" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Responsible cost center"/>
+        <keyMapping columnObjectName="Projection_1" columnName="KOSTV"/>
+      </attribute>
+      <attribute id="LARNT" order="95" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LARNT"/>
+      </attribute>
+      <attribute id="LEAD_AUFNR" order="96" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Leading Order in Current Processing"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEAD_AUFNR"/>
+      </attribute>
+      <attribute id="LIFNR" order="97" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Account Number of Vendor or Creditor"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LIFNR"/>
+      </attribute>
+      <attribute id="LTXA1" order="99" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Operation short text"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LTXA1"/>
+      </attribute>
+      <attribute id="MAC_LATEST_DELIV_DATE" order="100" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Availability Coordinator: Latest Delivery Date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MAC_LATEST_DELIV_DATE"/>
+      </attribute>
+      <attribute id="MAC_ORD_LATEST_DELIV_DATE" order="101" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Latest Delivery Date (Header-Level)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MAC_ORD_LATEST_DELIV_DATE"/>
+      </attribute>
+      <attribute id="MAC_STATUS" order="102" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Availability Check Indicator"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MAC_STATUS"/>
+      </attribute>
+      <attribute id="MAC_STATUS_DESCRIPTION" order="103" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Availability Error Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MAC_STATUS_DESCRIPTION"/>
+      </attribute>
+      <attribute id="MANDA" order="104" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Manual call date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MANDA"/>
+      </attribute>
+      <attribute id="MATKL" order="105" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Group"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MATKL"/>
+      </attribute>
+      <attribute id="MAUEH" order="106" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for Breakdown Duration"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MAUEH"/>
+      </attribute>
+      <attribute id="MAUFNR" order="107" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of Superior Order"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MAUFNR"/>
+      </attribute>
+      <attribute id="MEINH" order="108" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of measure for activity"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MEINH"/>
+      </attribute>
+      <attribute id="MITEM_STORT" order="110" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Item Location"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MITEM_STORT"/>
+      </attribute>
+      <attribute id="MPTYP" order="111" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance plan category"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MPTYP"/>
+      </attribute>
+      <attribute id="MSAUS" order="112" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Breakdown Indicator"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MSAUS"/>
+      </attribute>
+      <attribute id="NAME1" order="113" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name 1"/>
+        <keyMapping columnObjectName="Projection_1" columnName="NAME1"/>
+      </attribute>
+      <attribute id="NPLDA" order="114" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Next planned date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="NPLDA"/>
+      </attribute>
+      <attribute id="NTANF" order="115" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Constraint for activity start (Basic)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="NTANF"/>
+      </attribute>
+      <attribute id="NTANZ" order="116" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Constraint for activity start time (Basic)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="NTANZ"/>
+      </attribute>
+      <attribute id="NTEND" order="117" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Constraint for finish of activity (Basic)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="NTEND"/>
+      </attribute>
+      <attribute id="NTENZ" order="118" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic finish time of the activity"/>
+        <keyMapping columnObjectName="Projection_1" columnName="NTENZ"/>
+      </attribute>
+      <attribute id="OP_EQUNR" order="121" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_EQUNR"/>
+      </attribute>
+      <attribute id="OP_LEKNW" order="122" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: No Remaining Work Expected"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_LEKNW"/>
+      </attribute>
+      <attribute id="OP_SLWID" order="125" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key word ID for user-defined fields"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_SLWID"/>
+      </attribute>
+      <attribute id="OP_STTXT" order="126" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="System Status (long text)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_STTXT"/>
+      </attribute>
+      <attribute id="OP_TPLNR" order="127" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location Label"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_TPLNR"/>
+      </attribute>
+      <attribute id="OP_USTXT" order="128" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Field displaying user status (long text)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_USTXT"/>
+      </attribute>
+      <attribute id="OP_WCDESCRIPT" order="129" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Operation Work Center Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_WCDESCRIPT"/>
+      </attribute>
+      <attribute id="OP_WORK_UNIT" order="131" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for work"/>
+        <keyMapping columnObjectName="Projection_1" columnName="OP_WORK_UNIT"/>
+      </attribute>
+      <attribute id="ORD_ANLZU" order="132" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_ANLZU"/>
+      </attribute>
+      <attribute id="ORD_ARBPL" order="133" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Work center"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_ARBPL"/>
+      </attribute>
+      <attribute id="ORD_ILART" order="134" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance activity type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_ILART"/>
+      </attribute>
+      <attribute id="ORD_INGPR" order="135" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group for Customer Service and Plant Maintenance"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_INGPR"/>
+      </attribute>
+      <attribute id="ORD_KOSTL" order="136" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Cost center for basic settlement"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_KOSTL"/>
+      </attribute>
+      <attribute id="ORD_LOC_ARBPL" order="137" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Work center"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_LOC_ARBPL"/>
+      </attribute>
+      <attribute id="ORD_MSGRP" order="138" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Room"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_MSGRP"/>
+      </attribute>
+      <attribute id="ORD_PERTEXT" order="139" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Name"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_PERTEXT"/>
+      </attribute>
+      <attribute id="ORD_REVNR" order="140" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Revision for Plant Maintenance and Customer Service"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_REVNR"/>
+      </attribute>
+      <attribute id="ORD_VORUE" order="141" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Superior activity"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_VORUE"/>
+      </attribute>
+      <attribute id="ORD_WERKS" order="142" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORD_WERKS"/>
+      </attribute>
+      <attribute id="ORDNET_ERNAM" order="143" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of Person Who Created the Object"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORDNET_ERNAM"/>
+      </attribute>
+      <attribute id="ORDNET_GSBER" order="144" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business Area"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ORDNET_GSBER"/>
+      </attribute>
+      <attribute id="PAKET" order="145" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Package Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PAKET"/>
+      </attribute>
+      <attribute id="PAKET_KTEX1" order="146" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Text for maintenance package/cycle (time/performance)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PAKET_KTEX1"/>
+      </attribute>
+      <attribute id="PARVW" order="147" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Partner Function"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PARVW"/>
+      </attribute>
+      <attribute id="PERMIT_STATUS" order="150" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Icon for permit status"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PERMIT_STATUS"/>
+      </attribute>
+      <attribute id="PERNUM" order="151" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Personnel number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PERNUM"/>
+      </attribute>
+      <attribute id="PERTEXT" order="152" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Name"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PERTEXT"/>
+      </attribute>
+      <attribute id="PLKNZ" order="155" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance order planning indicator"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLKNZ"/>
+      </attribute>
+      <attribute id="PLKOD_KTEXT" order="156" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task list description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLKOD_KTEXT"/>
+      </attribute>
+      <attribute id="PLKOD_VAGRP" order="157" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Responsible Planner Group/Department from Task List"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLKOD_VAGRP"/>
+      </attribute>
+      <attribute id="PLNAL" order="158" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Group Counter"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLNAL"/>
+      </attribute>
+      <attribute id="PLNKN" order="159" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of the task list node"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLNKN"/>
+      </attribute>
+      <attribute id="PLNNR" order="160" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for Task List Group"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLNNR"/>
+      </attribute>
+      <attribute id="PLNTY" order="161" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task List Type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLNTY"/>
+      </attribute>
+      <attribute id="PRIOK" order="163" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Priority"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PRIOK"/>
+      </attribute>
+      <attribute id="PRIOKX" order="164" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Priority Text"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PRIOKX"/>
+      </attribute>
+      <attribute id="PROG_GRDTX" order="165" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Progress Tracker Confirmation Reason"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PROG_GRDTX"/>
+      </attribute>
+      <attribute id="PROJECT_UNIT" order="166" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time unit in time scheduling"/>
+        <keyMapping columnObjectName="Projection_1" columnName="PROJECT_UNIT"/>
+      </attribute>
+      <attribute id="QMART" order="169" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Notification Type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="QMART"/>
+      </attribute>
+      <attribute id="QMCOD" order="170" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Coding"/>
+        <keyMapping columnObjectName="Projection_1" columnName="QMCOD"/>
+      </attribute>
+      <attribute id="QMDAT" order="171" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Notification"/>
+        <keyMapping columnObjectName="Projection_1" columnName="QMDAT"/>
+      </attribute>
+      <attribute id="QMNUM" order="172" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Notification No"/>
+        <keyMapping columnObjectName="Projection_1" columnName="QMNUM"/>
+      </attribute>
+      <attribute id="REVTX" order="173" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Revision description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="REVTX"/>
+      </attribute>
+      <attribute id="ROLLUP_END_DATE" order="174" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Rollup End Date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ROLLUP_END_DATE"/>
+      </attribute>
+      <attribute id="ROLLUP_END_TIME" order="175" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Rollup End Time"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ROLLUP_END_TIME"/>
+      </attribute>
+      <attribute id="ROLLUP_START_DATE" order="176" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Rollup Start Date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ROLLUP_START_DATE"/>
+      </attribute>
+      <attribute id="ROLLUP_START_TIME" order="177" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Rollup Start Time"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ROLLUP_START_TIME"/>
+      </attribute>
+      <attribute id="RSANZ" order="178" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of confirmation slips"/>
+        <keyMapping columnObjectName="Projection_1" columnName="RSANZ"/>
+      </attribute>
+      <attribute id="RSNUM" order="179" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of reservation/dependent requirements"/>
+        <keyMapping columnObjectName="Projection_1" columnName="RSNUM"/>
+      </attribute>
+      <attribute id="RUECK" order="180" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Completion confirmation number for the operation"/>
+        <keyMapping columnObjectName="Projection_1" columnName="RUECK"/>
+      </attribute>
+      <attribute id="SAKTO" order="181" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Cost element"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SAKTO"/>
+      </attribute>
+      <attribute id="SERIALNR" order="182" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Serial Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SERIALNR"/>
+      </attribute>
+      <attribute id="SERMAT" order="183" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SERMAT"/>
+      </attribute>
+      <attribute id="SORTL" order="184" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sort Term for Non-Stock Info Records"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SORTL"/>
+      </attribute>
+      <attribute id="SOWRK" order="185" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Location plant"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SOWRK"/>
+      </attribute>
+      <attribute id="SSAVD" order="186" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Latest scheduled start: Execution (date)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SSAVD"/>
+      </attribute>
+      <attribute id="SSAVZ" order="187" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Latest scheduled start: Execution (time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SSAVZ"/>
+      </attribute>
+      <attribute id="SSEDD" order="188" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Latest scheduled finish: Execution (date)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SSEDD"/>
+      </attribute>
+      <attribute id="SSEDZ" order="189" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Latest scheduled finish: Execution (time)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SSEDZ"/>
+      </attribute>
+      <attribute id="STADT" order="190" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Start date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STADT"/>
+      </attribute>
+      <attribute id="STEUS" order="191" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Control key"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STEUS"/>
+      </attribute>
+      <attribute id="STICH" order="192" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling indicator"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STICH"/>
+      </attribute>
+      <attribute id="STORT" order="193" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Asset location"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STORT"/>
+      </attribute>
+      <attribute id="STRAT" order="194" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance strategy"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STRAT"/>
+      </attribute>
+      <attribute id="STRMN" order="195" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Required start date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STRMN"/>
+      </attribute>
+      <attribute id="STRT_CONSTRAINT" order="196" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Short Text for Fixed Values"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STRT_CONSTRAINT"/>
+      </attribute>
+      <attribute id="SWERK" order="197" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance plant"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SWERK"/>
+      </attribute>
+      <attribute id="TERKZ" order="198" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="TERKZ"/>
+      </attribute>
+      <attribute id="TEXTWC" order="199" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Short text - Work Center"/>
+        <keyMapping columnObjectName="Projection_1" columnName="TEXTWC"/>
+      </attribute>
+      <attribute id="TPLNR" order="200" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location Label"/>
+        <keyMapping columnObjectName="Projection_1" columnName="TPLNR"/>
+      </attribute>
+      <attribute id="TSENQ" order="201" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling status: call horizon not reached"/>
+        <keyMapping columnObjectName="Projection_1" columnName="TSENQ"/>
+      </attribute>
+      <attribute id="TSVBT" order="202" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling status: call outstanding"/>
+        <keyMapping columnObjectName="Projection_1" columnName="TSVBT"/>
+      </attribute>
+      <attribute id="USTXT" order="204" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Field displaying user status (long text)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="USTXT"/>
+      </attribute>
+      <attribute id="UVORN" order="205" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Suboperation"/>
+        <keyMapping columnObjectName="Projection_1" columnName="UVORN"/>
+      </attribute>
+      <attribute id="VERSA" order="206" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Version of Available Capacity"/>
+        <keyMapping columnObjectName="Projection_1" columnName="VERSA"/>
+      </attribute>
+      <attribute id="VSNEG" order="207" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Shift Factor for Early Completion"/>
+        <keyMapping columnObjectName="Projection_1" columnName="VSNEG"/>
+      </attribute>
+      <attribute id="VSPOS" order="208" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Shift Factor for Late Completion"/>
+        <keyMapping columnObjectName="Projection_1" columnName="VSPOS"/>
+      </attribute>
+      <attribute id="VSTXT" order="209" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="System Status (long text)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="VSTXT"/>
+      </attribute>
+      <attribute id="WAERS" order="210" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Currency Key"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WAERS"/>
+      </attribute>
+      <attribute id="WAPOS" order="211" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance item"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WAPOS"/>
+      </attribute>
+      <attribute id="WARPL" order="212" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Plan"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WARPL"/>
+      </attribute>
+      <attribute id="WEMPF" order="213" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Goods recipient"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WEMPF"/>
+      </attribute>
+      <attribute id="WERKS" order="214" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WERKS"/>
+      </attribute>
+      <attribute id="ZEIEH" order="217" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the performance of maintenance tasks"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ZEIEH"/>
+      </attribute>
+      <attribute id="ZTEHT" order="218" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time unit in time scheduling"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ZTEHT"/>
+      </attribute>
+      <attribute id="ZYKL1" order="219" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance cycle"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ZYKL1"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="ABNUM" order="5" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Maintenance Plan Call Number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="ABNUM"/>
+      </measure>
+      <measure id="ACTCOST" order="9" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Order Actual Cost"/>
+        <measureMapping columnObjectName="Projection_1" columnName="ACTCOST"/>
+      </measure>
+      <measure id="AGE" order="14" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Age"/>
+        <measureMapping columnObjectName="Projection_1" columnName="AGE"/>
+      </measure>
+      <measure id="ANZZL" order="17" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Number of capacities required"/>
+        <measureMapping columnObjectName="Projection_1" columnName="ANZZL"/>
+      </measure>
+      <measure id="APFKT" order="18" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Execution factor for whole task list"/>
+        <measureMapping columnObjectName="Projection_1" columnName="APFKT"/>
+      </measure>
+      <measure id="AUFKT" order="22" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Execution Factor"/>
+        <measureMapping columnObjectName="Projection_1" columnName="AUFKT"/>
+      </measure>
+      <measure id="AUSZT" order="23" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Breakdown Duration"/>
+        <measureMapping columnObjectName="Projection_1" columnName="AUSZT"/>
+      </measure>
+      <measure id="ZCOUNT" order="33" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Natural number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="ZCOUNT"/>
+      </measure>
+      <measure id="DAUMI" order="37" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum activity duration"/>
+        <measureMapping columnObjectName="Projection_1" columnName="DAUMI"/>
+      </measure>
+      <measure id="DAUNO" order="39" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Normal duration of the activity"/>
+        <measureMapping columnObjectName="Projection_1" columnName="DAUNO"/>
+      </measure>
+      <measure id="DAYS_SPANNED" order="40" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Number of days spanned by a scheduling activity"/>
+        <measureMapping columnObjectName="Projection_1" columnName="DAYS_SPANNED"/>
+      </measure>
+      <measure id="ESTCOST" order="53" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Order Estimated Cost"/>
+        <measureMapping columnObjectName="Projection_1" columnName="ESTCOST"/>
+      </measure>
+      <measure id="FINISH_FLOAT" order="54" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Natural number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="FINISH_FLOAT"/>
+      </measure>
+      <measure id="ISMNW" order="89" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Actual work"/>
+        <measureMapping columnObjectName="Projection_1" columnName="ISMNW"/>
+      </measure>
+      <measure id="LOANZ" order="98" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Number of Time Tickets"/>
+        <measureMapping columnObjectName="Projection_1" columnName="LOANZ"/>
+      </measure>
+      <measure id="MGVRG" order="109" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Operation Quantity"/>
+        <measureMapping columnObjectName="Projection_1" columnName="MGVRG"/>
+      </measure>
+      <measure id="OFMNW" order="119" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Forecasted work (actual + remaining)"/>
+        <measureMapping columnObjectName="Projection_1" columnName="OFMNW"/>
+      </measure>
+      <measure id="OP_CALCWORK" order="120" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Forecasted work (actual + remaining)"/>
+        <measureMapping columnObjectName="Projection_1" columnName="OP_CALCWORK"/>
+      </measure>
+      <measure id="OP_REMDAUNO" order="123" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Remaining Work"/>
+        <measureMapping columnObjectName="Projection_1" columnName="OP_REMDAUNO"/>
+      </measure>
+      <measure id="OP_REMNW" order="124" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Remaining Work"/>
+        <measureMapping columnObjectName="Projection_1" columnName="OP_REMNW"/>
+      </measure>
+      <measure id="OP_WORK" order="130" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Work involved in the activity"/>
+        <measureMapping columnObjectName="Projection_1" columnName="OP_WORK"/>
+      </measure>
+      <measure id="PEINH" order="148" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Price unit"/>
+        <measureMapping columnObjectName="Projection_1" columnName="PEINH"/>
+      </measure>
+      <measure id="PERC_COMP" order="149" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Natural number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="PERC_COMP"/>
+      </measure>
+      <measure id="PLDCOST" order="153" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Order Planned Cost"/>
+        <measureMapping columnObjectName="Projection_1" columnName="PLDCOST"/>
+      </measure>
+      <measure id="PLIFZ" order="154" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Planned Delivery Time in Days"/>
+        <measureMapping columnObjectName="Projection_1" columnName="PLIFZ"/>
+      </measure>
+      <measure id="PREIS" order="162" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Price"/>
+        <measureMapping columnObjectName="Projection_1" columnName="PREIS"/>
+      </measure>
+      <measure id="PRZNT" order="167" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Work percentage"/>
+        <measureMapping columnObjectName="Projection_1" columnName="PRZNT"/>
+      </measure>
+      <measure id="PUFFR" order="168" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Free float"/>
+        <measureMapping columnObjectName="Projection_1" columnName="PUFFR"/>
+      </measure>
+      <measure id="UNASSIGNED_RESOURCES" order="203" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Unassigned Resource Number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="UNASSIGNED_RESOURCES"/>
+      </measure>
+      <measure id="WOGBTR" order="215" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Operation Actual Cost"/>
+        <measureMapping columnObjectName="Projection_1" columnName="WOGBTR"/>
+      </measure>
+      <measure id="WRTFW_KPF" order="216" semanticType="empty" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Operation Planned Cost"/>
+        <measureMapping columnObjectName="Projection_1" columnName="WRTFW_KPF"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

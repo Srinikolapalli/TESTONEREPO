@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="algoma.pm.kpi::ZHV_PM_WKLY_TRND" applyPrivilegeType="NONE" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="ZHV_QV_PM_WKLY_KPI_TRND"/>
+  <metadata changedAt="2021-10-11 10:49:50.659"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="ZTBL_PM_KPI_TREND">
+      <resourceUri>algoma.pm::ZTBL_PM_KPI_TREND</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews/>
+  <logicalModel id="ZTBL_PM_KPI_TREND">
+    <descriptions/>
+    <attributes>
+      <attribute id="WEEK_NO" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Week No"/>
+        <keyMapping columnObjectName="ZTBL_PM_KPI_TREND" columnName="WEEK_NO"/>
+      </attribute>
+      <attribute id="YEAR" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Year"/>
+        <keyMapping columnObjectName="ZTBL_PM_KPI_TREND" columnName="YEAR"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="FYTD%" order="3" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Total PM Compliance - FYTD%"/>
+        <measureMapping columnObjectName="ZTBL_PM_KPI_TREND" columnName="FYTD%"/>
+      </measure>
+      <measure id="DELIN_PMS" order="4" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Total # of Delinquent PMs"/>
+        <measureMapping columnObjectName="ZTBL_PM_KPI_TREND" columnName="DELIN_PMS"/>
+      </measure>
+      <measure id="COMP_4WKAVG%" order="5" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Total PM Compliance% (4-Wk AVG)"/>
+        <measureMapping columnObjectName="ZTBL_PM_KPI_TREND" columnName="COMP_4WKAVG%"/>
+      </measure>
+      <measure id="COMP%" order="6" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Total PM Completion Compliance %"/>
+        <measureMapping columnObjectName="ZTBL_PM_KPI_TREND" columnName="COMP%"/>
+      </measure>
+      <measure id="COMP_4KTGT%" order="7" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="Total PM Compliance (4-Wk AVG) Target"/>
+        <measureMapping columnObjectName="ZTBL_PM_KPI_TREND" columnName="COMP_4KTGT%"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

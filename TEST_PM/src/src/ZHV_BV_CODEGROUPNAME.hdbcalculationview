@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="algoma.pm::ZHV_BV_CODEGROUPNAME" applyPrivilegeType="NONE" defaultClient="" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="DEFAULT" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Projection" runWithInvokerPrivileges="false" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="Private view"/>
+  <metadata changedAt="2021-10-08 12:52:08.351"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="QPGT">
+      <resourceUri>algoma.pm::QPGT</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews/>
+  <logicalModel id="QPGT">
+    <descriptions/>
+    <attributes>
+      <attribute id="SAPClient" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Client"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="QPGT" columnName="MANDANT"/>
+      </attribute>
+      <attribute id="CodeCatalog" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Code Catalog"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="QPGT" columnName="KATALOGART"/>
+      </attribute>
+      <attribute id="CodeGroup" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Code Group"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="QPGT" columnName="CODEGRUPPE"/>
+      </attribute>
+      <attribute id="Language" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Language"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="QPGT" columnName="SPRACHE"/>
+      </attribute>
+      <attribute id="CodeGroupName" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Code Group Name"/>
+        <searchProperties/>
+        <keyMapping columnObjectName="QPGT" columnName="KURZTEXT"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

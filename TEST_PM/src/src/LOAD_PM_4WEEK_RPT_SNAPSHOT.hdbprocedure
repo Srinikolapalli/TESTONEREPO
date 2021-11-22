@@ -1,0 +1,35 @@
+PROCEDURE "algoma.pm::LOAD_PM_4WEEK_RPT_SNAPSHOT" ( ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	AS
+BEGIN
+/***************************** 
+	The program is to load data from hana view "_SYS_BIC"."algoma.pm/ZHV_PM_4WEEK_RPT_CURR" to table
+	SAC_CUSTOM_TABLES"."ZTBL_PM_4WEEK_RPT_SNAPSHOT" 
+ *****************************/
+ 
+ INSERT INTO "algoma.pm::ZTBL_PM_4WEEK_RPT_SNAPSHOT" (
+"AUFNR","AUART","KTEXT","PRIOK","EQUNR","ILOAN","INGPR","REVNR","ANLZU","ILART","GSTRP",
+"AUFPL","STRNO","OBJNR","STATUS","USER_STATUS","QMNUM","ADDAT","ABCKZ","MAUFNR","GLTRP",
+"ERNAM","KOSTL","VAPLZ","FISTL","ZP:NGRP_DESC","ZDEPARTMENT","ZGEN_MANAGER","fx_Basic_Start_Date",
+"fx_Reference_Week","fx_Order_User_Status","fx_Entered_By","fx_Order_User_Status_Sys","fx_Materials_On_Order",
+"fx_Equip_On_Order","fx_FLoc_Area_3","fx_FLoc_Area_4","fx_PM_Activity_Type","fx_PM_Activity_Type_Txt","USER4",
+"ZZEQUIP_CRIT","fx_External_Parts","fx_Internal_Parts","fx_Lease_Rental","fx_External_Labour","fx_Internal_Labour",
+"fx_Order_Count","SNAPSHOT_DATE" )
+SELECT "AUFNR","AUART","KTEXT","PRIOK","EQUNR","ILOAN","INGPR","REVNR","ANLZU","ILART","GSTRP",
+	 "AUFPL","STRNO","OBJNR","STATUS","USER_STATUS","QMNUM","ADDAT","ABCKZ","MAUFNR","GLTRP",
+	 "ERNAM","KOSTL","VAPLZ","FISTL","ZP:NGRP_DESC","ZDEPARTMENT","ZGEN_MANAGER","fx_Basic_Start_Date",
+	 "fx_Reference_Week","fx_Order_User_Status","fx_Entered_By","fx_Order_User_Status_Sys","fx_Materials_On_Order",
+	 "fx_Equip_On_Order","fx_FLoc_Area_3","fx_FLoc_Area_4","fx_PM_Activity_Type","fx_PM_Activity_Type_Txt",sum("USER4") AS "USER4",
+	 sum("ZZEQUIP_CRIT") AS "ZZEQUIP_CRIT",max("fx_External_Parts") AS "fx_External_Parts",max("fx_Internal_Parts") AS "fx_Internal_Parts",
+	 max("fx_Lease_Rental") AS "fx_Lease_Rental",max("fx_External_Labour") AS "fx_External_Labour",max("fx_Internal_Labour") AS "fx_Internal_Labour",
+	 sum("fx_Order_Count") AS "fx_Order_Count", CURRENT_DATE as "SNAPSHOT_DATE"
+FROM "algoma.pm::ZHV_PM_4WEEK_RPT_CURR" 
+GROUP BY "AUFNR","AUART","KTEXT","PRIOK","EQUNR","ILOAN","INGPR","REVNR","ANLZU","ILART","GSTRP",
+	 "AUFPL","STRNO","OBJNR","STATUS","USER_STATUS","QMNUM","ADDAT","ABCKZ","MAUFNR","GLTRP",
+	 "ERNAM","KOSTL","VAPLZ","FISTL","ZP:NGRP_DESC","ZDEPARTMENT","ZGEN_MANAGER","fx_Basic_Start_Date",
+	 "fx_Reference_Week","fx_Order_User_Status","fx_Entered_By","fx_Order_User_Status_Sys","fx_Materials_On_Order",
+	 "fx_Equip_On_Order","fx_FLoc_Area_3","fx_FLoc_Area_4","fx_PM_Activity_Type","fx_PM_Activity_Type_Txt";
+ 
+END;
