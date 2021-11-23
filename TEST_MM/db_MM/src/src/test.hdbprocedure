@@ -1,0 +1,22 @@
+PROCEDURE "algoma.general::test" ( ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	--READS SQL DATA AS
+	AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+ INSERT INTO "algoma.general::BPJA_HISTORY" (
+"MANDT","LEDNR","OBJNR","POSIT","TRGKZ","WRTTP","GJAHR","GEBER","VERSN",
+"VORGA","TWAER","SUBVO","GNJHR","FAREA","WTJHR","WLJHR","WTJHV","WLJHV","KALNR",
+"KLVAR","SPRED","BELTP","SNAPSHOT_DATE"
+)
+SELECT "MANDT","LEDNR","OBJNR","POSIT","TRGKZ","WRTTP","GJAHR","GEBER","VERSN",
+"VORGA","TWAER","SUBVO","GNJHR","FAREA","WTJHR","WLJHR","WTJHV","WLJHV","KALNR",
+"KLVAR","SPRED","BELTP",CURRENT_DATE as "SNAPSHOT_DATE"
+FROM "algoma.general::BPJA" ;
+ 
+ 
+END;
