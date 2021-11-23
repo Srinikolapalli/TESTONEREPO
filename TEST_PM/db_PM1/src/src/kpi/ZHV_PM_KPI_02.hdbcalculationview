@@ -1,0 +1,2098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_PM_KPI_02" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Aggregation" runWithInvokerPrivileges="false" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="Maintenance KPI"/>
+  <metadata changedAt="2021-10-11 10:49:49.978"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="50"/>
+  <dataSources>
+    <DataSource id="MHIS">
+      <resourceUri>algoma.pm::MHIS</resourceUri>
+    </DataSource>
+    <DataSource id="AFKO">
+      <resourceUri>algoma.pm::AFKO</resourceUri>
+    </DataSource>
+    <DataSource id="AFIH">
+      <resourceUri>algoma.pm::AFIH</resourceUri>
+    </DataSource>
+    <DataSource id="ZSAC_TBL_PLAN_GRP_1">
+      <resourceUri>algoma.pm::ZSAC_TBL_PLAN_GRP_1</resourceUri>
+    </DataSource>
+    <DataSource id="T357M_T">
+      <resourceUri>algoma.pm::T357M_T</resourceUri>
+    </DataSource>
+    <DataSource id="AUFK">
+      <resourceUri>algoma.pm::AUFK</resourceUri>
+    </DataSource>
+    <DataSource id="MMPT">
+      <resourceUri>algoma.pm::MMPT</resourceUri>
+    </DataSource>
+    <DataSource id="T006B">
+      <resourceUri>algoma.pm::T006B</resourceUri>
+    </DataSource>
+    <DataSource id="ZTBL_PM_CYC_UNIT_CONV">
+      <resourceUri>algoma.pm::ZTBL_PM_CYC_UNIT_CONV</resourceUri>
+    </DataSource>
+    <DataSource id="MPLA">
+      <resourceUri>algoma.pm::MPLA</resourceUri>
+    </DataSource>
+    <DataSource id="JEST">
+      <resourceUri>algoma.pm::JEST</resourceUri>
+    </DataSource>
+    <DataSource id="ZHV_PM_JEST_01">
+      <resourceUri>algoma.pm.kpi::ZHV_PM_JEST_01</resourceUri>
+    </DataSource>
+    <DataSource id="MPOS">
+      <resourceUri>algoma.pm::MPOS</resourceUri>
+    </DataSource>
+    <DataSource id="algoma.pm::ZSAC_TBL_PLAN_GRP_1">
+      <resourceUri>algoma.pm::ZSAC_TBL_PLAN_GRP_1</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CopyOfProjection_5">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSTAT"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="MHIS"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CopyOfProjection_3">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AFKO"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_6">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="ANLZU"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AFIH"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_7">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZSAC_TBL_PLAN_GRP_1"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_8" filterExpressionLanguage="COLUMN_ENGINE">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+        <viewAttribute id="SPRAS"/>
+        <viewAttribute id="MANDT"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="T357M_T"/>
+    <filter>&quot;SPRAS&quot;='E' AND &quot;MANDT&quot; = '740'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_8" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+      </input>
+      <input node="Projection_8">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+      </input>
+    <joinAttribute name="ANLZU"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_7" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_8">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+      </input>
+      <input node="Projection_7">
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="ZP:NGRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="ZPLNGRP_ID"/>
+      </input>
+    <joinAttribute name="INGPR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="CopyOfJoin_1" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR_1"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="CopyOfProjection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLSVB" source="PLSVB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRS" source="GLTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSNUM" source="RSNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFLD" source="AUFLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLGRP" source="PLGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUFNR" source="MAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR_1" source="AUFNR"/>
+      </input>
+      <input node="Join_7">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR_1" source="AUFNR"/>
+      </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="AUFNR_1"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_3">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="DATE" id="CAL_PREV_WK_END_copy_2" expressionLanguage="COLUMN_ENGINE">
+          <formula>ADDDAYS (&quot;CAL_PREV_WK_START_copy_2&quot;,27)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DATE" id="CAL_REPORT_DATE_copy_2" expressionLanguage="COLUMN_ENGINE">
+          <formula>now()</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DATE" id="CAL_PREV_WK_START_copy_2" expressionLanguage="COLUMN_ENGINE">
+          <formula>(ADDDAYS ( now() , ( WEEKDAY( now() ) * -1 ) - 29 ))</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_PLANNED_WITHIN" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(date(&quot;PLAUF&quot;)&gt;=&quot;CAL_PREV_WK_START_copy_2&quot; AND date(&quot;PLAUF&quot;)&lt;=&quot;CAL_PREV_WK_END_copy_2&quot;,1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute aggregationType="sum" datatype="INTEGER" id="CAL_CLOSED_IN_copy_1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((date(&quot;GETRI&quot;)&gt;=&quot;CAL_PREV_WK_START_copy_2&quot;) AND (date(&quot;GETRI&quot;)&lt;=&quot;CAL_PREV_WK_END_copy_2&quot;),0,1)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_ORDER_COUNT" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;AUFNR&quot;='',0,1)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DATE" id="CAL_R3_PREV_WEEK_STRT" expressionLanguage="COLUMN_ENGINE">
+          <formula>(ADDDAYS ( now() , ( WEEKDAY( now() ) * -1 ) - 8 ))</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DATE" id="CAL_R3_PREV_WEEK_END" expressionLanguage="COLUMN_ENGINE">
+          <formula>adddays(&quot;CAL_R3_PREV_WEEK_STRT&quot;,6)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_CLOSED_IN" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(date(&quot;GETRI&quot;)&gt;=&quot;CAL_R3_PREV_WEEK_STRT&quot; and date(&quot;GETRI&quot;) &lt;= &quot;CAL_R3_PREV_WEEK_END&quot;,1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+      <input node="CopyOfJoin_1"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CopyOfProjection_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AUFK"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_16" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_CLOSED_IN_copy_1"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="CAL_R3_CLOSED_IN"/>
+        <viewAttribute id="CAL_R3_PREV_WEEK_STRT"/>
+        <viewAttribute id="CAL_R3_PREV_WEEK_END"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUFNR" source="MAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLGRP" source="PLGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFLD" source="AUFLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSNUM" source="RSNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRS" source="GLTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLSVB" source="PLSVB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_END_copy_2" source="CAL_PREV_WK_END_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_REPORT_DATE_copy_2" source="CAL_REPORT_DATE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_START_copy_2" source="CAL_PREV_WK_START_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN" source="CAL_PLANNED_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_CLOSED_IN_copy_1" source="CAL_CLOSED_IN_copy_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COUNT" source="CAL_ORDER_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_R3_CLOSED_IN" source="CAL_R3_CLOSED_IN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_R3_PREV_WEEK_STRT" source="CAL_R3_PREV_WEEK_STRT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_R3_PREV_WEEK_END" source="CAL_R3_PREV_WEEK_END"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+      </input>
+      <input node="CopyOfProjection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IDAT2" source="IDAT2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+      </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="AUFNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_5">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_CLOSED_IN_copy_1"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="CAL_R3_CLOSED_IN"/>
+        <viewAttribute id="CAL_R3_PREV_WEEK_STRT"/>
+        <viewAttribute id="CAL_R3_PREV_WEEK_END"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM01" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM01',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM02" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM02',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM03" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM03',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM04" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM04',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM05" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM05',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM07" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM07',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM08" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM08',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_AM11" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CLOSED_IN&quot;= 1 AND &quot;AUART&quot; = 'AM11',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_CREATED_ON" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(date(&quot;ERDAT&quot;)&gt;=&quot;CAL_R3_PREV_WEEK_STRT&quot; AND date(&quot;ERDAT&quot;)&lt;=&quot;CAL_R3_PREV_WEEK_END&quot;,1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_CREATED_AM03" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot;= 1 AND &quot;AUART&quot; = 'AM03',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_CREATED_AM08" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot;= 1 AND &quot;AUART&quot; = 'AM08',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_CREATED_AM11" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot;= 1 AND &quot;AUART&quot; = 'AM11',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_CHANGED_ON" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(date(&quot;AEDAT&quot;)&gt;=&quot;CAL_R3_PREV_WEEK_STRT&quot; AND date(&quot;AEDAT&quot;)&lt;=&quot;CAL_R3_PREV_WEEK_END&quot;,1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_SUPERIOR_ORDER" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(not(isnull(&quot;MAUFNR&quot;)) and &quot;MAUFNR&quot;!= '',1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_NOTIFICATION" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(not(isnull(&quot;QMNUM&quot;)) and &quot;QMNUM&quot;!='' ,1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_NUM_SUB1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot; = 1 and &quot;CAL_R3_NOTIFICATION&quot; = 1 , 1, 0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_NUM_SUB2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((&quot;CAL_R3_CREATED_ON&quot; = 1 and &quot;CAL_R3_NOTIFICATION&quot; = 1) and (&quot;CAL_R3_AM03&quot; = 1 or &quot;CAL_R3_AM08&quot; = 1 or &quot;CAL_R3_AM11&quot; = 1)  , 1, 0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_DENO_SUB1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot; = 1 and (&quot;ILART&quot; = '145' or &quot;CAL_R3_SUPERIOR_ORDER&quot; =1) , 1, 0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_DENO_SUB2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot; = 1 and &quot;ILART&quot; = '145' and (&quot;CAL_R3_NOTIFICATION&quot; = 1 or &quot;CAL_R3_SUPERIOR_ORDER&quot; =1) , 1, 0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_DENO_SUB3" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot; = 1 and &quot;CAL_R3_NOTIFICATION&quot; = 1 and &quot;CAL_R3_SUPERIOR_ORDER&quot; =1 , 1, 0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_R3_DENO_SUB4" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_R3_CREATED_ON&quot; = 1 and (&quot;CAL_R3_CREATED_AM03&quot; = 1 or &quot;CAL_R3_CREATED_AM08&quot; = 1 or &quot;CAL_R3_CREATED_AM11&quot; = 0) , 1, 0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+      <input node="Join_16"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_12" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSTAT"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_CLOSED_IN_copy_1"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="CAL_R3_CLOSED_IN"/>
+        <viewAttribute id="CAL_R3_PREV_WEEK_STRT"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COUNT" source="CAL_ORDER_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_CLOSED_IN_copy_1" source="CAL_CLOSED_IN_copy_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN" source="CAL_PLANNED_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_START_copy_2" source="CAL_PREV_WK_START_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_REPORT_DATE_copy_2" source="CAL_REPORT_DATE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_END_copy_2" source="CAL_PREV_WK_END_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLSVB" source="PLSVB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRS" source="GLTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSNUM" source="RSNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFLD" source="AUFLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLGRP" source="PLGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUFNR" source="MAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_R3_CLOSED_IN" source="CAL_R3_CLOSED_IN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_R3_PREV_WEEK_STRT" source="CAL_R3_PREV_WEEK_STRT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IDAT2" source="IDAT2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+      </input>
+      <input node="CopyOfProjection_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGNUM" source="VGNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LRMDT" source="LRMDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDO" source="NPLDO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDZ" source="NPLDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSABR" source="TSABR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSVBT" source="TSVBT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENM" source="TSENM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENQ" source="TSENQ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HORDA" source="HORDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSTAT" source="TSTAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+      </input>
+    <joinAttribute name="ABNUM"/>
+    <joinAttribute name="WARPL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSTAT"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute aggregationType="sum" id="CAL_CLOSED_IN_copy_1"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_ORDER_COMPLETED_copy_2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((&quot;LRMDT&quot;= '00000000') and (&quot;IDAT2&quot; = '00000000') ,0,1)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_COMPLETION_copy_2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_ORDER_COMPLETED_copy_2&quot;=1 and &quot;LRMDT&quot; != '00000000',daysbetween(date(&quot;LRMDT&quot;),date(&quot;PLAUF&quot;)),
+if (&quot;CAL_ORDER_COMPLETED_copy_2&quot;=1 and &quot;IDAT2&quot; != '00000000',daysbetween(date(&quot;IDAT2&quot;),date(&quot;PLAUF&quot;)),daysbetween(&quot;CAL_REPORT_DATE_copy_2&quot;,date(&quot;PLAUF&quot;)))
+
+)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+      <input node="Join_12"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CopyOfProjection_6">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="ZEIEH"/>
+        <viewAttribute id="ZYKL1"/>
+        <viewAttribute id="NUMMER"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="MMPT"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CopyOfProjection_10">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MSEH3"/>
+        <viewAttribute id="MSEHI"/>
+        <viewAttribute id="SPRAS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="T006B"/>
+    <filter>(&quot;SPRAS&quot; ='E')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_5">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="DISPLAY"/>
+        <viewAttribute id="TECHNICAL"/>
+        <viewAttribute id="NUMERATOR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZTBL_PM_CYC_UNIT_CONV"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_6" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MSEH3"/>
+        <viewAttribute id="MSEHI"/>
+        <viewAttribute id="NUMERATOR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="CopyOfProjection_10">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEH3" source="MSEH3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEHI" source="MSEHI"/>
+      </input>
+      <input node="Projection_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="NUMERATOR" source="NUMERATOR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEH3" source="DISPLAY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEHI" source="TECHNICAL"/>
+      </input>
+    <joinAttribute name="MSEH3"/>
+    <joinAttribute name="MSEHI"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_14" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZYKL1"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="ZEIEH"/>
+        <viewAttribute id="MSEH3"/>
+        <viewAttribute id="MSEHI"/>
+        <viewAttribute id="NUMERATOR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="CopyOfProjection_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZYKL1" source="ZYKL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZEIEH" source="ZEIEH"/>
+      </input>
+      <input node="Join_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEH3" source="MSEH3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEHI" source="MSEHI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NUMERATOR" source="NUMERATOR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZEIEH" source="MSEHI"/>
+      </input>
+    <joinAttribute name="ZEIEH"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="OBJNR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="MPLA"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="COLUMN_ENGINE">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="NVARCHAR" id="CAL_INACTIVE_DEL_JEST" length="1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((&quot;STAT&quot; =  'I0320' OR &quot;STAT&quot; = 'I0076' OR &quot;STAT&quot; = 'I0013' ) AND (&quot;INACT&quot; =''),1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="JEST"/>
+    <filter>(match(&quot;OBJNR&quot;,'WO*')) AND (&quot;CAL_INACTIVE_DEL_JEST&quot; ='0')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+        <viewAttribute id="CaL_1"/>
+        <viewAttribute id="CAL_0"/>
+        <viewAttribute id="CAL_DEL_FLAG"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZHV_PM_JEST_01"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+        <viewAttribute id="CAL_INACTIVE_DEL_JEST"/>
+        <viewAttribute id="OBJNR_1"/>
+        <viewAttribute id="STAT_1"/>
+        <viewAttribute id="INACT_1"/>
+        <viewAttribute id="CAL_DEL_FLAG"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT" source="INACT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_INACTIVE_DEL_JEST" source="CAL_INACTIVE_DEL_JEST"/>
+      </input>
+      <input node="Projection_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR_1" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT_1" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_1" source="INACT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_DEL_FLAG" source="CAL_DEL_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+    <joinAttribute name="OBJNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_6">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="STAT_1"/>
+        <viewAttribute id="INACT_1"/>
+        <viewAttribute id="INACT"/>
+        <viewAttribute id="CAL_INACTIVE_DEL_JEST"/>
+        <viewAttribute id="OBJNR_1"/>
+        <viewAttribute id="CAL_DEL_FLAG"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Join_4"/>
+    <filter>(isNull(&quot;CAL_DEL_FLAG&quot;))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="WARPL"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+      </input>
+      <input node="Aggregation_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+    <joinAttribute name="OBJNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSTAT"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_CLOSED_IN_copy_1"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      <viewAttribute hidden="true" id="JOIN$WARPL$WARPL"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_END_copy_2" source="CAL_PREV_WK_END_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLSVB" source="PLSVB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFLD" source="AUFLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLGRP" source="PLGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUFNR" source="MAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRS" source="GLTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSNUM" source="RSNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGNUM" source="VGNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDO" source="NPLDO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDZ" source="NPLDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSABR" source="TSABR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSVBT" source="TSVBT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENM" source="TSENM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENQ" source="TSENQ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HORDA" source="HORDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSTAT" source="TSTAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COMPLETED_copy_2" source="CAL_ORDER_COMPLETED_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETION_copy_2" source="CAL_COMPLETION_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_REPORT_DATE_copy_2" source="CAL_REPORT_DATE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_START_copy_2" source="CAL_PREV_WK_START_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN" source="CAL_PLANNED_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_CLOSED_IN_copy_1" source="CAL_CLOSED_IN_copy_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COUNT" source="CAL_ORDER_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LRMDT" source="LRMDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IDAT2" source="IDAT2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$WARPL$WARPL" source="WARPL"/>
+      </input>
+      <input node="Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$WARPL$WARPL" source="WARPL"/>
+      </input>
+    <joinAttribute name="JOIN$WARPL$WARPL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_CLOSED_IN_copy_1"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="TSTAT"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Join_2"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_13" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZYKL1"/>
+        <viewAttribute id="MSEH3"/>
+        <viewAttribute id="ZEIEH"/>
+        <viewAttribute id="MSEHI"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_CLOSED_IN_copy_1"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="TSTAT"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="NUMERATOR"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COUNT" source="CAL_ORDER_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_CLOSED_IN_copy_1" source="CAL_CLOSED_IN_copy_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN" source="CAL_PLANNED_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_START_copy_2" source="CAL_PREV_WK_START_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_REPORT_DATE_copy_2" source="CAL_REPORT_DATE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETION_copy_2" source="CAL_COMPLETION_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COMPLETED_copy_2" source="CAL_ORDER_COMPLETED_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSTAT" source="TSTAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HORDA" source="HORDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENQ" source="TSENQ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENM" source="TSENM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSVBT" source="TSVBT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSABR" source="TSABR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDZ" source="NPLDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDO" source="NPLDO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGNUM" source="VGNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSNUM" source="RSNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRS" source="GLTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUFNR" source="MAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLGRP" source="PLGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFLD" source="AUFLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLSVB" source="PLSVB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_END_copy_2" source="CAL_PREV_WK_END_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LRMDT" source="LRMDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IDAT2" source="IDAT2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+      </input>
+      <input node="Join_14">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZYKL1" source="ZYKL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEH3" source="MSEH3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZEIEH" source="ZEIEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEHI" source="MSEHI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NUMERATOR" source="NUMERATOR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+      </input>
+    <joinAttribute name="WARPL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_4">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSTAT"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="ZYKL1"/>
+        <viewAttribute id="MSEHI"/>
+        <viewAttribute id="MSEH3"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="ZEIEH"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="NUMERATOR"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="DOUBLE" id="CAL_CYCLE_IN_DAYS_copy_2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;MSEH3&quot; = 'DAY' or &quot;MSEH3&quot; = 'D',(double(&quot;ZYKL1&quot;)/double(&quot;NUMERATOR&quot;))*0.2,if(&quot;MSEH3&quot; = 'MON',(double(&quot;ZYKL1&quot;)/double(&quot;NUMERATOR&quot;))*(365/12)*0.2,if(&quot;MSEH3&quot; = 'WK',(double(&quot;ZYKL1&quot;)/double(&quot;NUMERATOR&quot;))*7*0.2,if(&quot;MSEH3&quot; = 'YR',(double(&quot;ZYKL1&quot;)/double(&quot;NUMERATOR&quot;))*365*0.2,(double(&quot;ZYKL1&quot;)/double(&quot;NUMERATOR&quot;))))))</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_WITHIN_GRACE_copy_2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(
+(&quot;CAL_ORDER_COMPLETED_copy_2&quot; = 0 or isNull(&quot;CAL_ORDER_COMPLETED_copy_2&quot;) ) AND (&quot;CAL_COMPLETION_copy_2&quot;+&quot;CAL_CYCLE_IN_DAYS_copy_2&quot;) &lt; 0 ,0,
+
+if(
+(&quot;CAL_ORDER_COMPLETED_copy_2&quot; = 0 or isNull(&quot;CAL_ORDER_COMPLETED_copy_2&quot;) )AND
+(&quot;CAL_COMPLETION_copy_2&quot;+&quot;CAL_CYCLE_IN_DAYS_copy_2&quot;) &gt;= 0 AND &quot;CAL_COMPLETION_copy_2&quot;&gt;= -28, 1,0))</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_COMPLIANCE" expressionLanguage="COLUMN_ENGINE">
+          <formula>if( &quot;CAL_COMPLETION_copy_2&quot;&lt; -28,0,
+if((&quot;CAL_COMPLETION_copy_2&quot;&gt;=-28 and &quot;CAL_ORDER_COMPLETED_copy_2&quot;) = 0, 0 ,
+if((&quot;CAL_COMPLETION_copy_2&quot;&gt;=-28 and &quot;CAL_ORDER_COMPLETED_copy_2&quot;!= 0 and (rounddown(&quot;CAL_CYCLE_IN_DAYS_copy_2&quot;,0)+1+&quot;CAL_COMPLETION_copy_2&quot;)&gt; -1),1,
+0)))</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_DELINQUENT_PMs" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((&quot;CAL_ORDER_COMPLETED_copy_2&quot;= 0 or isNull(&quot;CAL_ORDER_COMPLETED_copy_2&quot; )) AND &quot;CAL_WITHIN_GRACE_copy_2&quot;= 0 AND &quot;CAL_ORDER_COUNT&quot;= 1,1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_COMPLIANCE_PLANNED_WITH_COUNT" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((&quot;CAL_COMPLIANCE&quot; = 1 AND &quot;CAL_PLANNED_WITHIN_NPLDA&quot; = 1),1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_ODRCOMPLETED_PLNDWITH_CNT" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((&quot;CAL_ORDER_COMPLETED_copy_2&quot;=0 AND &quot;CAL_PLANNED_WITHIN_NPLDA&quot;= 0 ),1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="BIGINT" id="CAL_withingrace" expressionLanguage="SQL">
+          <formula>case when (&quot;CAL_ORDER_COMPLETED_copy_2&quot; = 0 AND (&quot;CAL_COMPLETION_copy_2&quot; + &quot;CAL_CYCLE_IN_DAYS_copy_2&quot;)&lt;0)
+then 0
+else 1
+end</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_COMPLETED_PLAN_WITHIN" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((&quot;CAL_ORDER_COMPLETED_copy_2&quot;=1 AND &quot;CAL_PLANNED_WITHIN_NPLDA&quot;= 1 ),1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_PLAN_WITHIN_NOT_IN_GRACE" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((&quot;CAL_WITHIN_GRACE_copy_2&quot;=0 AND &quot;CAL_PLANNED_WITHIN_NPLDA&quot;= 1 ),1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_PLANNED_WITHIN_NPLDA" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(date(&quot;NPLDA&quot;)&gt;=&quot;CAL_PREV_WK_START_copy_2&quot; AND date(&quot;NPLDA&quot;)&lt;=&quot;CAL_PREV_WK_END_copy_2&quot;,1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+      <input node="Join_13"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="WAPOS"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="WPGRP"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="MPOS"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CopyOfCopyOfProjection_11">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="algoma.pm::ZSAC_TBL_PLAN_GRP_1"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_5" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="WPGRP"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="WPGRP" source="WPGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+      </input>
+      <input node="CopyOfCopyOfProjection_11">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZPLNGRP_ID" source="ZPLNGRP_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZP:NGRP_DESC" source="ZP:NGRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZDEPARTMENT" source="ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZGEN_MANAGER" source="ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WPGRP" source="ZPLNGRP_ID"/>
+      </input>
+    <joinAttribute name="WPGRP"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="AUFLD"/>
+        <viewAttribute id="PLGRP"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="GEWRK"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GLTRS"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="RSNUM"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="NPLDO"/>
+        <viewAttribute id="NPLDZ"/>
+        <viewAttribute id="TSABR"/>
+        <viewAttribute id="TSVBT"/>
+        <viewAttribute id="TSENM"/>
+        <viewAttribute id="TSENQ"/>
+        <viewAttribute id="HORDA"/>
+        <viewAttribute id="TSTAT"/>
+        <viewAttribute id="CAL_REPORT_DATE_copy_2"/>
+        <viewAttribute id="MSEH3"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="ZEIEH"/>
+        <viewAttribute id="MSEHI"/>
+        <viewAttribute id="PLSVB"/>
+        <viewAttribute id="OBKNR"/>
+        <viewAttribute id="ABNUM"/>
+        <viewAttribute id="VGNUM"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="ZYKL1"/>
+        <viewAttribute id="CAL_CYCLE_IN_DAYS_copy_2"/>
+        <viewAttribute id="CAL_WITHIN_GRACE_copy_2"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_COMPLIANCE"/>
+        <viewAttribute id="CAL_DELINQUENT_PMs"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <viewAttribute id="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="WPGRP"/>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+        <viewAttribute id="NUMERATOR"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="CAL_COMPLETED_PLAN_WITHIN"/>
+        <viewAttribute id="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN_NPLDA"/>
+        <viewAttribute id="IDAT2"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_END_copy_2" source="CAL_PREV_WK_END_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QMNUM" source="QMNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFLD" source="AUFLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLGRP" source="PLGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAUFNR" source="MAUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWRK" source="GEWRK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRS" source="GLTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RSNUM" source="RSNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDO" source="NPLDO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDZ" source="NPLDZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSABR" source="TSABR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSVBT" source="TSVBT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENM" source="TSENM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSENQ" source="TSENQ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HORDA" source="HORDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSTAT" source="TSTAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_REPORT_DATE_copy_2" source="CAL_REPORT_DATE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEH3" source="MSEH3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_START_copy_2" source="CAL_PREV_WK_START_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZEIEH" source="ZEIEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSEHI" source="MSEHI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLSVB" source="PLSVB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBKNR" source="OBKNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABNUM" source="ABNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGNUM" source="VGNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COMPLETED_copy_2" source="CAL_ORDER_COMPLETED_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETION_copy_2" source="CAL_COMPLETION_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZYKL1" source="ZYKL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_CYCLE_IN_DAYS_copy_2" source="CAL_CYCLE_IN_DAYS_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_WITHIN_GRACE_copy_2" source="CAL_WITHIN_GRACE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN" source="CAL_PLANNED_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLIANCE" source="CAL_COMPLIANCE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_DELINQUENT_PMs" source="CAL_DELINQUENT_PMs"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COUNT" source="CAL_ORDER_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLIANCE_PLANNED_WITH_COUNT" source="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ODRCOMPLETED_PLNDWITH_CNT" source="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LRMDT" source="LRMDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NUMERATOR" source="NUMERATOR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETED_PLAN_WITHIN" source="CAL_COMPLETED_PLAN_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLAN_WITHIN_NOT_IN_GRACE" source="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN_NPLDA" source="CAL_PLANNED_WITHIN_NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IDAT2" source="IDAT2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+      </input>
+      <input node="Join_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="WPGRP" source="WPGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZPLNGRP_ID" source="ZPLNGRP_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZP:NGRP_DESC" source="ZP:NGRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZDEPARTMENT" source="ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZGEN_MANAGER" source="ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+      </input>
+    <joinAttribute name="WARPL"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_3">
+    <descriptions/>
+    <attributes>
+      <attribute id="CAL_PREV_WK_END_copy_2" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Previous Week End Date"/>
+        <keyMapping columnObjectName="Join_3" columnName="CAL_PREV_WK_END_copy_2"/>
+      </attribute>
+      <attribute id="MANDT" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MANDT"/>
+        <keyMapping columnObjectName="Join_3" columnName="MANDT"/>
+      </attribute>
+      <attribute id="QMNUM" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Notification No"/>
+        <keyMapping columnObjectName="Join_3" columnName="QMNUM"/>
+      </attribute>
+      <attribute id="AUFLD" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of BOM Explosion/Routing Transfer"/>
+        <keyMapping columnObjectName="Join_3" columnName="AUFLD"/>
+      </attribute>
+      <attribute id="PLGRP" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Responsible planner group/department"/>
+        <keyMapping columnObjectName="Join_3" columnName="PLGRP"/>
+      </attribute>
+      <attribute id="MAUFNR" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of Superior Order"/>
+        <keyMapping columnObjectName="Join_3" columnName="MAUFNR"/>
+      </attribute>
+      <attribute id="AUFNR" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="AUFNR"/>
+        <keyMapping columnObjectName="Join_3" columnName="AUFNR"/>
+      </attribute>
+      <attribute id="GSTRS" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled start"/>
+        <keyMapping columnObjectName="Join_3" columnName="GSTRS"/>
+      </attribute>
+      <attribute id="GSTRP" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic Start Date"/>
+        <keyMapping columnObjectName="Join_3" columnName="GSTRP"/>
+      </attribute>
+      <attribute id="EQUNR" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="EQUNR"/>
+      </attribute>
+      <attribute id="GEWRK" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID of the Work Center"/>
+        <keyMapping columnObjectName="Join_3" columnName="GEWRK"/>
+      </attribute>
+      <attribute id="ILART" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance activity type"/>
+        <keyMapping columnObjectName="Join_3" columnName="ILART"/>
+      </attribute>
+      <attribute id="GLTRS" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled finish"/>
+        <keyMapping columnObjectName="Join_3" columnName="GLTRS"/>
+      </attribute>
+      <attribute id="INGPR" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group for Customer Service and Plant Maintenance"/>
+        <keyMapping columnObjectName="Join_3" columnName="INGPR"/>
+      </attribute>
+      <attribute id="RSNUM" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of reservation/dependent requirements"/>
+        <keyMapping columnObjectName="Join_3" columnName="RSNUM"/>
+      </attribute>
+      <attribute id="NPLDA" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Next planned date"/>
+        <keyMapping columnObjectName="Join_3" columnName="NPLDA"/>
+      </attribute>
+      <attribute id="NPLDO" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Last planned date"/>
+        <keyMapping columnObjectName="Join_3" columnName="NPLDO"/>
+      </attribute>
+      <attribute id="NPLDZ" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Completion for Predecessor"/>
+        <keyMapping columnObjectName="Join_3" columnName="NPLDZ"/>
+      </attribute>
+      <attribute id="TSABR" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling status: planned date called"/>
+        <keyMapping columnObjectName="Join_3" columnName="TSABR"/>
+      </attribute>
+      <attribute id="TSVBT" order="21" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling status: call outstanding"/>
+        <keyMapping columnObjectName="Join_3" columnName="TSVBT"/>
+      </attribute>
+      <attribute id="TSENM" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling status: stopped manually"/>
+        <keyMapping columnObjectName="Join_3" columnName="TSENM"/>
+      </attribute>
+      <attribute id="TSENQ" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling status: call horizon not reached"/>
+        <keyMapping columnObjectName="Join_3" columnName="TSENQ"/>
+      </attribute>
+      <attribute id="HORDA" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Call date"/>
+        <keyMapping columnObjectName="Join_3" columnName="HORDA"/>
+      </attribute>
+      <attribute id="TSTAT" order="25" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduling status"/>
+        <keyMapping columnObjectName="Join_3" columnName="TSTAT"/>
+      </attribute>
+      <attribute id="CAL_REPORT_DATE_copy_2" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Report Date"/>
+        <keyMapping columnObjectName="Join_3" columnName="CAL_REPORT_DATE_copy_2"/>
+      </attribute>
+      <attribute id="MSEH3" order="27" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="External Unit of Measurement in Commercial Format (3-Char.)"/>
+        <keyMapping columnObjectName="Join_3" columnName="MSEH3"/>
+      </attribute>
+      <attribute id="CAL_PREV_WK_START_copy_2" order="28" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Previous Week Start Date"/>
+        <keyMapping columnObjectName="Join_3" columnName="CAL_PREV_WK_START_copy_2"/>
+      </attribute>
+      <attribute id="AUART" order="29" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="AUART"/>
+      </attribute>
+      <attribute id="ERDAT" order="30" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Created on"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERDAT"/>
+      </attribute>
+      <attribute id="ERNAM" order="31" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Entered by"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERNAM"/>
+      </attribute>
+      <attribute id="KTEXT" order="32" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description"/>
+        <keyMapping columnObjectName="Join_3" columnName="KTEXT"/>
+      </attribute>
+      <attribute id="AEDAT" order="33" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change date for Order Master"/>
+        <keyMapping columnObjectName="Join_3" columnName="AEDAT"/>
+      </attribute>
+      <attribute id="ZEIEH" order="34" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZEIEH"/>
+        <keyMapping columnObjectName="Join_3" columnName="ZEIEH"/>
+      </attribute>
+      <attribute id="MSEHI" order="35" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MSEHI"/>
+        <keyMapping columnObjectName="Join_3" columnName="MSEHI"/>
+      </attribute>
+      <attribute id="WARPL" order="51" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WARPL"/>
+        <keyMapping columnObjectName="Join_3" columnName="WARPL"/>
+      </attribute>
+      <attribute id="WPGRP" order="52" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group for Customer Service and Plant Maintenance"/>
+        <keyMapping columnObjectName="Join_3" columnName="WPGRP"/>
+      </attribute>
+      <attribute id="GETRI" order="53" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="GETRI"/>
+      </attribute>
+      <attribute id="LRMDT" order="54" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="LRMDT"/>
+      </attribute>
+      <attribute id="PLAUF" order="55" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="PLAUF"/>
+      </attribute>
+      <attribute id="OBJNR" order="59" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="OBJNR"/>
+      </attribute>
+      <attribute id="ZPLNGRP_ID" order="60" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZPLNGRP_ID"/>
+        <keyMapping columnObjectName="Join_3" columnName="ZPLNGRP_ID"/>
+      </attribute>
+      <attribute id="ZP:NGRP_DESC" order="61" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZP:NGRP_DESC"/>
+        <keyMapping columnObjectName="Join_3" columnName="ZP:NGRP_DESC"/>
+      </attribute>
+      <attribute id="ZDEPARTMENT" order="62" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZDEPARTMENT"/>
+        <keyMapping columnObjectName="Join_3" columnName="ZDEPARTMENT"/>
+      </attribute>
+      <attribute id="ZGEN_MANAGER" order="63" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZGEN_MANAGER"/>
+        <keyMapping columnObjectName="Join_3" columnName="ZGEN_MANAGER"/>
+      </attribute>
+      <attribute id="WO_PLANNER_GRP_DESC" order="65" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_PLANNER_GRP_DESC"/>
+        <keyMapping columnObjectName="Join_3" columnName="WO_PLANNER_GRP_DESC"/>
+      </attribute>
+      <attribute id="WO_ZDEPARTMENT" order="66" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_ZDEPARTMENT"/>
+        <keyMapping columnObjectName="Join_3" columnName="WO_ZDEPARTMENT"/>
+      </attribute>
+      <attribute id="WO_ZGEN_MANAGER" order="67" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_ZGEN_MANAGER"/>
+        <keyMapping columnObjectName="Join_3" columnName="WO_ZGEN_MANAGER"/>
+      </attribute>
+      <attribute id="IDAT2" order="71" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical completion date"/>
+        <keyMapping columnObjectName="Join_3" columnName="IDAT2"/>
+      </attribute>
+      <attribute id="VAPLZ" order="72" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Main work center for maintenance tasks"/>
+        <keyMapping columnObjectName="Join_3" columnName="VAPLZ"/>
+      </attribute>
+      <attribute id="ANLZU" order="73" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Join_3" columnName="ANLZU"/>
+      </attribute>
+      <attribute id="ANLZUX" order="74" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Text on Operating Condition"/>
+        <keyMapping columnObjectName="Join_3" columnName="ANLZUX"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="CAL_PM_DIV_COMPLIANCE_PR" hidden="false" order="56" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_PLANNED_WITHIN_NPLDA&quot;= 1,1,0) - IF (&quot;CAL_WITHIN_GRACE_copy_2&quot;=1,1,0) + if(&quot;CAL_ORDER_COMPLETED_copy_2&quot; = 0 AND &quot;CAL_PLANNED_WITHIN_NPLDA&quot; = 0,1,0)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="PLSVB" order="36" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="PLSVB"/>
+        <measureMapping columnObjectName="Join_3" columnName="PLSVB"/>
+      </measure>
+      <measure id="OBKNR" order="37" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="OBKNR"/>
+        <measureMapping columnObjectName="Join_3" columnName="OBKNR"/>
+      </measure>
+      <measure id="ABNUM" order="38" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="ABNUM"/>
+        <measureMapping columnObjectName="Join_3" columnName="ABNUM"/>
+      </measure>
+      <measure id="VGNUM" order="39" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Previous maintenance plan call"/>
+        <measureMapping columnObjectName="Join_3" columnName="VGNUM"/>
+      </measure>
+      <measure id="CAL_ORDER_COMPLETED_copy_2" order="40" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_ORDER_COMPLETED"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_ORDER_COMPLETED_copy_2"/>
+      </measure>
+      <measure id="CAL_COMPLETION_copy_2" order="41" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Completion"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_COMPLETION_copy_2"/>
+      </measure>
+      <measure id="ZYKL1" order="42" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Maintenance package cycle/offset"/>
+        <measureMapping columnObjectName="Join_3" columnName="ZYKL1"/>
+      </measure>
+      <measure id="CAL_CYCLE_IN_DAYS_copy_2" order="43" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="20% Cycle in Days"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_CYCLE_IN_DAYS_copy_2"/>
+      </measure>
+      <measure id="CAL_WITHIN_GRACE_copy_2" order="44" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Within Grace"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_WITHIN_GRACE_copy_2"/>
+      </measure>
+      <measure id="CAL_PLANNED_WITHIN" order="45" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_PLANNED_WITHIN"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_PLANNED_WITHIN"/>
+      </measure>
+      <measure id="CAL_COMPLIANCE" order="46" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_COMPLIANCE"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_COMPLIANCE"/>
+      </measure>
+      <measure id="CAL_DELINQUENT_PMs" order="47" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_DELINQUENT_PMs"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_DELINQUENT_PMs"/>
+      </measure>
+      <measure id="CAL_ORDER_COUNT" order="48" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_ORDER_COUNT"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_ORDER_COUNT"/>
+      </measure>
+      <measure id="CAL_COMPLIANCE_PLANNED_WITH_COUNT" order="49" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+      </measure>
+      <measure id="CAL_ODRCOMPLETED_PLNDWITH_CNT" order="50" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+      </measure>
+      <measure id="NUMERATOR" order="64" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="NUMERATOR"/>
+        <measureMapping columnObjectName="Join_3" columnName="NUMERATOR"/>
+      </measure>
+      <measure id="CAL_COMPLETED_PLAN_WITHIN" order="68" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_COMPLETED_PLAN_WITHIN"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_COMPLETED_PLAN_WITHIN"/>
+      </measure>
+      <measure id="CAL_PLAN_WITHIN_NOT_IN_GRACE" order="69" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+      </measure>
+      <measure id="CAL_PLANNED_WITHIN_NPLDA" order="70" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping columnObjectName="Join_3" columnName="CAL_PLANNED_WITHIN_NPLDA"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures>
+      <measure id="test_cal_order_completed" hidden="false" order="1" aggregationType="sum" measureType="simple" aggregatable="true" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="test_cal_order_completed"/>
+        <formula>if (&quot;CAL_ORDER_COMPLETED_copy_2&quot; =1,1,0)</formula>
+      </measure>
+      <measure id="TEST_SUM" hidden="false" order="57" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="TEST_SUM"/>
+        <formula>&quot;CAL_PLANNED_WITHIN_NPLDA&quot;+ &quot;CAL_WITHIN_GRACE_copy_2&quot; - &quot;CAL_ODRCOMPLETED_PLNDWITH_CNT&quot;</formula>
+      </measure>
+      <measure id="test_count_typ" hidden="false" order="58" aggregationType="sum" measureType="simple" aggregatable="true" calculatedMeasureType="counter" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="test_count_typ"/>
+        <exceptionAggregation exceptionAggregationType="countDistinct">
+          <attribute attributeName="AUART"/>
+          <attribute attributeName="AUFNR"/>
+        </exceptionAggregation>
+        <formula>1</formula>
+      </measure>
+    </calculatedMeasures>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="472" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="CopyOfProjection_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="327" y="837"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="CopyOfProjection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="1203"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="10" y="1446"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="1299"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_8" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="262" y="1446"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    
+      <shape expanded="true" modelObjectName="Join_8" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="108" y="1350"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Projection_6" modelObjectNameSpace="Join_8" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_8" modelObjectNameSpace="Join_8" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Join_7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="1203"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Join_8" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_7" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="CopyOfJoin_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="98" y="1107"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="CopyOfProjection_3" modelObjectNameSpace="CopyOfJoin_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_7" modelObjectNameSpace="CopyOfJoin_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="98" y="1029"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="CopyOfProjection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="252" y="1029"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_16" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="173" y="933"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Aggregation_3" modelObjectNameSpace="Join_16" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CopyOfProjection_1" modelObjectNameSpace="Join_16" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="173" y="837"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_12" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="247" y="741"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="Aggregation_5" modelObjectNameSpace="Join_12" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CopyOfProjection_5" modelObjectNameSpace="Join_12" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="247" y="645"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="CopyOfProjection_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="475" y="549"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="CopyOfProjection_10" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="555" y="645"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="709" y="645"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="629" y="549"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="CopyOfProjection_10" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_5" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Join_14" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="475" y="453"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="CopyOfProjection_6" modelObjectNameSpace="Join_14" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_6" modelObjectNameSpace="Join_14" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="401" y="741"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="478" y="933"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="632" y="933"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="555" y="837"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="555" y="741"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="401" y="645"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Aggregation_6" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="321" y="549"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Aggregation_2" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="321" y="453"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_13" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="395" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_13" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_14" modelObjectNameSpace="Join_13" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="395" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="549" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="CopyOfCopyOfProjection_11" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="703" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="549" y="261"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CopyOfCopyOfProjection_11" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="472" y="165"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Aggregation_4" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_5" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

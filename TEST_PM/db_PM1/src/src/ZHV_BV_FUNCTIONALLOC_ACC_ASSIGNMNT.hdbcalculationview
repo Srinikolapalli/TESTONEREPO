@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_BV_FUNCTIONALLOC_ACC_ASSIGNMNT" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="ZHV_BV_FUNCTIONALLOC_ACC_ASSIGNMNT"/>
+  <metadata changedAt="2021-05-19 23:43:24.471"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="ILOA">
+      <resourceUri>algoma.pm::ILOA</resourceUri>
+    </DataSource>
+    <DataSource id="ZHV_BV_FUNCTIONAL_LOCATION">
+      <resourceUri>algoma.pm::ZHV_BV_FUNCTIONAL_LOCATION</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="TPLNR"/>
+        <viewAttribute id="ABCKZ"/>
+        <viewAttribute id="ABCKZI"/>
+        <viewAttribute id="EQFNR"/>
+        <viewAttribute id="EQFNRI"/>
+        <viewAttribute id="SWERK"/>
+        <viewAttribute id="SWERKI"/>
+        <viewAttribute id="STORT"/>
+        <viewAttribute id="STORTI"/>
+        <viewAttribute id="MSGRP"/>
+        <viewAttribute id="MSGRPI"/>
+        <viewAttribute id="BEBER"/>
+        <viewAttribute id="BEBERI"/>
+        <viewAttribute id="CR_OBJTY"/>
+        <viewAttribute id="PPSID"/>
+        <viewAttribute id="PPSIDI"/>
+        <viewAttribute id="GSBER"/>
+        <viewAttribute id="GSBERI"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="KOKRSI"/>
+        <viewAttribute id="KOSTL"/>
+        <viewAttribute id="KOSTLI"/>
+        <viewAttribute id="PROID"/>
+        <viewAttribute id="PROIDI"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="BUKRSI"/>
+        <viewAttribute id="ANLNR"/>
+        <viewAttribute id="ANLNRI"/>
+        <viewAttribute id="ANLUN"/>
+        <viewAttribute id="ANLUNI"/>
+        <viewAttribute id="DAUFN"/>
+        <viewAttribute id="DAUFNI"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUFNRI"/>
+        <viewAttribute id="TPLNRI"/>
+        <viewAttribute id="VKORG"/>
+        <viewAttribute id="VKORGI"/>
+        <viewAttribute id="VTWEG"/>
+        <viewAttribute id="VTWEGI"/>
+        <viewAttribute id="SPART"/>
+        <viewAttribute id="SPARTI"/>
+        <viewAttribute id="ADRNR"/>
+        <viewAttribute id="ADRNRI"/>
+        <viewAttribute id="OWNER"/>
+        <viewAttribute id="VKBUR"/>
+        <viewAttribute id="VKGRP"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ILOA"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="FunctionalLocation"/>
+        <viewAttribute id="EquipmentInstallationIsAllowed"/>
+        <viewAttribute id="OnePieceOfEquipmentIsAllowed"/>
+        <viewAttribute id="Currency"/>
+        <viewAttribute id="OperationStartDate"/>
+        <viewAttribute id="AssetManufacturerName"/>
+        <viewAttribute id="ConstructionYear"/>
+        <viewAttribute id="ConstructionMaterial"/>
+        <viewAttribute id="FunctionalLocationName"/>
+        <viewAttribute id="FunctionalLocationLabelName"/>
+        <viewAttribute id="AcquisitionDate"/>
+        <viewAttribute id="ClassType"/>
+        <viewAttribute id="Class"/>
+        <viewAttribute id="ClassName"/>
+        <viewAttribute id="AcquisitionValue"/>
+        <viewAttribute id="MLANG"/>
+        <viewAttribute id="TPLKZ"/>
+        <viewAttribute id="FLTYP"/>
+        <viewAttribute id="TPLMA"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="BEGRU"/>
+        <viewAttribute id="TRPNR"/>
+        <viewAttribute id="PSTAE"/>
+        <viewAttribute id="STNAM"/>
+        <viewAttribute id="LVORM"/>
+        <viewAttribute id="SUBMTI"/>
+        <viewAttribute id="MAPAR"/>
+        <viewAttribute id="MAPARI"/>
+        <viewAttribute id="IEQUII"/>
+        <viewAttribute id="EINZLI"/>
+        <viewAttribute id="IWERK"/>
+        <viewAttribute id="IWERKI"/>
+        <viewAttribute id="INGRP"/>
+        <viewAttribute id="INGRPI"/>
+        <viewAttribute id="PM_OBJTY"/>
+        <viewAttribute id="LGWID"/>
+        <viewAttribute id="LGWIDI"/>
+        <viewAttribute id="RBNR"/>
+        <viewAttribute id="RBNR_I"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="ISTYP"/>
+        <viewAttribute id="PREMS"/>
+        <viewAttribute id="EQART"/>
+        <viewAttribute id="INVNR"/>
+        <viewAttribute id="GROES"/>
+        <viewAttribute id="BRGEW"/>
+        <viewAttribute id="GEWEI"/>
+        <viewAttribute id="BAUMM"/>
+        <viewAttribute id="TYPBZ"/>
+        <viewAttribute id="EMATN"/>
+        <viewAttribute id="SERGE"/>
+        <viewAttribute id="HANDLE"/>
+        <viewAttribute id="TSEGTP"/>
+        <viewAttribute id="FLLB_DUTY"/>
+        <viewAttribute id="FLLB_HIDE"/>
+        <viewAttribute id="IFLOT_SRTYPE"/>
+        <viewAttribute id="IFLOT_SNTYPE"/>
+        <viewAttribute id="HERLD"/>
+        <viewAttribute id="KZLTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="PLTXU"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZHV_BV_FUNCTIONAL_LOCATION"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="TPLNR"/>
+        <viewAttribute id="ABCKZ"/>
+        <viewAttribute id="ABCKZI"/>
+        <viewAttribute id="EQFNR"/>
+        <viewAttribute id="EQFNRI"/>
+        <viewAttribute id="SWERK"/>
+        <viewAttribute id="SWERKI"/>
+        <viewAttribute id="STORT"/>
+        <viewAttribute id="STORTI"/>
+        <viewAttribute id="MSGRP"/>
+        <viewAttribute id="MSGRPI"/>
+        <viewAttribute id="BEBER"/>
+        <viewAttribute id="BEBERI"/>
+        <viewAttribute id="CR_OBJTY"/>
+        <viewAttribute id="PPSID"/>
+        <viewAttribute id="PPSIDI"/>
+        <viewAttribute id="GSBER"/>
+        <viewAttribute id="GSBERI"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="KOKRSI"/>
+        <viewAttribute id="KOSTL"/>
+        <viewAttribute id="KOSTLI"/>
+        <viewAttribute id="PROID"/>
+        <viewAttribute id="PROIDI"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="BUKRSI"/>
+        <viewAttribute id="ANLNR"/>
+        <viewAttribute id="ANLNRI"/>
+        <viewAttribute id="ANLUN"/>
+        <viewAttribute id="ANLUNI"/>
+        <viewAttribute id="DAUFN"/>
+        <viewAttribute id="DAUFNI"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUFNRI"/>
+        <viewAttribute id="TPLNRI"/>
+        <viewAttribute id="VKORG"/>
+        <viewAttribute id="VKORGI"/>
+        <viewAttribute id="VTWEG"/>
+        <viewAttribute id="VTWEGI"/>
+        <viewAttribute id="SPART"/>
+        <viewAttribute id="SPARTI"/>
+        <viewAttribute id="ADRNR"/>
+        <viewAttribute id="ADRNRI"/>
+        <viewAttribute id="OWNER"/>
+        <viewAttribute id="VKBUR"/>
+        <viewAttribute id="VKGRP"/>
+        <viewAttribute id="EquipmentInstallationIsAllowed"/>
+        <viewAttribute id="OnePieceOfEquipmentIsAllowed"/>
+        <viewAttribute id="Currency"/>
+        <viewAttribute id="OperationStartDate"/>
+        <viewAttribute id="AssetManufacturerName"/>
+        <viewAttribute id="ConstructionYear"/>
+        <viewAttribute id="ConstructionMaterial"/>
+        <viewAttribute id="FunctionalLocationName"/>
+        <viewAttribute id="FunctionalLocationLabelName"/>
+        <viewAttribute id="AcquisitionDate"/>
+        <viewAttribute id="ClassType"/>
+        <viewAttribute id="Class"/>
+        <viewAttribute id="ClassName"/>
+        <viewAttribute id="AcquisitionValue"/>
+        <viewAttribute id="MLANG"/>
+        <viewAttribute id="TPLKZ"/>
+        <viewAttribute id="FLTYP"/>
+        <viewAttribute id="TPLMA"/>
+        <viewAttribute id="ERNAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="BEGRU"/>
+        <viewAttribute id="TRPNR"/>
+        <viewAttribute id="PSTAE"/>
+        <viewAttribute id="STNAM"/>
+        <viewAttribute id="LVORM"/>
+        <viewAttribute id="SUBMTI"/>
+        <viewAttribute id="MAPAR"/>
+        <viewAttribute id="MAPARI"/>
+        <viewAttribute id="IEQUII"/>
+        <viewAttribute id="EINZLI"/>
+        <viewAttribute id="IWERK"/>
+        <viewAttribute id="IWERKI"/>
+        <viewAttribute id="INGRP"/>
+        <viewAttribute id="INGRPI"/>
+        <viewAttribute id="PM_OBJTY"/>
+        <viewAttribute id="LGWID"/>
+        <viewAttribute id="LGWIDI"/>
+        <viewAttribute id="RBNR"/>
+        <viewAttribute id="RBNR_I"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="ISTYP"/>
+        <viewAttribute id="PREMS"/>
+        <viewAttribute id="EQART"/>
+        <viewAttribute id="INVNR"/>
+        <viewAttribute id="GROES"/>
+        <viewAttribute id="BRGEW"/>
+        <viewAttribute id="GEWEI"/>
+        <viewAttribute id="BAUMM"/>
+        <viewAttribute id="TYPBZ"/>
+        <viewAttribute id="EMATN"/>
+        <viewAttribute id="SERGE"/>
+        <viewAttribute id="HANDLE"/>
+        <viewAttribute id="TSEGTP"/>
+        <viewAttribute id="FLLB_DUTY"/>
+        <viewAttribute id="FLLB_HIDE"/>
+        <viewAttribute id="IFLOT_SRTYPE"/>
+        <viewAttribute id="IFLOT_SNTYPE"/>
+        <viewAttribute id="HERLD"/>
+        <viewAttribute id="KZLTX"/>
+        <viewAttribute id="KZMLA"/>
+        <viewAttribute id="PLTXU"/>
+      <viewAttribute hidden="true" id="JOIN$MANDT$SAPClient"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABCKZ" source="ABCKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ABCKZI" source="ABCKZI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQFNR" source="EQFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQFNRI" source="EQFNRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SWERK" source="SWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SWERKI" source="SWERKI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STORT" source="STORT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STORTI" source="STORTI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSGRP" source="MSGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MSGRPI" source="MSGRPI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BEBER" source="BEBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BEBERI" source="BEBERI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CR_OBJTY" source="CR_OBJTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PPSID" source="PPSID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PPSIDI" source="PPSIDI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSBER" source="GSBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSBERI" source="GSBERI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOKRS" source="KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOKRSI" source="KOKRSI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOSTL" source="KOSTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOSTLI" source="KOSTLI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PROID" source="PROID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PROIDI" source="PROIDI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BUKRSI" source="BUKRSI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLNR" source="ANLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLNRI" source="ANLNRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLUN" source="ANLUN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLUNI" source="ANLUNI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUFN" source="DAUFN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUFNI" source="DAUFNI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNRI" source="AUFNRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNRI" source="TPLNRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKORG" source="VKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKORGI" source="VKORGI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEG" source="VTWEG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEGI" source="VTWEGI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPART" source="SPART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPARTI" source="SPARTI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ADRNR" source="ADRNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ADRNRI" source="ADRNRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OWNER" source="OWNER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKBUR" source="VKBUR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKGRP" source="VKGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$SAPClient" source="MANDT"/>
+      </input>
+      <input node="Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="EquipmentInstallationIsAllowed" source="EquipmentInstallationIsAllowed"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OnePieceOfEquipmentIsAllowed" source="OnePieceOfEquipmentIsAllowed"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Currency" source="Currency"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OperationStartDate" source="OperationStartDate"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AssetManufacturerName" source="AssetManufacturerName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionYear" source="ConstructionYear"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionMaterial" source="ConstructionMaterial"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FunctionalLocationName" source="FunctionalLocationName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FunctionalLocationLabelName" source="FunctionalLocationLabelName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AcquisitionDate" source="AcquisitionDate"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ClassType" source="ClassType"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Class" source="Class"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ClassName" source="ClassName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AcquisitionValue" source="AcquisitionValue"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MLANG" source="MLANG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLKZ" source="TPLKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLTYP" source="FLTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLMA" source="TPLMA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BEGRU" source="BEGRU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TRPNR" source="TRPNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTAE" source="PSTAE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STNAM" source="STNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LVORM" source="LVORM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBMTI" source="SUBMTI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAPAR" source="MAPAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MAPARI" source="MAPARI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IEQUII" source="IEQUII"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EINZLI" source="EINZLI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IWERK" source="IWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IWERKI" source="IWERKI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGRP" source="INGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGRPI" source="INGRPI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PM_OBJTY" source="PM_OBJTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LGWID" source="LGWID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LGWIDI" source="LGWIDI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RBNR" source="RBNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RBNR_I" source="RBNR_I"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISTYP" source="ISTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PREMS" source="PREMS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQART" source="EQART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INVNR" source="INVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GROES" source="GROES"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BRGEW" source="BRGEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GEWEI" source="GEWEI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BAUMM" source="BAUMM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TYPBZ" source="TYPBZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMATN" source="EMATN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SERGE" source="SERGE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HANDLE" source="HANDLE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TSEGTP" source="TSEGTP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLLB_DUTY" source="FLLB_DUTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLLB_HIDE" source="FLLB_HIDE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IFLOT_SRTYPE" source="IFLOT_SRTYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IFLOT_SNTYPE" source="IFLOT_SNTYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HERLD" source="HERLD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZLTX" source="KZLTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZMLA" source="KZMLA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLTXU" source="PLTXU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="FunctionalLocation"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+      </input>
+    <joinAttribute name="JOIN$MANDT$SAPClient"/>
+    <joinAttribute name="TPLNR"/>
+    <joinAttribute name="ILOAN"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="ILOAN" order="1" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Location and account assignment for technical object"/>
+        <keyMapping columnObjectName="Join_1" columnName="ILOAN"/>
+      </attribute>
+      <attribute id="TPLNR" order="2" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location"/>
+        <keyMapping columnObjectName="Join_1" columnName="TPLNR"/>
+      </attribute>
+      <attribute id="ABCKZ" order="3" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ABC indicator for technical object"/>
+        <keyMapping columnObjectName="Join_1" columnName="ABCKZ"/>
+      </attribute>
+      <attribute id="ABCKZI" order="4" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for ABC indicator field"/>
+        <keyMapping columnObjectName="Join_1" columnName="ABCKZI"/>
+      </attribute>
+      <attribute id="EQFNR" order="5" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sort field"/>
+        <keyMapping columnObjectName="Join_1" columnName="EQFNR"/>
+      </attribute>
+      <attribute id="EQFNRI" order="6" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for sort field"/>
+        <keyMapping columnObjectName="Join_1" columnName="EQFNRI"/>
+      </attribute>
+      <attribute id="SWERK" order="7" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance plant"/>
+        <keyMapping columnObjectName="Join_1" columnName="SWERK"/>
+      </attribute>
+      <attribute id="SWERKI" order="8" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for maintenance plant field"/>
+        <keyMapping columnObjectName="Join_1" columnName="SWERKI"/>
+      </attribute>
+      <attribute id="STORT" order="9" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Location of maintenance object"/>
+        <keyMapping columnObjectName="Join_1" columnName="STORT"/>
+      </attribute>
+      <attribute id="STORTI" order="10" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for location field"/>
+        <keyMapping columnObjectName="Join_1" columnName="STORTI"/>
+      </attribute>
+      <attribute id="MSGRP" order="11" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Room"/>
+        <keyMapping columnObjectName="Join_1" columnName="MSGRP"/>
+      </attribute>
+      <attribute id="MSGRPI" order="12" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for room number field"/>
+        <keyMapping columnObjectName="Join_1" columnName="MSGRPI"/>
+      </attribute>
+      <attribute id="BEBER" order="13" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant section"/>
+        <keyMapping columnObjectName="Join_1" columnName="BEBER"/>
+      </attribute>
+      <attribute id="BEBERI" order="14" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for plant section field"/>
+        <keyMapping columnObjectName="Join_1" columnName="BEBERI"/>
+      </attribute>
+      <attribute id="CR_OBJTY" order="15" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object types of the CIM resource"/>
+        <keyMapping columnObjectName="Join_1" columnName="CR_OBJTY"/>
+      </attribute>
+      <attribute id="PPSID" order="16" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID of PP work center"/>
+        <keyMapping columnObjectName="Join_1" columnName="PPSID"/>
+      </attribute>
+      <attribute id="PPSIDI" order="17" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for PP work center field"/>
+        <keyMapping columnObjectName="Join_1" columnName="PPSIDI"/>
+      </attribute>
+      <attribute id="GSBER" order="18" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business Area"/>
+        <keyMapping columnObjectName="Join_1" columnName="GSBER"/>
+      </attribute>
+      <attribute id="GSBERI" order="19" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for business area field"/>
+        <keyMapping columnObjectName="Join_1" columnName="GSBERI"/>
+      </attribute>
+      <attribute id="KOKRS" order="20" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Controlling Area"/>
+        <keyMapping columnObjectName="Join_1" columnName="KOKRS"/>
+      </attribute>
+      <attribute id="KOKRSI" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for controlling area field"/>
+        <keyMapping columnObjectName="Join_1" columnName="KOKRSI"/>
+      </attribute>
+      <attribute id="KOSTL" order="22" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Cost Center"/>
+        <keyMapping columnObjectName="Join_1" columnName="KOSTL"/>
+      </attribute>
+      <attribute id="KOSTLI" order="23" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for cost center field"/>
+        <keyMapping columnObjectName="Join_1" columnName="KOSTLI"/>
+      </attribute>
+      <attribute id="PROID" order="24" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Work Breakdown Structure Element (WBS Element)"/>
+        <keyMapping columnObjectName="Join_1" columnName="PROID"/>
+      </attribute>
+      <attribute id="PROIDI" order="25" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for WBS element field"/>
+        <keyMapping columnObjectName="Join_1" columnName="PROIDI"/>
+      </attribute>
+      <attribute id="BUKRS" order="26" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company Code"/>
+        <keyMapping columnObjectName="Join_1" columnName="BUKRS"/>
+      </attribute>
+      <attribute id="BUKRSI" order="27" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for company code field"/>
+        <keyMapping columnObjectName="Join_1" columnName="BUKRSI"/>
+      </attribute>
+      <attribute id="ANLNR" order="28" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Main Asset Number"/>
+        <keyMapping columnObjectName="Join_1" columnName="ANLNR"/>
+      </attribute>
+      <attribute id="ANLNRI" order="29" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for asset main no./sub-no. fields"/>
+        <keyMapping columnObjectName="Join_1" columnName="ANLNRI"/>
+      </attribute>
+      <attribute id="ANLUN" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Asset Subnumber"/>
+        <keyMapping columnObjectName="Join_1" columnName="ANLUN"/>
+      </attribute>
+      <attribute id="ANLUNI" order="31" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin indicator"/>
+        <keyMapping columnObjectName="Join_1" columnName="ANLUNI"/>
+      </attribute>
+      <attribute id="DAUFN" order="32" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Standing order number"/>
+        <keyMapping columnObjectName="Join_1" columnName="DAUFN"/>
+      </attribute>
+      <attribute id="DAUFNI" order="33" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin of standing order number field"/>
+        <keyMapping columnObjectName="Join_1" columnName="DAUFNI"/>
+      </attribute>
+      <attribute id="AUFNR" order="34" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Settlement order"/>
+        <keyMapping columnObjectName="Join_1" columnName="AUFNR"/>
+      </attribute>
+      <attribute id="AUFNRI" order="35" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for settlement order field"/>
+        <keyMapping columnObjectName="Join_1" columnName="AUFNRI"/>
+      </attribute>
+      <attribute id="TPLNRI" order="36" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for functional location field"/>
+        <keyMapping columnObjectName="Join_1" columnName="TPLNRI"/>
+      </attribute>
+      <attribute id="VKORG" order="37" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Organization"/>
+        <keyMapping columnObjectName="Join_1" columnName="VKORG"/>
+      </attribute>
+      <attribute id="VKORGI" order="38" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for sales organization field"/>
+        <keyMapping columnObjectName="Join_1" columnName="VKORGI"/>
+      </attribute>
+      <attribute id="VTWEG" order="39" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Distribution Channel"/>
+        <keyMapping columnObjectName="Join_1" columnName="VTWEG"/>
+      </attribute>
+      <attribute id="VTWEGI" order="40" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin of distribution channel field"/>
+        <keyMapping columnObjectName="Join_1" columnName="VTWEGI"/>
+      </attribute>
+      <attribute id="SPART" order="41" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Division"/>
+        <keyMapping columnObjectName="Join_1" columnName="SPART"/>
+      </attribute>
+      <attribute id="SPARTI" order="42" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for division field"/>
+        <keyMapping columnObjectName="Join_1" columnName="SPARTI"/>
+      </attribute>
+      <attribute id="ADRNR" order="43" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Address number"/>
+        <keyMapping columnObjectName="Join_1" columnName="ADRNR"/>
+      </attribute>
+      <attribute id="ADRNRI" order="44" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for address field"/>
+        <keyMapping columnObjectName="Join_1" columnName="ADRNRI"/>
+      </attribute>
+      <attribute id="OWNER" order="45" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object reference indicator"/>
+        <keyMapping columnObjectName="Join_1" columnName="OWNER"/>
+      </attribute>
+      <attribute id="VKBUR" order="46" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Office"/>
+        <keyMapping columnObjectName="Join_1" columnName="VKBUR"/>
+      </attribute>
+      <attribute id="VKGRP" order="47" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Group"/>
+        <keyMapping columnObjectName="Join_1" columnName="VKGRP"/>
+      </attribute>
+      <attribute id="EquipmentInstallationIsAllowed" order="48" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Installation Is Allowed"/>
+        <keyMapping columnObjectName="Join_1" columnName="EquipmentInstallationIsAllowed"/>
+      </attribute>
+      <attribute id="OnePieceOfEquipmentIsAllowed" order="49" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="One Piece Of Equipment Is Allowed"/>
+        <keyMapping columnObjectName="Join_1" columnName="OnePieceOfEquipmentIsAllowed"/>
+      </attribute>
+      <attribute id="Currency" order="50" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Currency"/>
+        <keyMapping columnObjectName="Join_1" columnName="Currency"/>
+      </attribute>
+      <attribute id="OperationStartDate" order="51" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Operational Start Date"/>
+        <keyMapping columnObjectName="Join_1" columnName="OperationStartDate"/>
+      </attribute>
+      <attribute id="AssetManufacturerName" order="52" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Asset Manufacturer Name"/>
+        <keyMapping columnObjectName="Join_1" columnName="AssetManufacturerName"/>
+      </attribute>
+      <attribute id="ConstructionYear" order="53" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Construction Year"/>
+        <keyMapping columnObjectName="Join_1" columnName="ConstructionYear"/>
+      </attribute>
+      <attribute id="ConstructionMaterial" order="54" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Construction Material"/>
+        <keyMapping columnObjectName="Join_1" columnName="ConstructionMaterial"/>
+      </attribute>
+      <attribute id="FunctionalLocationName" order="55" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location Name"/>
+        <keyMapping columnObjectName="Join_1" columnName="FunctionalLocationName"/>
+      </attribute>
+      <attribute id="FunctionalLocationLabelName" order="56" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location Label Name"/>
+        <keyMapping columnObjectName="Join_1" columnName="FunctionalLocationLabelName"/>
+      </attribute>
+      <attribute id="AcquisitionDate" order="57" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Acquisition Date"/>
+        <keyMapping columnObjectName="Join_1" columnName="AcquisitionDate"/>
+      </attribute>
+      <attribute id="ClassType" order="58" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Class Type"/>
+        <keyMapping columnObjectName="Join_1" columnName="ClassType"/>
+      </attribute>
+      <attribute id="Class" order="59" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Class"/>
+        <keyMapping columnObjectName="Join_1" columnName="Class"/>
+      </attribute>
+      <attribute id="ClassName" order="60" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Class Name"/>
+        <keyMapping columnObjectName="Join_1" columnName="ClassName"/>
+      </attribute>
+      <attribute id="MLANG" order="62" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Primary language for object texts"/>
+        <keyMapping columnObjectName="Join_1" columnName="MLANG"/>
+      </attribute>
+      <attribute id="TPLKZ" order="63" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional location structure indicator"/>
+        <keyMapping columnObjectName="Join_1" columnName="TPLKZ"/>
+      </attribute>
+      <attribute id="FLTYP" order="64" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional location category"/>
+        <keyMapping columnObjectName="Join_1" columnName="FLTYP"/>
+      </attribute>
+      <attribute id="TPLMA" order="65" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Superior functional location"/>
+        <keyMapping columnObjectName="Join_1" columnName="TPLMA"/>
+      </attribute>
+      <attribute id="ERNAM" order="66" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of User Who Created the Object"/>
+        <keyMapping columnObjectName="Join_1" columnName="ERNAM"/>
+      </attribute>
+      <attribute id="AEDAT" order="67" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date on which the object was last changed"/>
+        <keyMapping columnObjectName="Join_1" columnName="AEDAT"/>
+      </attribute>
+      <attribute id="AENAM" order="68" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of the user who last changed the object"/>
+        <keyMapping columnObjectName="Join_1" columnName="AENAM"/>
+      </attribute>
+      <attribute id="BEGRU" order="69" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical object authorization group"/>
+        <keyMapping columnObjectName="Join_1" columnName="BEGRU"/>
+      </attribute>
+      <attribute id="TRPNR" order="70" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reference functional location"/>
+        <keyMapping columnObjectName="Join_1" columnName="TRPNR"/>
+      </attribute>
+      <attribute id="PSTAE" order="71" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Development reserve: Format CHAR, length 4"/>
+        <keyMapping columnObjectName="Join_1" columnName="PSTAE"/>
+      </attribute>
+      <attribute id="STNAM" order="72" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Development Reserve: Format CHAR, Length 12"/>
+        <keyMapping columnObjectName="Join_1" columnName="STNAM"/>
+      </attribute>
+      <attribute id="LVORM" order="73" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Development Reserve: Format CHAR, Length 1"/>
+        <keyMapping columnObjectName="Join_1" columnName="LVORM"/>
+      </attribute>
+      <attribute id="SUBMTI" order="74" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for construction type field"/>
+        <keyMapping columnObjectName="Join_1" columnName="SUBMTI"/>
+      </attribute>
+      <attribute id="MAPAR" order="75" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Manufacturer part number"/>
+        <keyMapping columnObjectName="Join_1" columnName="MAPAR"/>
+      </attribute>
+      <attribute id="MAPARI" order="76" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Development Reserve: Format CHAR, Length 1"/>
+        <keyMapping columnObjectName="Join_1" columnName="MAPARI"/>
+      </attribute>
+      <attribute id="IEQUII" order="77" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for equip. inst. allowed field"/>
+        <keyMapping columnObjectName="Join_1" columnName="IEQUII"/>
+      </attribute>
+      <attribute id="EINZLI" order="78" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for authorization group field"/>
+        <keyMapping columnObjectName="Join_1" columnName="EINZLI"/>
+      </attribute>
+      <attribute id="IWERK" order="79" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Planning Plant"/>
+        <keyMapping columnObjectName="Join_1" columnName="IWERK"/>
+      </attribute>
+      <attribute id="IWERKI" order="80" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for planning plant field"/>
+        <keyMapping columnObjectName="Join_1" columnName="IWERKI"/>
+      </attribute>
+      <attribute id="INGRP" order="81" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group for Customer Service and Plant Maintenance"/>
+        <keyMapping columnObjectName="Join_1" columnName="INGRP"/>
+      </attribute>
+      <attribute id="INGRPI" order="82" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for maintenance planner group field"/>
+        <keyMapping columnObjectName="Join_1" columnName="INGRPI"/>
+      </attribute>
+      <attribute id="PM_OBJTY" order="83" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Type of CIM Resources for Work Center"/>
+        <keyMapping columnObjectName="Join_1" columnName="PM_OBJTY"/>
+      </attribute>
+      <attribute id="LGWID" order="84" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID of the Work Center"/>
+        <keyMapping columnObjectName="Join_1" columnName="LGWID"/>
+      </attribute>
+      <attribute id="LGWIDI" order="85" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data Origin for the Field &apos;Work Center&apos;"/>
+        <keyMapping columnObjectName="Join_1" columnName="LGWIDI"/>
+      </attribute>
+      <attribute id="RBNR" order="86" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Catalog Profile"/>
+        <keyMapping columnObjectName="Join_1" columnName="RBNR"/>
+      </attribute>
+      <attribute id="RBNR_I" order="87" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Data origin for maintenance catalog field"/>
+        <keyMapping columnObjectName="Join_1" columnName="RBNR_I"/>
+      </attribute>
+      <attribute id="OBJNR" order="88" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object number"/>
+        <keyMapping columnObjectName="Join_1" columnName="OBJNR"/>
+      </attribute>
+      <attribute id="POSNR" order="89" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Position in superior technical object"/>
+        <keyMapping columnObjectName="Join_1" columnName="POSNR"/>
+      </attribute>
+      <attribute id="ISTYP" order="90" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object category for Industry Solutions (IS)"/>
+        <keyMapping columnObjectName="Join_1" columnName="ISTYP"/>
+      </attribute>
+      <attribute id="PREMS" order="91" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Premise"/>
+        <keyMapping columnObjectName="Join_1" columnName="PREMS"/>
+      </attribute>
+      <attribute id="EQART" order="92" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Type of Technical Object"/>
+        <keyMapping columnObjectName="Join_1" columnName="EQART"/>
+      </attribute>
+      <attribute id="INVNR" order="93" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Inventory number"/>
+        <keyMapping columnObjectName="Join_1" columnName="INVNR"/>
+      </attribute>
+      <attribute id="GROES" order="94" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Size/dimension"/>
+        <keyMapping columnObjectName="Join_1" columnName="GROES"/>
+      </attribute>
+      <attribute id="GEWEI" order="96" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Weight Unit"/>
+        <keyMapping columnObjectName="Join_1" columnName="GEWEI"/>
+      </attribute>
+      <attribute id="BAUMM" order="97" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Month of construction"/>
+        <keyMapping columnObjectName="Join_1" columnName="BAUMM"/>
+      </attribute>
+      <attribute id="TYPBZ" order="98" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Manufacturer model number"/>
+        <keyMapping columnObjectName="Join_1" columnName="TYPBZ"/>
+      </attribute>
+      <attribute id="EMATN" order="99" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material number corresponding to manufacturer part number"/>
+        <keyMapping columnObjectName="Join_1" columnName="EMATN"/>
+      </attribute>
+      <attribute id="SERGE" order="100" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Manufacturer serial number"/>
+        <keyMapping columnObjectName="Join_1" columnName="SERGE"/>
+      </attribute>
+      <attribute id="HANDLE" order="101" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Development Reserve: Integration of Date Segment (Key)"/>
+        <keyMapping columnObjectName="Join_1" columnName="HANDLE"/>
+      </attribute>
+      <attribute id="TSEGTP" order="102" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Development Reserve: Integration Date Segment (Tempate)"/>
+        <keyMapping columnObjectName="Join_1" columnName="TSEGTP"/>
+      </attribute>
+      <attribute id="FLLB_DUTY" order="103" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Logbook Duty"/>
+        <keyMapping columnObjectName="Join_1" columnName="FLLB_DUTY"/>
+      </attribute>
+      <attribute id="FLLB_HIDE" order="104" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Hide Logbook Display"/>
+        <keyMapping columnObjectName="Join_1" columnName="FLLB_HIDE"/>
+      </attribute>
+      <attribute id="IFLOT_SRTYPE" order="105" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Shift Report Type for Object"/>
+        <keyMapping columnObjectName="Join_1" columnName="IFLOT_SRTYPE"/>
+      </attribute>
+      <attribute id="IFLOT_SNTYPE" order="106" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Notification Type for Shift Note for Object"/>
+        <keyMapping columnObjectName="Join_1" columnName="IFLOT_SNTYPE"/>
+      </attribute>
+      <attribute id="HERLD" order="107" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Country of manufacture"/>
+        <keyMapping columnObjectName="Join_1" columnName="HERLD"/>
+      </attribute>
+      <attribute id="KZLTX" order="108" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Long text exists"/>
+        <keyMapping columnObjectName="Join_1" columnName="KZLTX"/>
+      </attribute>
+      <attribute id="KZMLA" order="109" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Primary language indicator for text segment"/>
+        <keyMapping columnObjectName="Join_1" columnName="KZMLA"/>
+      </attribute>
+      <attribute id="PLTXU" order="110" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description of functional location in capital letters"/>
+        <keyMapping columnObjectName="Join_1" columnName="PLTXU"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="AcquisitionValue" order="61" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Acquisition Value"/>
+        <measureMapping columnObjectName="Join_1" columnName="AcquisitionValue"/>
+      </measure>
+      <measure id="BRGEW" order="95" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Gross Weight"/>
+        <measureMapping columnObjectName="Join_1" columnName="BRGEW"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/></shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="31" y="346"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="240" y="300"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="170" y="200"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

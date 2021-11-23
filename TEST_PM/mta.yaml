@@ -1,0 +1,30 @@
+_schema-version: "2.1"
+ID: PRJ_PM
+version: 0.0.1
+modules:
+- name: db_PM1
+  type: hdb
+  path: db_PM1
+  requires:
+  - name: hdi_db_PM1
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+  - name: cross-container-service-1
+    group: SERVICE_REPLACEMENTS
+    properties:
+      key: ServiceName_1
+      service: ~{the-service-name}
+resources:
+- name: hdi_db_PM1
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      schema: SCHPM
+  properties:
+    hdi-container-name: ${service-name}
+- name: cross-container-service-1
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service-name: grantor-service
+  properties:
+    the-service-name: ${service-name}

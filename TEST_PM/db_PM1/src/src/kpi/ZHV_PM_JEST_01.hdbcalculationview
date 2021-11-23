@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_PM_JEST_01" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="ZHV_PM_JEST_01"/>
+  <metadata changedAt="2021-10-11 10:49:49.66" createdAt="2021-03-26 14:15:12.887"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="JEST">
+      <resourceUri>algoma.pm::JEST</resourceUri>
+    </DataSource>
+    <DataSource id="algoma.pm::JEST">
+      <resourceUri>algoma.pm::JEST</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="CaL_1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((&quot;STAT&quot; =  'I0320' OR &quot;STAT&quot; = 'I0076' OR &quot;STAT&quot; = 'I0013' ) AND (&quot;INACT&quot; =''),1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="JEST"/>
+    <filter>(match(&quot;OBJNR&quot;,'WO*')) AND (&quot;CaL_1&quot; ='1')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_0" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((&quot;STAT&quot; =  'I0320' OR &quot;STAT&quot; = 'I0076' OR &quot;STAT&quot; = 'I0013' ) AND (&quot;INACT&quot; =''),1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="algoma.pm::JEST"/>
+    <filter>(match(&quot;OBJNR&quot;,'WO*')) AND (&quot;CAL_0&quot; ='0')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="CaL_1"/>
+        <viewAttribute id="INACT"/>
+        <viewAttribute id="CAL_0"/>
+        <viewAttribute id="STAT_1"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CaL_1" source="CaL_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT" source="INACT"/>
+      </input>
+      <input node="Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_0" source="CAL_0"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT_1" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+    <joinAttribute name="OBJNR"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="OBJNR" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object number"/>
+        <keyMapping columnObjectName="Join_1" columnName="OBJNR"/>
+      </attribute>
+      <attribute id="STAT" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object status"/>
+        <keyMapping columnObjectName="Join_1" columnName="STAT"/>
+      </attribute>
+      <attribute id="INACT" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Status Is Inactive"/>
+        <keyMapping columnObjectName="Join_1" columnName="INACT"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="CAL_DEL_FLAG" hidden="false" order="6" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CAL_DEL"/>
+        <keyCalculation datatype="NVARCHAR" expressionLanguage="COLUMN_ENGINE" length="1">
+          <formula>'X'</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="CaL_1" order="3" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CaL_1"/>
+        <measureMapping columnObjectName="Join_1" columnName="CaL_1"/>
+      </measure>
+      <measure id="CAL_0" order="5" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_0"/>
+        <measureMapping columnObjectName="Join_1" columnName="CAL_0"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="99" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

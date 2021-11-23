@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_PM_BACKLOG" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="ZHV_PM_BACKLOG"/>
+  <metadata changedAt="2021-10-11 10:49:51.357"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="57"/>
+  <dataSources>
+    <DataSource id="AFIH">
+      <resourceUri>algoma.pm::AFIH</resourceUri>
+    </DataSource>
+    <DataSource id="AFKO">
+      <resourceUri>algoma.pm::AFKO</resourceUri>
+    </DataSource>
+    <DataSource id="AFVC">
+      <resourceUri>algoma.pm::AFVC</resourceUri>
+    </DataSource>
+    <DataSource id="AFVV">
+      <resourceUri>algoma.pm::AFVV</resourceUri>
+    </DataSource>
+    <DataSource id="AUFK">
+      <resourceUri>algoma.pm::AUFK</resourceUri>
+    </DataSource>
+    <DataSource id="ZTF_JEST_STAT_TRANS" type="TABLE_FUNCTION">
+      <resourceUri>algoma.pm::ZTF_JEST_STAT_TRANS</resourceUri>
+    </DataSource>
+    <DataSource id="ILOA">
+      <resourceUri>algoma.pm::ILOA</resourceUri>
+    </DataSource>
+    <DataSource id="IFLOS">
+      <resourceUri>algoma.pm::IFLOS</resourceUri>
+    </DataSource>
+    <DataSource id="ZTF_JEST_STAT_TRANS_USER" type="TABLE_FUNCTION">
+      <resourceUri>algoma.pm::ZTF_JEST_STAT_TRANS_USER</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AFIH"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="AUFPL"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AFKO"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3" filterExpressionLanguage="COLUMN_ENGINE">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="APLZL"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="VORNR"/>
+        <viewAttribute id="LTXA1"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AFVC"/>
+    <filter>&quot;STEUS&quot;='AM01'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="APLZL"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="ISMNW"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AFVV"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="APLZL"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="VORNR"/>
+        <viewAttribute id="LTXA1"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="ISMNW"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFPL" source="AUFPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="APLZL" source="APLZL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STEUS" source="STEUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VORNR" source="VORNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LTXA1" source="LTXA1"/>
+      </input>
+      <input node="Projection_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUNO" source="DAUNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBEI" source="ARBEI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISMNW" source="ISMNW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFPL" source="AUFPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="APLZL" source="APLZL"/>
+      </input>
+    <joinAttribute name="AUFPL"/>
+    <joinAttribute name="APLZL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="VORNR"/>
+        <viewAttribute id="LTXA1"/>
+        <viewAttribute aggregationType="sum" id="DAUNO"/>
+        <viewAttribute aggregationType="sum" id="ARBEI"/>
+        <viewAttribute aggregationType="sum" id="ISMNW"/>
+        <viewAttribute id="APLZL"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Join_1"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_5">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="OBJNR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="AUFK"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_6">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZTF_JEST_STAT_TRANS"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="OBJNR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZPROD_DATA" source="ZZPROD_DATA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+      <input node="Projection_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+    <joinAttribute name="OBJNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_7">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="TPLNR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ILOA"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_6" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="TPLNR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOK" source="PRIOK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="REVNR" source="REVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+      </input>
+      <input node="Projection_7">
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+      </input>
+    <joinAttribute name="ILOAN"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_3">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="TPLNR"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Join_6"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_8" filterExpressionLanguage="COLUMN_ENGINE">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="TPLNR"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="ACTVS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="IFLOS"/>
+    <filter>&quot;ACTVS&quot; = 'X'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_7" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="TPLNR"/>
+        <viewAttribute id="STRNO"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOK" source="PRIOK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="REVNR" source="REVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+      </input>
+      <input node="Projection_8">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRNO" source="STRNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TPLNR" source="TPLNR"/>
+      </input>
+    <joinAttribute name="TPLNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_4">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Join_3"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_9">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="USER_STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZTF_JEST_STAT_TRANS_USER">
+        <mapping xsi:type="Calculation:AttributeMapping" target="USER_STATUS" source="STATUS"/>
+      </input>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_8" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZPROD_DATA" source="ZZPROD_DATA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      </input>
+      <input node="Projection_9">
+        <mapping xsi:type="Calculation:AttributeMapping" target="USER_STATUS" source="USER_STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+    <joinAttribute name="OBJNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_8">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZPROD_DATA" source="ZZPROD_DATA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="USER_STATUS" source="USER_STATUS"/>
+      </input>
+      <input node="Join_7">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOK" source="PRIOK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="REVNR" source="REVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRNO" source="STRNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+      </input>
+    <joinAttribute name="AUFNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_5" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZPROD_DATA" source="ZZPROD_DATA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOK" source="PRIOK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="REVNR" source="REVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRNO" source="STRNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="USER_STATUS" source="USER_STATUS"/>
+      </input>
+      <input node="Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFPL" source="AUFPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+      </input>
+    <joinAttribute name="AUFNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Join_5"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="VORNR"/>
+        <viewAttribute id="LTXA1"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="ISMNW"/>
+        <viewAttribute id="APLZL"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZPROD_DATA" source="ZZPROD_DATA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOK" source="PRIOK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILOAN" source="ILOAN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="REVNR" source="REVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFPL" source="AUFPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRNO" source="STRNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="USER_STATUS" source="USER_STATUS"/>
+      </input>
+      <input node="Aggregation_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STEUS" source="STEUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VORNR" source="VORNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LTXA1" source="LTXA1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUNO" source="DAUNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBEI" source="ARBEI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISMNW" source="ISMNW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="APLZL" source="APLZL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFPL" source="AUFPL"/>
+      </input>
+    <joinAttribute name="AUFPL"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_2">
+    <descriptions/>
+    <attributes>
+      <attribute id="AUFNR" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Number"/>
+        <keyMapping columnObjectName="Join_2" columnName="AUFNR"/>
+      </attribute>
+      <attribute id="AUART" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Type"/>
+        <keyMapping columnObjectName="Join_2" columnName="AUART"/>
+      </attribute>
+      <attribute id="KTEXT" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description"/>
+        <keyMapping columnObjectName="Join_2" columnName="KTEXT"/>
+      </attribute>
+      <attribute id="ZZPROD_DATA" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Production Data"/>
+        <keyMapping columnObjectName="Join_2" columnName="ZZPROD_DATA"/>
+      </attribute>
+      <attribute id="PRIOK" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Priority"/>
+        <keyMapping columnObjectName="Join_2" columnName="PRIOK"/>
+      </attribute>
+      <attribute id="EQUNR" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Number"/>
+        <keyMapping columnObjectName="Join_2" columnName="EQUNR"/>
+      </attribute>
+      <attribute id="ILOAN" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Location and account assignment for technical object"/>
+        <keyMapping columnObjectName="Join_2" columnName="ILOAN"/>
+      </attribute>
+      <attribute id="INGPR" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group for Customer Service and Plant Maintenance"/>
+        <keyMapping columnObjectName="Join_2" columnName="INGPR"/>
+      </attribute>
+      <attribute id="REVNR" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Revision for Plant Maintenance and Customer Service"/>
+        <keyMapping columnObjectName="Join_2" columnName="REVNR"/>
+      </attribute>
+      <attribute id="ANLZU" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Join_2" columnName="ANLZU"/>
+      </attribute>
+      <attribute id="ILART" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance activity type"/>
+        <keyMapping columnObjectName="Join_2" columnName="ILART"/>
+      </attribute>
+      <attribute id="GSTRP" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic Start Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="GSTRP"/>
+      </attribute>
+      <attribute id="AUFPL" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Routing number of operations in the order"/>
+        <keyMapping columnObjectName="Join_2" columnName="AUFPL"/>
+      </attribute>
+      <attribute id="STRNO" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location Label"/>
+        <keyMapping columnObjectName="Join_2" columnName="STRNO"/>
+      </attribute>
+      <attribute id="STEUS" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Control key"/>
+        <keyMapping columnObjectName="Join_2" columnName="STEUS"/>
+      </attribute>
+      <attribute id="VORNR" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Number"/>
+        <keyMapping columnObjectName="Join_2" columnName="VORNR"/>
+      </attribute>
+      <attribute id="LTXA1" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Operation short text"/>
+        <keyMapping columnObjectName="Join_2" columnName="LTXA1"/>
+      </attribute>
+      <attribute id="APLZL" order="21" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="General counter for order"/>
+        <keyMapping columnObjectName="Join_2" columnName="APLZL"/>
+      </attribute>
+      <attribute id="OBJNR" order="22" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object number"/>
+        <keyMapping columnObjectName="Join_2" columnName="OBJNR"/>
+      </attribute>
+      <attribute id="STATUS" order="23" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="STATUS"/>
+        <keyMapping columnObjectName="Join_2" columnName="STATUS"/>
+      </attribute>
+      <attribute id="USER_STATUS" order="24" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="STATUS"/>
+        <keyMapping columnObjectName="Join_2" columnName="USER_STATUS"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="DAUNO" order="18" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Normal duration of the activity"/>
+        <measureMapping columnObjectName="Join_2" columnName="DAUNO"/>
+      </measure>
+      <measure id="ARBEI" order="19" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Work involved in the activity"/>
+        <measureMapping columnObjectName="Join_2" columnName="ARBEI"/>
+      </measure>
+      <measure id="ISMNW" order="20" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Actual work"/>
+        <measureMapping columnObjectName="Join_2" columnName="ISMNW"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="559" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="801"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="482" y="435"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="636" y="435"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="790" y="435"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="636" y="339"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="636" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="330" y="801"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="484" y="801"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="407" y="705"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="Projection_5" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_6" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Projection_7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="801"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="705"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_7" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="627"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_8" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="627"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="531"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Aggregation_3" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_8" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="407" y="627"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_9" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="561" y="627"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_8" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="407" y="531"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Aggregation_4" modelObjectNameSpace="Join_8" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_9" modelObjectNameSpace="Join_8" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="328" y="435"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="Join_8" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_7" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Join_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="482" y="339"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Join_4" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Aggregation_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="482" y="261"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="559" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    
+    <shape modelObjectName="Aggregation_2" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" schemaVersion="3.0" id="ZHV_PM_BACKLOG_RPT" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" analyticViewCompatibilityMode="false" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="ZHV_PM_BACKLOG_RPT"/>
+  <metadata changedAt="2021-10-11 10:49:51.496"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="32"/>
+  <dataSources>
+    <DataSource id="ZHV_PM_BACKLOG">
+      <resourceUri>algoma.pm::ZHV_PM_BACKLOG</resourceUri>
+    </DataSource>
+    <DataSource id="ZSAC_TBL_PLAN_GRP_1">
+      <resourceUri>algoma.pm::ZSAC_TBL_PLAN_GRP_1</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="ILOAN"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="AUFPL"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="VORNR"/>
+        <viewAttribute id="LTXA1"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="ISMNW"/>
+        <viewAttribute id="APLZL"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZHV_PM_BACKLOG"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute aggregationType="sum" id="ARBEI"/>
+        <viewAttribute aggregationType="sum" id="DAUNO"/>
+        <viewAttribute aggregationType="sum" id="ISMNW"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Projection_1"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="ISMNW"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="USER_STATUS"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="NVARCHAR" id="fx_RTSE" length="1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((match(&quot;USER_STATUS&quot;,'*RTSE*')),'1','0')</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="NVARCHAR" id="fx_PLCP" length="1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if((match(&quot;USER_STATUS&quot;,'*PLCP*')),'1','0')</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="NVARCHAR" id="fx_Maintaince_Order" length="1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;ILART&quot;='155' or &quot;ILART&quot;='170','1','0')</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="fx_No_Of_Work_Orders" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;fx_RTSE&quot; = '1' and &quot;fx_Maintaince_Order&quot; ='0','1','0')</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="fx_No_Of_Work_Orders_with_NO_Labour" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;fx_RTSE&quot; = '1' and &quot;fx_Maintaince_Order&quot; ='0' and double(&quot;ARBEI&quot;) = 0 ,'1','0')</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="fx_No_Of_Work_Orders_PLCP" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;fx_RTSE&quot; = '0' and &quot;fx_Maintaince_Order&quot; ='0' and &quot;fx_PLCP&quot; = '1','1','0')</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+      <input node="Aggregation_1"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_3">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR" keepFlag="true"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="fx_RTSE"/>
+        <viewAttribute id="fx_PLCP"/>
+        <viewAttribute id="fx_Maintaince_Order"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="ISMNW"/>
+        <viewAttribute id="fx_No_Of_Work_Orders"/>
+        <viewAttribute id="fx_No_Of_Work_Orders_with_NO_Labour"/>
+        <viewAttribute id="USER_STATUS"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="fx_No_Of_Work_Orders_PLCP"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+      <input node="Aggregation_2"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZSAC_TBL_PLAN_GRP_1"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="AUFNR" keepFlag="true"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="STRNO"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="PRIOK"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="REVNR"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ZZPROD_DATA"/>
+        <viewAttribute id="fx_RTSE"/>
+        <viewAttribute id="fx_PLCP"/>
+        <viewAttribute id="fx_Maintaince_Order"/>
+        <viewAttribute id="USER_STATUS"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="ISMNW"/>
+        <viewAttribute id="fx_No_Of_Work_Orders"/>
+        <viewAttribute id="fx_No_Of_Work_Orders_with_NO_Labour"/>
+        <viewAttribute id="fx_No_Of_Work_Orders_PLCP"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Aggregation_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STEUS" source="STEUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STRNO" source="STRNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRIOK" source="PRIOK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="REVNR" source="REVNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZPROD_DATA" source="ZZPROD_DATA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="fx_RTSE" source="fx_RTSE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="fx_PLCP" source="fx_PLCP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="fx_Maintaince_Order" source="fx_Maintaince_Order"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="USER_STATUS" source="USER_STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARBEI" source="ARBEI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAUNO" source="DAUNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISMNW" source="ISMNW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="fx_No_Of_Work_Orders" source="fx_No_Of_Work_Orders"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="fx_No_Of_Work_Orders_with_NO_Labour" source="fx_No_Of_Work_Orders_with_NO_Labour"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="fx_No_Of_Work_Orders_PLCP" source="fx_No_Of_Work_Orders_PLCP"/>
+      </input>
+      <input node="Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZP:NGRP_DESC" source="ZP:NGRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZDEPARTMENT" source="ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZGEN_MANAGER" source="ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INGPR" source="ZPLNGRP_ID"/>
+      </input>
+    <joinAttribute name="INGPR"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="AUFNR" order="17" attributeHierarchyActive="false" displayAttribute="false" keepFlag="true">
+        <descriptions defaultDescription="Order Number"/>
+        <keyMapping columnObjectName="Join_1" columnName="AUFNR"/>
+      </attribute>
+      <attribute id="AUART" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Type"/>
+        <keyMapping columnObjectName="Join_1" columnName="AUART"/>
+      </attribute>
+      <attribute id="STEUS" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Control key"/>
+        <keyMapping columnObjectName="Join_1" columnName="STEUS"/>
+      </attribute>
+      <attribute id="GSTRP" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic Start Date"/>
+        <keyMapping columnObjectName="Join_1" columnName="GSTRP"/>
+      </attribute>
+      <attribute id="STATUS" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="STATUS"/>
+        <keyMapping columnObjectName="Join_1" columnName="STATUS"/>
+      </attribute>
+      <attribute id="STRNO" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location Label"/>
+        <keyMapping columnObjectName="Join_1" columnName="STRNO"/>
+      </attribute>
+      <attribute id="KTEXT" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description"/>
+        <keyMapping columnObjectName="Join_1" columnName="KTEXT"/>
+      </attribute>
+      <attribute id="PRIOK" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Priority"/>
+        <keyMapping columnObjectName="Join_1" columnName="PRIOK"/>
+      </attribute>
+      <attribute id="EQUNR" order="25" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Number"/>
+        <keyMapping columnObjectName="Join_1" columnName="EQUNR"/>
+      </attribute>
+      <attribute id="REVNR" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Revision for Plant Maintenance and Customer Service"/>
+        <keyMapping columnObjectName="Join_1" columnName="REVNR"/>
+      </attribute>
+      <attribute id="INGPR" order="27" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group for Customer Service and Plant Maintenance"/>
+        <keyMapping columnObjectName="Join_1" columnName="INGPR"/>
+      </attribute>
+      <attribute id="ANLZU" order="28" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Join_1" columnName="ANLZU"/>
+      </attribute>
+      <attribute id="ZZPROD_DATA" order="29" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Production Data"/>
+        <keyMapping columnObjectName="Join_1" columnName="ZZPROD_DATA"/>
+      </attribute>
+      <attribute id="fx_RTSE" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="fx_RTSE"/>
+        <keyMapping columnObjectName="Join_1" columnName="fx_RTSE"/>
+      </attribute>
+      <attribute id="fx_PLCP" order="31" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="fx_PLCP"/>
+        <keyMapping columnObjectName="Join_1" columnName="fx_PLCP"/>
+      </attribute>
+      <attribute id="fx_Maintaince_Order" order="32" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="fx_Maintaince_Order"/>
+        <keyMapping columnObjectName="Join_1" columnName="fx_Maintaince_Order"/>
+      </attribute>
+      <attribute id="USER_STATUS" order="33" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="STATUS"/>
+        <keyMapping columnObjectName="Join_1" columnName="USER_STATUS"/>
+      </attribute>
+      <attribute id="ILART" order="34" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance activity type"/>
+        <keyMapping columnObjectName="Join_1" columnName="ILART"/>
+      </attribute>
+      <attribute id="ZP:NGRP_DESC" order="41" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZP:NGRP_DESC"/>
+        <keyMapping columnObjectName="Join_1" columnName="ZP:NGRP_DESC"/>
+      </attribute>
+      <attribute id="ZDEPARTMENT" order="42" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZDEPARTMENT"/>
+        <keyMapping columnObjectName="Join_1" columnName="ZDEPARTMENT"/>
+      </attribute>
+      <attribute id="ZGEN_MANAGER" order="43" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZGEN_MANAGER"/>
+        <keyMapping columnObjectName="Join_1" columnName="ZGEN_MANAGER"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="ARBEI" order="35" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Work involved in the activity"/>
+        <measureMapping columnObjectName="Join_1" columnName="ARBEI"/>
+      </measure>
+      <measure id="DAUNO" order="36" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Normal duration of the activity"/>
+        <measureMapping columnObjectName="Join_1" columnName="DAUNO"/>
+      </measure>
+      <measure id="ISMNW" order="37" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Actual work"/>
+        <measureMapping columnObjectName="Join_1" columnName="ISMNW"/>
+      </measure>
+      <measure id="fx_No_Of_Work_Orders" order="38" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="fx_Maintaince_Order"/>
+        <measureMapping columnObjectName="Join_1" columnName="fx_No_Of_Work_Orders"/>
+      </measure>
+      <measure id="fx_No_Of_Work_Orders_with_NO_Labour" order="39" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="fx_Maintaince_Order"/>
+        <measureMapping columnObjectName="Join_1" columnName="fx_No_Of_Work_Orders_with_NO_Labour"/>
+      </measure>
+      <measure id="fx_No_Of_Work_Orders_PLCP" order="40" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="fx_Maintaince_Order"/>
+        <measureMapping columnObjectName="Join_1" columnName="fx_No_Of_Work_Orders_PLCP"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures>
+      <measure id="fx_Order_Count_X" hidden="false" order="1" aggregationType="sum" measureType="simple" aggregatable="true" calculatedMeasureType="counter" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_Order_Count"/>
+        <exceptionAggregation exceptionAggregationType="countDistinct">
+          <attribute attributeName="AUFNR"/>
+        </exceptionAggregation>
+        <formula>1</formula>
+      </measure>
+      <measure id="fx_PLCP_Hrs" hidden="false" order="4" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_PLCP_Hrs"/>
+        <formula>&quot;fx_PLCP_Sub_Hrs&quot;-&quot;fx_RTSE_Hrs&quot;</formula>
+      </measure>
+      <measure id="fx_AM01_2FTE" hidden="false" order="6" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_AM01_2FTE"/>
+        <formula>round(&quot;fx_AM01_Hrs&quot;/80,0)</formula>
+      </measure>
+      <measure id="fx_AM02_2FTE" hidden="false" order="11" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_AM02_2FTE"/>
+        <formula>round(&quot;fx_AM02_Hrs&quot;/80,0)</formula>
+      </measure>
+      <measure id="fx_AM03_2FTE" hidden="false" order="12" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_AM03_2FTE"/>
+        <formula>round(&quot;fx_AM03_Hrs&quot;/80,0)</formula>
+      </measure>
+      <measure id="fx_AM05_2FTE" hidden="false" order="13" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_AM05_2FTE"/>
+        <formula>round(&quot;fx_AM05_Hrs&quot;/80,0)</formula>
+      </measure>
+      <measure id="fx_Others_2FTE" hidden="false" order="14" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_Others_2FTE"/>
+        <formula>round(&quot;fx_Others_Hrs&quot;/80,0)</formula>
+      </measure>
+      <measure id="fx_Total_PLCP_BkLog_2FTE" hidden="false" order="16" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_Others_2FTE"/>
+        <formula>round(&quot;fx_Total_PLCP_BkLog_Hrs&quot;/80,0)</formula>
+      </measure>
+    </calculatedMeasures>
+    <restrictedMeasures>
+      <measure id="fx_RTSE_Hrs" hidden="false" order="2" engineAggregation="sum" baseMeasure="ARBEI">
+        <descriptions defaultDescription="fx_RTSE_Hrs"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_RTSE">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="1"/>
+          </filter>
+          <attributeName>fx_RTSE</attributeName>
+        </restriction>
+      </measure>
+      <measure id="fx_PLCP_Sub_Hrs" hidden="false" order="3" engineAggregation="sum" baseMeasure="ARBEI">
+        <descriptions defaultDescription="fx_PLCP_Sub_Hrs"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_PLCP">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="1"/>
+          </filter>
+          <attributeName>fx_PLCP</attributeName>
+        </restriction>
+      </measure>
+      <measure id="fx_AM01_Hrs" hidden="false" order="5" engineAggregation="sum" baseMeasure="ARBEI">
+        <descriptions defaultDescription="fx_AM01_Hrs"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_RTSE">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="1"/>
+          </filter>
+          <attributeName>fx_RTSE</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="AUART">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="AM01"/>
+          </filter>
+          <attributeName>AUART</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_Maintaince_Order">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="0"/>
+          </filter>
+          <attributeName>fx_Maintaince_Order</attributeName>
+        </restriction>
+      </measure>
+      <measure id="fx_AM02_Hrs" hidden="false" order="7" engineAggregation="sum" baseMeasure="ARBEI">
+        <descriptions defaultDescription="fx_AM02_Hrs"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_RTSE">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="1"/>
+          </filter>
+          <attributeName>fx_RTSE</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="AUART">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="AM02"/>
+          </filter>
+          <attributeName>AUART</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_Maintaince_Order">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="0"/>
+          </filter>
+          <attributeName>fx_Maintaince_Order</attributeName>
+        </restriction>
+      </measure>
+      <measure id="fx_AM03_Hrs" hidden="false" order="8" engineAggregation="sum" baseMeasure="ARBEI">
+        <descriptions defaultDescription="fx_AM03_Hrs"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_RTSE">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="1"/>
+          </filter>
+          <attributeName>fx_RTSE</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="AUART">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="AM03"/>
+          </filter>
+          <attributeName>AUART</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_Maintaince_Order">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="0"/>
+          </filter>
+          <attributeName>fx_Maintaince_Order</attributeName>
+        </restriction>
+      </measure>
+      <measure id="fx_AM05_Hrs" hidden="false" order="9" engineAggregation="sum" baseMeasure="ARBEI">
+        <descriptions defaultDescription="fx_AM05_Hrs"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_RTSE">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="1"/>
+          </filter>
+          <attributeName>fx_RTSE</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="AUART">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="AM05"/>
+          </filter>
+          <attributeName>AUART</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_Maintaince_Order">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="0"/>
+          </filter>
+          <attributeName>fx_Maintaince_Order</attributeName>
+        </restriction>
+      </measure>
+      <measure id="fx_Others_Hrs" hidden="false" order="10" engineAggregation="sum" baseMeasure="ARBEI" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="fx_Others_Hrs"/>
+        <restrictionExpression>(&quot;fx_RTSE&quot; = '1') AND (&quot;AUART&quot; != 'AM01') AND (&quot;AUART&quot; != 'AM02') AND (&quot;AUART&quot; != 'AM03') AND (&quot;AUART&quot; != 'AM05') AND (&quot;fx_Maintaince_Order&quot; = '0')</restrictionExpression>
+      </measure>
+      <measure id="fx_Total_PLCP_BkLog_Hrs" hidden="false" order="15" engineAggregation="sum" baseMeasure="ARBEI">
+        <descriptions defaultDescription="fx_Total_PLCP_BkLog_Hrs"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_RTSE">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="0"/>
+          </filter>
+          <attributeName>fx_RTSE</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_Maintaince_Order">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="0"/>
+          </filter>
+          <attributeName>fx_Maintaince_Order</attributeName>
+        </restriction>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="fx_PLCP">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="1"/>
+          </filter>
+          <attributeName>fx_PLCP</attributeName>
+        </restriction>
+      </measure>
+    </restrictedMeasures>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="99" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="495"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="417"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Aggregation_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="339"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Aggregation_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="261"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="165"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Aggregation_3" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

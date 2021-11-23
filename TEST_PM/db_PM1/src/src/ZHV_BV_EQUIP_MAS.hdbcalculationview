@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_BV_EQUIP_MAS" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hidden="false" dataCategory="DEFAULT" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Projection" runWithInvokerPrivileges="false" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="Master data for pieces of equipment"/>
+  <metadata changedAt="2021-05-19 15:08:34.838" createdAt="2021-05-19 15:08:34.838"/>
+  <localVariables/>
+  <variableMappings/>
+  <dataSources>
+    <DataSource id="EQUI">
+      <resourceUri>algoma.pm::EQUI</resourceUri>
+    </DataSource>
+    <DataSource id="EQKT">
+      <resourceUri>algoma.pm::EQKT</resourceUri>
+    </DataSource>
+    <DataSource id="EQUZ">
+      <resourceUri>algoma.pm::EQUZ</resourceUri>
+    </DataSource>
+    <DataSource id="TCLA">
+      <resourceUri>algoma.pm::TCLA</resourceUri>
+    </DataSource>
+    <DataSource id="INOB">
+      <resourceUri>algoma.pm::INOB</resourceUri>
+    </DataSource>
+    <DataSource id="KSSK">
+      <resourceUri>algoma.pm::KSSK</resourceUri>
+    </DataSource>
+    <DataSource id="KLAH">
+      <resourceUri>algoma.pm::KLAH</resourceUri>
+    </DataSource>
+    <DataSource id="SWOR">
+      <resourceUri>algoma.pm::SWOR</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="C1_1" joinType="textTable" languageColumn="SPRAS">
+    <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="Equipment"/>
+        <viewAttribute id="EquipmentName"/>
+        <viewAttribute id="OperationStartDate"/>
+        <viewAttribute id="AssetManufacturerName"/>
+        <viewAttribute id="ConstructionYear"/>
+        <viewAttribute id="AcquisitionValue"/>
+        <viewAttribute id="Currency"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="ANSDT"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="NVARCHAR" id="AcquisitionDate" length="8">
+          <formula>if(&quot;ANSDT&quot; = '00000000' or isnull(&quot;ANSDT&quot;), &quot;ERDAT&quot;, &quot;ANSDT&quot;)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="EQUI">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Equipment" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OperationStartDate" source="INBDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AssetManufacturerName" source="HERST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionYear" source="BAUJJ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AcquisitionValue" source="ANSWT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Currency" source="WAERS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANSDT" source="ANSDT"/>
+      </input>
+      <input node="EQKT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="EquipmentName" source="EQKTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Equipment" source="EQUNR"/>
+      </input>
+    <joinAttribute name="SAPClient"/>
+    <joinAttribute name="Equipment"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="Equipment"/>
+        <viewAttribute id="ValidityEndDate"/>
+        <viewAttribute id="EquipUsagePeriodSequenceNumber"/>
+        <viewAttribute id="ConstructionMaterial"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="EQUZ">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Equipment" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ValidityEndDate" source="DATBI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EquipUsagePeriodSequenceNumber" source="EQLFN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionMaterial" source="SUBMT"/>
+      </input>
+    <filter>(&quot;ValidityEndDate&quot; ='99991231')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="Equipment"/>
+        <viewAttribute id="EquipmentName"/>
+        <viewAttribute id="OperationStartDate"/>
+        <viewAttribute id="AssetManufacturerName"/>
+        <viewAttribute id="ConstructionYear"/>
+        <viewAttribute id="ValidityEndDate"/>
+        <viewAttribute id="EquipUsagePeriodSequenceNumber"/>
+        <viewAttribute id="ConstructionMaterial"/>
+        <viewAttribute id="AcquisitionValue"/>
+        <viewAttribute id="Currency"/>
+        <viewAttribute id="AcquisitionDate"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Equipment" source="Equipment"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EquipmentName" source="EquipmentName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OperationStartDate" source="OperationStartDate"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AssetManufacturerName" source="AssetManufacturerName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionYear" source="ConstructionYear"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AcquisitionValue" source="AcquisitionValue"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Currency" source="Currency"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AcquisitionDate" source="AcquisitionDate"/>
+      </input>
+      <input node="Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ValidityEndDate" source="ValidityEndDate"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EquipUsagePeriodSequenceNumber" source="EquipUsagePeriodSequenceNumber"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionMaterial" source="ConstructionMaterial"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Equipment" source="Equipment"/>
+      </input>
+    <joinAttribute name="SAPClient"/>
+    <joinAttribute name="Equipment"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1_1">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="OBTAB"/>
+        <viewAttribute id="STAND"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="TCLA"/>
+    <filter>(&quot;OBTAB&quot; ='EQUI') AND (&quot;STAND&quot; ='X')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CUOBJ"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="OBTAB"/>
+        <viewAttribute id="OBJEK"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="INOB"/>
+    <filter>(&quot;OBTAB&quot; ='EQUI')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="MAFID"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="STDCL"/>
+        <viewAttribute id="LKENZ"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="KSSK"/>
+    <filter>(&quot;MAFID&quot; ='O') AND (&quot;STDCL&quot; ='X') AND (&quot;LKENZ&quot; !='X')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_5" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="OBTAB"/>
+        <viewAttribute id="CLASS"/>
+        <viewAttribute id="CLINT"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="KLAH">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLASS" source="CLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+      </input>
+      <input node="Projection_1_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBTAB" source="OBTAB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+      </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="KLART"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_6" cardinality="C1_N" joinType="inner">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CUOBJ"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="OBTAB"/>
+        <viewAttribute id="OBJEK"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CUOBJ" source="CUOBJ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBTAB" source="OBTAB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+      </input>
+      <input node="Projection_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CUOBJ" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+      </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="CUOBJ"/>
+    <joinAttribute name="KLART"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_7" cardinality="C1_N" joinType="inner">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="CLASS"/>
+        <viewAttribute id="OBJEK"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLASS" source="CLASS"/>
+      </input>
+      <input node="Join_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+      </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="KLART"/>
+    <joinAttribute name="CLINT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_11">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="SPRAS"/>
+        <viewAttribute id="KLPOS"/>
+        <viewAttribute id="KSCHL"/>
+        <viewAttribute id="KSCHG"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="SWOR"/>
+    <filter>(&quot;KLPOS&quot; ='01')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_9" cardinality="C1_1" joinType="textTable" languageColumn="SPRAS">
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLASS"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="KSCHL"/>
+        <viewAttribute id="KSCHG"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_7">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLASS" source="CLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+      </input>
+      <input node="Projection_11">
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL" source="KSCHL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHG" source="KSCHG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+      </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="CLINT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_10" cardinality="C1_N" joinType="leftOuter">
+    <viewAttributes>
+        <viewAttribute id="SAPClient"/>
+        <viewAttribute id="Equipment"/>
+        <viewAttribute id="EquipmentName"/>
+        <viewAttribute id="OperationStartDate"/>
+        <viewAttribute id="AssetManufacturerName"/>
+        <viewAttribute id="ConstructionYear"/>
+        <viewAttribute id="ValidityEndDate"/>
+        <viewAttribute id="EquipUsagePeriodSequenceNumber"/>
+        <viewAttribute id="ConstructionMaterial"/>
+        <viewAttribute id="AcquisitionValue"/>
+        <viewAttribute id="AcquisitionDate"/>
+        <viewAttribute id="Currency"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLASS"/>
+        <viewAttribute id="KSCHL"/>
+        <viewAttribute id="KSCHG"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="SAPClient"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Equipment" source="Equipment"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EquipmentName" source="EquipmentName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OperationStartDate" source="OperationStartDate"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AssetManufacturerName" source="AssetManufacturerName"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionYear" source="ConstructionYear"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ValidityEndDate" source="ValidityEndDate"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EquipUsagePeriodSequenceNumber" source="EquipUsagePeriodSequenceNumber"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ConstructionMaterial" source="ConstructionMaterial"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AcquisitionValue" source="AcquisitionValue"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AcquisitionDate" source="AcquisitionDate"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Currency" source="Currency"/>
+      </input>
+      <input node="Join_9">
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLASS" source="CLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL" source="KSCHL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHG" source="KSCHG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAPClient" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Equipment" source="OBJEK"/>
+      </input>
+    <joinAttribute name="SAPClient"/>
+    <joinAttribute name="Equipment"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_10">
+    <attributes>
+      <attribute id="SAPClient" order="1" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="SAP Client"/>
+        <keyMapping columnObjectName="Join_10" columnName="SAPClient"/>
+      </attribute>
+      <attribute id="Equipment" order="2" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Equipment"/>
+        <keyMapping columnObjectName="Join_10" columnName="Equipment"/>
+      </attribute>
+      <attribute id="EquipmentName" order="3" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Equipment Name"/>
+        <keyMapping columnObjectName="Join_10" columnName="EquipmentName"/>
+      </attribute>
+      <attribute id="OperationStartDate" order="4" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Operational Start Date"/>
+        <keyMapping columnObjectName="Join_10" columnName="OperationStartDate"/>
+      </attribute>
+      <attribute id="AssetManufacturerName" order="5" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Asset Manufacturer Name"/>
+        <keyMapping columnObjectName="Join_10" columnName="AssetManufacturerName"/>
+      </attribute>
+      <attribute id="ConstructionYear" order="6" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Construction Year"/>
+        <keyMapping columnObjectName="Join_10" columnName="ConstructionYear"/>
+      </attribute>
+      <attribute id="ValidityEndDate" order="7" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Validity End Date"/>
+        <keyMapping columnObjectName="Join_10" columnName="ValidityEndDate"/>
+      </attribute>
+      <attribute id="EquipUsagePeriodSequenceNumber" order="8" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Equipment Usage Period Sequence Number"/>
+        <keyMapping columnObjectName="Join_10" columnName="EquipUsagePeriodSequenceNumber"/>
+      </attribute>
+      <attribute id="ConstructionMaterial" order="9" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Construction Material"/>
+        <keyMapping columnObjectName="Join_10" columnName="ConstructionMaterial"/>
+      </attribute>
+      <attribute id="AcquisitionDate" order="10" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Acquisition Date"/>
+        <keyMapping columnObjectName="Join_10" columnName="AcquisitionDate"/>
+      </attribute>
+      <attribute id="Currency" order="11" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Currency"/>
+        <keyMapping columnObjectName="Join_10" columnName="Currency"/>
+      </attribute>
+      <attribute id="ClassType" order="12" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Class Type"/>
+        <keyMapping columnObjectName="Join_10" columnName="KLART"/>
+      </attribute>
+      <attribute id="Class" order="13" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Class"/>
+        <keyMapping columnObjectName="Join_10" columnName="CLASS"/>
+      </attribute>
+      <attribute id="ClassName" order="14" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="Class Name"/>
+        <keyMapping columnObjectName="Join_10" columnName="KSCHL"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="AcquisitionValue" aggregationType="sum" measureType="simple" order="15">
+        <descriptions defaultDescription="Acquisition Value"/>
+        <measureMapping columnObjectName="Join_10" columnName="AcquisitionValue"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="329" y="87"/>
+      </shape>
+      <shape modelObjectName="EQUI" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="22" y="240"/>
+      </shape>
+      <shape modelObjectName="EQUZ" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="202" y="240"/>
+      </shape>
+      <shape modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="560" y="362"/>
+      </shape>
+    <shape modelObjectName="algoma.pm::EQUI" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="algoma.pm::EQKT" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape modelObjectName="EQKT" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="112" y="240"/>
+      </shape>
+      <shape modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="406" y="362"/>
+      </shape>
+      <shape modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="406" y="264"/>
+      </shape>
+    <shape modelObjectName="Join_2" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape modelObjectName="TCLA" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="202" y="342"/>
+      </shape>
+      <shape modelObjectName="KLAH" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="292" y="342"/>
+      </shape>
+      <shape modelObjectName="INOB" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="382" y="342"/>
+      </shape>
+      <shape modelObjectName="KSSK" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="472" y="342"/>
+      </shape>
+      <shape modelObjectName="Projection_1_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="330" y="558"/>
+      </shape>
+      <shape modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="558"/>
+      </shape>
+      <shape modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="558"/>
+      </shape>
+      <shape modelObjectName="Join_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="330" y="460"/>
+      </shape>
+    <shape modelObjectName="algoma.pm::KLAH" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_1_1" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape modelObjectName="Join_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="460"/>
+      </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape modelObjectName="Join_7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="252" y="362"/>
+      </shape>
+    <shape modelObjectName="Join_5" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_6" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape modelObjectName="Projection_11" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="98" y="362"/>
+      </shape>
+    
+      <shape modelObjectName="SWOR" modelObjectNameSpace="DataSource">
+        <upperLeftCorner x="472" y="240"/>
+      </shape>
+      <shape modelObjectName="Join_9" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="252" y="264"/>
+      </shape>
+    <shape modelObjectName="Join_7" modelObjectNameSpace="Join_9" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_11" modelObjectNameSpace="Join_9" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape modelObjectName="Join_10" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="329" y="166"/>
+      </shape>
+    <shape modelObjectName="Join_4" modelObjectNameSpace="Join_10" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_9" modelObjectNameSpace="Join_10" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,2553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_BV_TASK_LIST" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="ZHV_BV_TASK_LIST"/>
+  <metadata changedAt="2021-09-10 13:41:41.043"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="22"/>
+  <dataSources>
+    <DataSource id="PLKO">
+      <resourceUri>algoma.pm::PLKO</resourceUri>
+    </DataSource>
+    <DataSource id="PLAS">
+      <resourceUri>algoma.pm::PLAS</resourceUri>
+    </DataSource>
+    <DataSource id="PLPO">
+      <resourceUri>algoma.pm::PLPO</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projn_PLKO">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLNTY"/>
+        <viewAttribute id="PLNNR"/>
+        <viewAttribute id="PLNAL"/>
+        <viewAttribute id="ZAEHL"/>
+        <viewAttribute id="DATUV"/>
+        <viewAttribute id="TECHV"/>
+        <viewAttribute id="AENNR"/>
+        <viewAttribute id="LOEKZ"/>
+        <viewAttribute id="PARKZ"/>
+        <viewAttribute id="ANDAT"/>
+        <viewAttribute id="ANNAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="VERWE"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="STATU"/>
+        <viewAttribute id="PLNME"/>
+        <viewAttribute id="LOSVN"/>
+        <viewAttribute id="LOSBS"/>
+        <viewAttribute id="VAGRP"/>
+        <viewAttribute id="AESZN"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="TXTSP"/>
+        <viewAttribute id="ABDAT"/>
+        <viewAttribute id="ABANZ"/>
+        <viewAttribute id="PROFIDNETZ"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="QVEWERKS"/>
+        <viewAttribute id="QVEMENGE"/>
+        <viewAttribute id="QVEVERSION"/>
+        <viewAttribute id="QVEDATUM"/>
+        <viewAttribute id="QVEGRUPPE"/>
+        <viewAttribute id="QVECODE"/>
+        <viewAttribute id="QDYNREGEL"/>
+        <viewAttribute id="QDYNHEAD"/>
+        <viewAttribute id="QPRZIEHVER"/>
+        <viewAttribute id="QVERSNPRZV"/>
+        <viewAttribute id="QKZRASTER"/>
+        <viewAttribute id="QDYNSTRING"/>
+        <viewAttribute id="STRAT"/>
+        <viewAttribute id="PPOOL"/>
+        <viewAttribute id="ISTRU"/>
+        <viewAttribute id="IWERK"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ARBID"/>
+        <viewAttribute id="EXTNUM"/>
+        <viewAttribute id="DELKZ"/>
+        <viewAttribute id="ARBTY"/>
+        <viewAttribute id="STUPR"/>
+        <viewAttribute id="CLNDR"/>
+        <viewAttribute id="PRTYP"/>
+        <viewAttribute id="REODAT"/>
+        <viewAttribute id="NETID"/>
+        <viewAttribute id="FLG_CHK"/>
+        <viewAttribute id="PSPNR"/>
+        <viewAttribute id="TTRAS"/>
+        <viewAttribute id="KZKFG"/>
+        <viewAttribute id="PLNNR_ALT"/>
+        <viewAttribute id="FLG_CAPO"/>
+        <viewAttribute id="STLTY"/>
+        <viewAttribute id="STLNR"/>
+        <viewAttribute id="STLAL"/>
+        <viewAttribute id="SLWBEZ"/>
+        <viewAttribute id="PPKZTLZU"/>
+        <viewAttribute id="CHRULE"/>
+        <viewAttribute id="CCOAA"/>
+        <viewAttribute id="ST_ARBID"/>
+        <viewAttribute id="MEINH"/>
+        <viewAttribute id="UMREZ"/>
+        <viewAttribute id="UMREN"/>
+        <viewAttribute id="BMSCH"/>
+        <viewAttribute id="ADPSP"/>
+        <viewAttribute id="MS_FLAG"/>
+        <viewAttribute id="TSTMP_BW"/>
+        <viewAttribute id="MES_ROUTINGID"/>
+        <viewAttribute id="XHIERTL"/>
+        <viewAttribute id="TL_EXTID"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="PLKO"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projn_PLAS">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="PLNTY"/>
+        <viewAttribute id="PLNNR"/>
+        <viewAttribute id="PLNAL"/>
+        <viewAttribute id="PLNFL"/>
+        <viewAttribute id="PLNKN"/>
+        <viewAttribute id="ZAEHL"/>
+        <viewAttribute id="DATUV"/>
+        <viewAttribute id="TECHV"/>
+        <viewAttribute id="AENNR"/>
+        <viewAttribute id="LOEKZ"/>
+        <viewAttribute id="PARKZ"/>
+        <viewAttribute id="ANDAT"/>
+        <viewAttribute id="ANNAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="AENAM"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="PLAS"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_PLKO_PLAS" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="PLKO_PLNTY"/>
+        <viewAttribute id="PLKO_PLNNR"/>
+        <viewAttribute id="PLKO_PLNAL"/>
+        <viewAttribute id="PLKO_ZAEHL"/>
+        <viewAttribute id="PLKO_DATUV"/>
+        <viewAttribute id="PLKO_TECHV"/>
+        <viewAttribute id="PLKO_AENNR"/>
+        <viewAttribute id="PLKO_LOEKZ"/>
+        <viewAttribute id="PLKO_PARKZ"/>
+        <viewAttribute id="PLKO_ANDAT"/>
+        <viewAttribute id="PLKO_ANNAM"/>
+        <viewAttribute id="PLKO_AEDAT"/>
+        <viewAttribute id="PLKO_AENAM"/>
+        <viewAttribute id="PLKO_VERWE"/>
+        <viewAttribute id="PLKO_WERKS"/>
+        <viewAttribute id="PLKO_STATU"/>
+        <viewAttribute id="PLKO_PLNME"/>
+        <viewAttribute id="PLKO_LOSVN"/>
+        <viewAttribute id="PLKO_LOSBS"/>
+        <viewAttribute id="PLKO_VAGRP"/>
+        <viewAttribute id="PLKO_AESZN"/>
+        <viewAttribute id="PLKO_KTEXT"/>
+        <viewAttribute id="PLKO_TXTSP"/>
+        <viewAttribute id="PLKO_ABDAT"/>
+        <viewAttribute id="PLKO_ABANZ"/>
+        <viewAttribute id="PLKO_PROFIDNETZ"/>
+        <viewAttribute id="PLKO_KOKRS"/>
+        <viewAttribute id="PLKO_QVEWERKS"/>
+        <viewAttribute id="PLKO_QVEMENGE"/>
+        <viewAttribute id="PLKO_QVEVERSION"/>
+        <viewAttribute id="PLKO_QVEDATUM"/>
+        <viewAttribute id="PLKO_QVEGRUPPE"/>
+        <viewAttribute id="PLKO_QVECODE"/>
+        <viewAttribute id="PLKO_QDYNREGEL"/>
+        <viewAttribute id="PLKO_QDYNHEAD"/>
+        <viewAttribute id="PLKO_QPRZIEHVER"/>
+        <viewAttribute id="PLKO_QVERSNPRZV"/>
+        <viewAttribute id="PLKO_QKZRASTER"/>
+        <viewAttribute id="PLKO_QDYNSTRING"/>
+        <viewAttribute id="PLKO_STRAT"/>
+        <viewAttribute id="PLKO_PPOOL"/>
+        <viewAttribute id="PLKO_ISTRU"/>
+        <viewAttribute id="PLKO_IWERK"/>
+        <viewAttribute id="PLKO_ANLZU"/>
+        <viewAttribute id="PLKO_ARBID"/>
+        <viewAttribute id="PLKO_EXTNUM"/>
+        <viewAttribute id="PLKO_DELKZ"/>
+        <viewAttribute id="PLKO_ARBTY"/>
+        <viewAttribute id="PLKO_STUPR"/>
+        <viewAttribute id="PLKO_CLNDR"/>
+        <viewAttribute id="PLKO_PRTYP"/>
+        <viewAttribute id="PLKO_REODAT"/>
+        <viewAttribute id="PLKO_NETID"/>
+        <viewAttribute id="PLKO_FLG_CHK"/>
+        <viewAttribute id="PLKO_PSPNR"/>
+        <viewAttribute id="PLKO_TTRAS"/>
+        <viewAttribute id="PLKO_KZKFG"/>
+        <viewAttribute id="PLKO_PLNNR_ALT"/>
+        <viewAttribute id="PLKO_FLG_CAPO"/>
+        <viewAttribute id="PLKO_STLTY"/>
+        <viewAttribute id="PLKO_STLNR"/>
+        <viewAttribute id="PLKO_STLAL"/>
+        <viewAttribute id="PLKO_SLWBEZ"/>
+        <viewAttribute id="PLKO_PPKZTLZU"/>
+        <viewAttribute id="PLKO_CHRULE"/>
+        <viewAttribute id="PLKO_CCOAA"/>
+        <viewAttribute id="PLKO_ST_ARBID"/>
+        <viewAttribute id="PLKO_MEINH"/>
+        <viewAttribute id="PLKO_UMREZ"/>
+        <viewAttribute id="PLKO_UMREN"/>
+        <viewAttribute id="PLKO_BMSCH"/>
+        <viewAttribute id="PLKO_ADPSP"/>
+        <viewAttribute id="PLKO_MS_FLAG"/>
+        <viewAttribute id="PLKO_TSTMP_BW"/>
+        <viewAttribute id="PLKO_MES_ROUTINGID"/>
+        <viewAttribute id="PLKO_XHIERTL"/>
+        <viewAttribute id="PLKO_TL_EXTID"/>
+        <viewAttribute id="PLAS_PLNFL"/>
+        <viewAttribute id="PLAS_PLNKN"/>
+        <viewAttribute id="PLAS_ZAEHL"/>
+        <viewAttribute id="PLAS_DATUV"/>
+        <viewAttribute id="PLAS_TECHV"/>
+        <viewAttribute id="PLAS_AENNR"/>
+        <viewAttribute id="PLAS_LOEKZ"/>
+        <viewAttribute id="PLAS_PARKZ"/>
+        <viewAttribute id="PLAS_ANDAT"/>
+        <viewAttribute id="PLAS_ANNAM"/>
+        <viewAttribute id="PLAS_AEDAT"/>
+        <viewAttribute id="PLAS_AENAM"/>
+      <viewAttribute hidden="true" id="JOIN$MANDT$MANDT"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projn_PLKO">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNTY" source="PLNTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNNR" source="PLNNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNAL" source="PLNAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ZAEHL" source="ZAEHL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_DATUV" source="DATUV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TECHV" source="TECHV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AENNR" source="AENNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_LOEKZ" source="LOEKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PARKZ" source="PARKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ANDAT" source="ANDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ANNAM" source="ANNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_VERWE" source="VERWE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STATU" source="STATU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNME" source="PLNME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_LOSVN" source="LOSVN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_LOSBS" source="LOSBS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_VAGRP" source="VAGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AESZN" source="AESZN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TXTSP" source="TXTSP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ABDAT" source="ABDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ABANZ" source="ABANZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PROFIDNETZ" source="PROFIDNETZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_KOKRS" source="KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEWERKS" source="QVEWERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEMENGE" source="QVEMENGE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEVERSION" source="QVEVERSION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEDATUM" source="QVEDATUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEGRUPPE" source="QVEGRUPPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVECODE" source="QVECODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QDYNREGEL" source="QDYNREGEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QDYNHEAD" source="QDYNHEAD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QPRZIEHVER" source="QPRZIEHVER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVERSNPRZV" source="QVERSNPRZV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QKZRASTER" source="QKZRASTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QDYNSTRING" source="QDYNSTRING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STRAT" source="STRAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PPOOL" source="PPOOL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ISTRU" source="ISTRU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_IWERK" source="IWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ARBID" source="ARBID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_EXTNUM" source="EXTNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_DELKZ" source="DELKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ARBTY" source="ARBTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STUPR" source="STUPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_CLNDR" source="CLNDR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PRTYP" source="PRTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_REODAT" source="REODAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_NETID" source="NETID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_FLG_CHK" source="FLG_CHK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PSPNR" source="PSPNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TTRAS" source="TTRAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_KZKFG" source="KZKFG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNNR_ALT" source="PLNNR_ALT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_FLG_CAPO" source="FLG_CAPO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STLTY" source="STLTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STLNR" source="STLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STLAL" source="STLAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_SLWBEZ" source="SLWBEZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PPKZTLZU" source="PPKZTLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_CHRULE" source="CHRULE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_CCOAA" source="CCOAA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ST_ARBID" source="ST_ARBID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_MEINH" source="MEINH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_UMREZ" source="UMREZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_UMREN" source="UMREN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_BMSCH" source="BMSCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ADPSP" source="ADPSP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_MS_FLAG" source="MS_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TSTMP_BW" source="TSTMP_BW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_MES_ROUTINGID" source="MES_ROUTINGID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_XHIERTL" source="XHIERTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TL_EXTID" source="TL_EXTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
+      </input>
+      <input node="Projn_PLAS">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_PLNFL" source="PLNFL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_PLNKN" source="PLNKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_ZAEHL" source="ZAEHL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_DATUV" source="DATUV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_TECHV" source="TECHV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_AENNR" source="AENNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_LOEKZ" source="LOEKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_PARKZ" source="PARKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_ANDAT" source="ANDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_ANNAM" source="ANNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNTY" source="PLNTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNNR" source="PLNNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNAL" source="PLNAL"/>
+      </input>
+    <joinAttribute name="JOIN$MANDT$MANDT"/>
+    <joinAttribute name="PLKO_PLNTY"/>
+    <joinAttribute name="PLKO_PLNNR"/>
+    <joinAttribute name="PLKO_PLNAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projn_PLPO">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="PLNTY"/>
+        <viewAttribute id="PLNTY_1"/>
+        <viewAttribute id="PLNNR"/>
+        <viewAttribute id="PLNKN"/>
+        <viewAttribute id="ZAEHL"/>
+        <viewAttribute id="DATUV"/>
+        <viewAttribute id="TECHV"/>
+        <viewAttribute id="AENNR"/>
+        <viewAttribute id="LOEKZ"/>
+        <viewAttribute id="PARKZ"/>
+        <viewAttribute id="ANDAT"/>
+        <viewAttribute id="ANNAM"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="AENAM"/>
+        <viewAttribute id="SUMNR"/>
+        <viewAttribute id="VORNR"/>
+        <viewAttribute id="STEUS"/>
+        <viewAttribute id="ARBID"/>
+        <viewAttribute id="OBJTY"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="KTSCH"/>
+        <viewAttribute id="LTXA1"/>
+        <viewAttribute id="LTXA2"/>
+        <viewAttribute id="TXTSP"/>
+        <viewAttribute id="VPLTY"/>
+        <viewAttribute id="VPLNR"/>
+        <viewAttribute id="VPLAL"/>
+        <viewAttribute id="VPLFL"/>
+        <viewAttribute id="VINTV"/>
+        <viewAttribute id="MEINH"/>
+        <viewAttribute id="UMREN"/>
+        <viewAttribute id="UMREZ"/>
+        <viewAttribute id="BMSCH"/>
+        <viewAttribute id="ZMERH"/>
+        <viewAttribute id="ZEIER"/>
+        <viewAttribute id="LAR01"/>
+        <viewAttribute id="VGE01"/>
+        <viewAttribute id="VGW01"/>
+        <viewAttribute id="LAR02"/>
+        <viewAttribute id="VGE02"/>
+        <viewAttribute id="VGW02"/>
+        <viewAttribute id="LAR03"/>
+        <viewAttribute id="VGE03"/>
+        <viewAttribute id="VGW03"/>
+        <viewAttribute id="LAR04"/>
+        <viewAttribute id="VGE04"/>
+        <viewAttribute id="VGW04"/>
+        <viewAttribute id="LAR05"/>
+        <viewAttribute id="VGE05"/>
+        <viewAttribute id="VGW05"/>
+        <viewAttribute id="LAR06"/>
+        <viewAttribute id="VGE06"/>
+        <viewAttribute id="VGW06"/>
+        <viewAttribute id="ZERMA"/>
+        <viewAttribute id="ZGDAT"/>
+        <viewAttribute id="ZCODE"/>
+        <viewAttribute id="ZULNR"/>
+        <viewAttribute id="RSANZ"/>
+        <viewAttribute id="PDEST"/>
+        <viewAttribute id="LOANZ"/>
+        <viewAttribute id="LOART"/>
+        <viewAttribute id="QUALF"/>
+        <viewAttribute id="ANZMA"/>
+        <viewAttribute id="RFGRP"/>
+        <viewAttribute id="RFSCH"/>
+        <viewAttribute id="RASCH"/>
+        <viewAttribute id="AUFAK"/>
+        <viewAttribute id="LOGRP"/>
+        <viewAttribute id="UEMUS"/>
+        <viewAttribute id="UEKAN"/>
+        <viewAttribute id="FLIES"/>
+        <viewAttribute id="ZEIMU"/>
+        <viewAttribute id="ZMINU"/>
+        <viewAttribute id="MINWE"/>
+        <viewAttribute id="SPMUS"/>
+        <viewAttribute id="SPLIM"/>
+        <viewAttribute id="ZEIMB"/>
+        <viewAttribute id="ZMINB"/>
+        <viewAttribute id="ZEILM"/>
+        <viewAttribute id="ZLMAX"/>
+        <viewAttribute id="ZEILP"/>
+        <viewAttribute id="ZLPRO"/>
+        <viewAttribute id="ZEIWN"/>
+        <viewAttribute id="ZWNOR"/>
+        <viewAttribute id="ZEIWM"/>
+        <viewAttribute id="ZWMIN"/>
+        <viewAttribute id="ZEITN"/>
+        <viewAttribute id="ZTNOR"/>
+        <viewAttribute id="ZEITM"/>
+        <viewAttribute id="ZTMIN"/>
+        <viewAttribute id="ABLIPKZ"/>
+        <viewAttribute id="RSTRA"/>
+        <viewAttribute id="BZOFFB"/>
+        <viewAttribute id="OFFSTB"/>
+        <viewAttribute id="EHOFFB"/>
+        <viewAttribute id="BZOFFE"/>
+        <viewAttribute id="OFFSTE"/>
+        <viewAttribute id="EHOFFE"/>
+        <viewAttribute id="SORTL"/>
+        <viewAttribute id="LIFNR"/>
+        <viewAttribute id="PLIFZ"/>
+        <viewAttribute id="PREIS"/>
+        <viewAttribute id="PEINH"/>
+        <viewAttribute id="SAKTO"/>
+        <viewAttribute id="WAERS"/>
+        <viewAttribute id="INFNR"/>
+        <viewAttribute id="ESOKZ"/>
+        <viewAttribute id="EKORG"/>
+        <viewAttribute id="EKGRP"/>
+        <viewAttribute id="KZLGF"/>
+        <viewAttribute id="MATKL"/>
+        <viewAttribute id="DAUNO"/>
+        <viewAttribute id="DAUNE"/>
+        <viewAttribute id="DAUMI"/>
+        <viewAttribute id="DAUME"/>
+        <viewAttribute id="DDEHN"/>
+        <viewAttribute id="EINSA"/>
+        <viewAttribute id="EINSE"/>
+        <viewAttribute id="ARBEI"/>
+        <viewAttribute id="ARBEH"/>
+        <viewAttribute id="ANZZL"/>
+        <viewAttribute id="PRZNT"/>
+        <viewAttribute id="VERTL"/>
+        <viewAttribute id="MLSTN"/>
+        <viewAttribute id="PPRIO"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="SLWID"/>
+        <viewAttribute id="USR00"/>
+        <viewAttribute id="USR01"/>
+        <viewAttribute id="USR02"/>
+        <viewAttribute id="USR03"/>
+        <viewAttribute id="USR04"/>
+        <viewAttribute id="USE04"/>
+        <viewAttribute id="USR05"/>
+        <viewAttribute id="USE05"/>
+        <viewAttribute id="USR06"/>
+        <viewAttribute id="USE06"/>
+        <viewAttribute id="USR07"/>
+        <viewAttribute id="USE07"/>
+        <viewAttribute id="USR08"/>
+        <viewAttribute id="USR09"/>
+        <viewAttribute id="USR10"/>
+        <viewAttribute id="USR11"/>
+        <viewAttribute id="ANFKO"/>
+        <viewAttribute id="ANFKOKRS"/>
+        <viewAttribute id="KAPAR"/>
+        <viewAttribute id="INDET"/>
+        <viewAttribute id="LARNT"/>
+        <viewAttribute id="PRKST"/>
+        <viewAttribute id="QRASTERMNG"/>
+        <viewAttribute id="QRASTEREH"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ISTRU"/>
+        <viewAttribute id="ISTTY"/>
+        <viewAttribute id="ISTNR"/>
+        <viewAttribute id="ISTKN"/>
+        <viewAttribute id="ISTPO"/>
+        <viewAttribute id="IUPOZ"/>
+        <viewAttribute id="EBORT"/>
+        <viewAttribute id="KALID"/>
+        <viewAttribute id="FRSP"/>
+        <viewAttribute id="VERTN"/>
+        <viewAttribute id="ZGR01"/>
+        <viewAttribute id="ZGR02"/>
+        <viewAttribute id="ZGR03"/>
+        <viewAttribute id="ZGR04"/>
+        <viewAttribute id="ZGR05"/>
+        <viewAttribute id="ZGR06"/>
+        <viewAttribute id="MDLID"/>
+        <viewAttribute id="RUZUS"/>
+        <viewAttribute id="BMEIH"/>
+        <viewAttribute id="BMVRG"/>
+        <viewAttribute id="CKSELKZ"/>
+        <viewAttribute id="KALKZ"/>
+        <viewAttribute id="NPRIO"/>
+        <viewAttribute id="PVZKN"/>
+        <viewAttribute id="PHFLG"/>
+        <viewAttribute id="PHSEQ"/>
+        <viewAttribute id="KNOBJ"/>
+        <viewAttribute id="ERFSICHT"/>
+        <viewAttribute id="PSPNR"/>
+        <viewAttribute id="QLOTYPE"/>
+        <viewAttribute id="QLOBJEKTID"/>
+        <viewAttribute id="QLKAPAR"/>
+        <viewAttribute id="QKZPRZEIT"/>
+        <viewAttribute id="QKZZTMG1"/>
+        <viewAttribute id="QKZPRMENG"/>
+        <viewAttribute id="QKZPRFREI"/>
+        <viewAttribute id="QRASTZEHT"/>
+        <viewAttribute id="QRASTZFAK"/>
+        <viewAttribute id="QRASTMENG"/>
+        <viewAttribute id="QPPKTABS"/>
+        <viewAttribute id="KRIT1"/>
+        <viewAttribute id="CLASSID"/>
+        <viewAttribute id="PACKNO"/>
+        <viewAttribute id="EBELN"/>
+        <viewAttribute id="EBELP"/>
+        <viewAttribute id="CAPOC"/>
+        <viewAttribute id="FLG_CAPTXT"/>
+        <viewAttribute id="CN_WEIGHT"/>
+        <viewAttribute id="QKZTLSBEST"/>
+        <viewAttribute id="AUFKT"/>
+        <viewAttribute id="DAFKT"/>
+        <viewAttribute id="RWFAK"/>
+        <viewAttribute id="AAUFG"/>
+        <viewAttribute id="VERDART"/>
+        <viewAttribute id="UAVO_AUFL"/>
+        <viewAttribute id="FRDLB"/>
+        <viewAttribute id="QPART"/>
+        <viewAttribute id="PRZ01"/>
+        <viewAttribute id="TAKT"/>
+        <viewAttribute id="OPRID"/>
+        <viewAttribute id="NVADD"/>
+        <viewAttribute id="EVGEW"/>
+        <viewAttribute id="RFPNT"/>
+        <viewAttribute id="FLG_TSK_GROUP"/>
+        <viewAttribute id="ADPSP"/>
+        <viewAttribute id="TPLNR"/>
+        <viewAttribute id="EQUNR"/>
+        <viewAttribute id="MES_OPERID"/>
+        <viewAttribute id="MES_STEPID"/>
+        <viewAttribute id="MANU_PROC"/>
+        <viewAttribute id="_SAPMP_MET_LRCH"/>
+        <viewAttribute id="_SAPMP_MAX_FERTL"/>
+        <viewAttribute id="_SAPMP_FIX_AS_J"/>
+        <viewAttribute id="_SAPMP_FIX_AS_E"/>
+        <viewAttribute id="_SAPMP_FIX_AS_L"/>
+        <viewAttribute id="_SAPMP_ABL_ZAHL"/>
+        <viewAttribute id="SUBPLNAL"/>
+        <viewAttribute id="SUBPLNNR"/>
+        <viewAttribute id="SUBPLNTY"/>
+        <viewAttribute id="XEXCLTL"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="PLPO">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLNTY_1" source="PLNTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_SAPMP_MET_LRCH" source="/SAPMP/MET_LRCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_SAPMP_MAX_FERTL" source="/SAPMP/MAX_FERTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_SAPMP_FIX_AS_J" source="/SAPMP/FIX_AS_J"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_SAPMP_FIX_AS_E" source="/SAPMP/FIX_AS_E"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_SAPMP_FIX_AS_L" source="/SAPMP/FIX_AS_L"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="_SAPMP_ABL_ZAHL" source="/SAPMP/ABL_ZAHL"/></input>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_PLKO_PLPO" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="PLKO_PLNTY"/>
+        <viewAttribute id="PLKO_PLNNR"/>
+        <viewAttribute id="PLKO_PLNAL"/>
+        <viewAttribute id="PLKO_ZAEHL"/>
+        <viewAttribute id="PLKO_DATUV"/>
+        <viewAttribute id="PLKO_TECHV"/>
+        <viewAttribute id="PLKO_AENNR"/>
+        <viewAttribute id="PLKO_LOEKZ"/>
+        <viewAttribute id="PLKO_PARKZ"/>
+        <viewAttribute id="PLKO_ANDAT"/>
+        <viewAttribute id="PLKO_ANNAM"/>
+        <viewAttribute id="PLKO_AEDAT"/>
+        <viewAttribute id="PLKO_AENAM"/>
+        <viewAttribute id="PLKO_VERWE"/>
+        <viewAttribute id="PLKO_WERKS"/>
+        <viewAttribute id="PLKO_STATU"/>
+        <viewAttribute id="PLKO_PLNME"/>
+        <viewAttribute id="PLKO_LOSVN"/>
+        <viewAttribute id="PLKO_LOSBS"/>
+        <viewAttribute id="PLKO_VAGRP"/>
+        <viewAttribute id="PLKO_AESZN"/>
+        <viewAttribute id="PLKO_KTEXT"/>
+        <viewAttribute id="PLKO_TXTSP"/>
+        <viewAttribute id="PLKO_ABDAT"/>
+        <viewAttribute id="PLKO_ABANZ"/>
+        <viewAttribute id="PLKO_PROFIDNETZ"/>
+        <viewAttribute id="PLKO_KOKRS"/>
+        <viewAttribute id="PLKO_QVEWERKS"/>
+        <viewAttribute id="PLKO_QVEMENGE"/>
+        <viewAttribute id="PLKO_QVEVERSION"/>
+        <viewAttribute id="PLKO_QVEDATUM"/>
+        <viewAttribute id="PLKO_QVEGRUPPE"/>
+        <viewAttribute id="PLKO_QVECODE"/>
+        <viewAttribute id="PLKO_QDYNREGEL"/>
+        <viewAttribute id="PLKO_QDYNHEAD"/>
+        <viewAttribute id="PLKO_QPRZIEHVER"/>
+        <viewAttribute id="PLKO_QVERSNPRZV"/>
+        <viewAttribute id="PLKO_QKZRASTER"/>
+        <viewAttribute id="PLKO_QDYNSTRING"/>
+        <viewAttribute id="PLKO_STRAT"/>
+        <viewAttribute id="PLKO_PPOOL"/>
+        <viewAttribute id="PLKO_ISTRU"/>
+        <viewAttribute id="PLKO_IWERK"/>
+        <viewAttribute id="PLKO_ANLZU"/>
+        <viewAttribute id="PLKO_ARBID"/>
+        <viewAttribute id="PLKO_EXTNUM"/>
+        <viewAttribute id="PLKO_DELKZ"/>
+        <viewAttribute id="PLKO_ARBTY"/>
+        <viewAttribute id="PLKO_STUPR"/>
+        <viewAttribute id="PLKO_CLNDR"/>
+        <viewAttribute id="PLKO_PRTYP"/>
+        <viewAttribute id="PLKO_REODAT"/>
+        <viewAttribute id="PLKO_NETID"/>
+        <viewAttribute id="PLKO_FLG_CHK"/>
+        <viewAttribute id="PLKO_PSPNR"/>
+        <viewAttribute id="PLKO_TTRAS"/>
+        <viewAttribute id="PLKO_KZKFG"/>
+        <viewAttribute id="PLKO_PLNNR_ALT"/>
+        <viewAttribute id="PLKO_FLG_CAPO"/>
+        <viewAttribute id="PLKO_STLTY"/>
+        <viewAttribute id="PLKO_STLNR"/>
+        <viewAttribute id="PLKO_STLAL"/>
+        <viewAttribute id="PLKO_SLWBEZ"/>
+        <viewAttribute id="PLKO_PPKZTLZU"/>
+        <viewAttribute id="PLKO_CHRULE"/>
+        <viewAttribute id="PLKO_CCOAA"/>
+        <viewAttribute id="PLKO_ST_ARBID"/>
+        <viewAttribute id="PLKO_MEINH"/>
+        <viewAttribute id="PLKO_UMREZ"/>
+        <viewAttribute id="PLKO_UMREN"/>
+        <viewAttribute id="PLKO_BMSCH"/>
+        <viewAttribute id="PLKO_ADPSP"/>
+        <viewAttribute id="PLKO_MS_FLAG"/>
+        <viewAttribute id="PLKO_TSTMP_BW"/>
+        <viewAttribute id="PLKO_MES_ROUTINGID"/>
+        <viewAttribute id="PLKO_XHIERTL"/>
+        <viewAttribute id="PLKO_TL_EXTID"/>
+        <viewAttribute id="PLAS_PLNFL"/>
+        <viewAttribute id="PLAS_PLNKN"/>
+        <viewAttribute id="PLAS_ZAEHL"/>
+        <viewAttribute id="PLAS_DATUV"/>
+        <viewAttribute id="PLAS_TECHV"/>
+        <viewAttribute id="PLAS_AENNR"/>
+        <viewAttribute id="PLAS_LOEKZ"/>
+        <viewAttribute id="PLAS_PARKZ"/>
+        <viewAttribute id="PLAS_ANDAT"/>
+        <viewAttribute id="PLAS_ANNAM"/>
+        <viewAttribute id="PLAS_AEDAT"/>
+        <viewAttribute id="PLAS_AENAM"/>
+        <viewAttribute id="PLPO_PLNTY_1"/>
+        <viewAttribute id="PLPO_DATUV"/>
+        <viewAttribute id="PLPO_TECHV"/>
+        <viewAttribute id="PLPO_AENNR"/>
+        <viewAttribute id="PLPO_LOEKZ"/>
+        <viewAttribute id="PLPO_PARKZ"/>
+        <viewAttribute id="PLPO_ANDAT"/>
+        <viewAttribute id="PLPO_ANNAM"/>
+        <viewAttribute id="PLPO_AEDAT"/>
+        <viewAttribute id="PLPO_AENAM"/>
+        <viewAttribute id="PLPO_SUMNR"/>
+        <viewAttribute id="PLPO_VORNR"/>
+        <viewAttribute id="PLPO_STEUS"/>
+        <viewAttribute id="PLPO_ARBID"/>
+        <viewAttribute id="PLPO_OBJTY"/>
+        <viewAttribute id="PLPO_WERKS"/>
+        <viewAttribute id="PLPO_KTSCH"/>
+        <viewAttribute id="PLPO_LTXA1"/>
+        <viewAttribute id="PLPO_LTXA2"/>
+        <viewAttribute id="PLPO_TXTSP"/>
+        <viewAttribute id="PLPO_VPLTY"/>
+        <viewAttribute id="PLPO_VPLNR"/>
+        <viewAttribute id="PLPO_VPLAL"/>
+        <viewAttribute id="PLPO_VPLFL"/>
+        <viewAttribute id="PLPO_VINTV"/>
+        <viewAttribute id="PLPO_MEINH"/>
+        <viewAttribute id="PLPO_UMREN"/>
+        <viewAttribute id="PLPO_UMREZ"/>
+        <viewAttribute id="PLPO_BMSCH"/>
+        <viewAttribute id="PLPO_ZMERH"/>
+        <viewAttribute id="PLPO_ZEIER"/>
+        <viewAttribute id="PLPO_LAR01"/>
+        <viewAttribute id="PLPO_VGE01"/>
+        <viewAttribute id="PLPO_VGW01"/>
+        <viewAttribute id="PLPO_LAR02"/>
+        <viewAttribute id="PLPO_VGE02"/>
+        <viewAttribute id="PLPO_VGW02"/>
+        <viewAttribute id="PLPO_LAR03"/>
+        <viewAttribute id="PLPO_VGE03"/>
+        <viewAttribute id="PLPO_VGW03"/>
+        <viewAttribute id="PLPO_LAR04"/>
+        <viewAttribute id="PLPO_VGE04"/>
+        <viewAttribute id="PLPO_VGW04"/>
+        <viewAttribute id="PLPO_LAR05"/>
+        <viewAttribute id="PLPO_VGE05"/>
+        <viewAttribute id="PLPO_VGW05"/>
+        <viewAttribute id="PLPO_LAR06"/>
+        <viewAttribute id="PLPO_VGE06"/>
+        <viewAttribute id="PLPO_VGW06"/>
+        <viewAttribute id="PLPO_ZERMA"/>
+        <viewAttribute id="PLPO_ZGDAT"/>
+        <viewAttribute id="PLPO_ZCODE"/>
+        <viewAttribute id="PLPO_ZULNR"/>
+        <viewAttribute id="PLPO_RSANZ"/>
+        <viewAttribute id="PLPO_PDEST"/>
+        <viewAttribute id="PLPO_LOANZ"/>
+        <viewAttribute id="PLPO_LOART"/>
+        <viewAttribute id="PLPO_QUALF"/>
+        <viewAttribute id="PLPO_ANZMA"/>
+        <viewAttribute id="PLPO_RFGRP"/>
+        <viewAttribute id="PLPO_RFSCH"/>
+        <viewAttribute id="PLPO_RASCH"/>
+        <viewAttribute id="PLPO_AUFAK"/>
+        <viewAttribute id="PLPO_LOGRP"/>
+        <viewAttribute id="PLPO_UEMUS"/>
+        <viewAttribute id="PLPO_UEKAN"/>
+        <viewAttribute id="PLPO_FLIES"/>
+        <viewAttribute id="PLPO_ZEIMU"/>
+        <viewAttribute id="PLPO_ZMINU"/>
+        <viewAttribute id="PLPO_MINWE"/>
+        <viewAttribute id="PLPO_SPMUS"/>
+        <viewAttribute id="PLPO_SPLIM"/>
+        <viewAttribute id="PLPO_ZEIMB"/>
+        <viewAttribute id="PLPO_ZMINB"/>
+        <viewAttribute id="PLPO_ZEILM"/>
+        <viewAttribute id="PLPO_ZLMAX"/>
+        <viewAttribute id="PLPO_ZEILP"/>
+        <viewAttribute id="PLPO_ZLPRO"/>
+        <viewAttribute id="PLPO_ZEIWN"/>
+        <viewAttribute id="PLPO_ZWNOR"/>
+        <viewAttribute id="PLPO_ZEIWM"/>
+        <viewAttribute id="PLPO_ZWMIN"/>
+        <viewAttribute id="PLPO_ZEITN"/>
+        <viewAttribute id="PLPO_ZTNOR"/>
+        <viewAttribute id="PLPO_ZEITM"/>
+        <viewAttribute id="PLPO_ZTMIN"/>
+        <viewAttribute id="PLPO_ABLIPKZ"/>
+        <viewAttribute id="PLPO_RSTRA"/>
+        <viewAttribute id="PLPO_BZOFFB"/>
+        <viewAttribute id="PLPO_OFFSTB"/>
+        <viewAttribute id="PLPO_EHOFFB"/>
+        <viewAttribute id="PLPO_BZOFFE"/>
+        <viewAttribute id="PLPO_OFFSTE"/>
+        <viewAttribute id="PLPO_EHOFFE"/>
+        <viewAttribute id="PLPO_SORTL"/>
+        <viewAttribute id="PLPO_LIFNR"/>
+        <viewAttribute id="PLPO_PLIFZ"/>
+        <viewAttribute id="PLPO_PREIS"/>
+        <viewAttribute id="PLPO_PEINH"/>
+        <viewAttribute id="PLPO_SAKTO"/>
+        <viewAttribute id="PLPO_WAERS"/>
+        <viewAttribute id="PLPO_INFNR"/>
+        <viewAttribute id="PLPO_ESOKZ"/>
+        <viewAttribute id="PLPO_EKORG"/>
+        <viewAttribute id="PLPO_EKGRP"/>
+        <viewAttribute id="PLPO_KZLGF"/>
+        <viewAttribute id="PLPO_MATKL"/>
+        <viewAttribute id="PLPO_DAUNO"/>
+        <viewAttribute id="PLPO_DAUNE"/>
+        <viewAttribute id="PLPO_DAUMI"/>
+        <viewAttribute id="PLPO_DAUME"/>
+        <viewAttribute id="PLPO_DDEHN"/>
+        <viewAttribute id="PLPO_EINSA"/>
+        <viewAttribute id="PLPO_EINSE"/>
+        <viewAttribute id="PLPO_ARBEI"/>
+        <viewAttribute id="PLPO_ARBEH"/>
+        <viewAttribute id="PLPO_ANZZL"/>
+        <viewAttribute id="PLPO_PRZNT"/>
+        <viewAttribute id="PLPO_VERTL"/>
+        <viewAttribute id="PLPO_MLSTN"/>
+        <viewAttribute id="PLPO_PPRIO"/>
+        <viewAttribute id="PLPO_BUKRS"/>
+        <viewAttribute id="PLPO_SLWID"/>
+        <viewAttribute id="PLPO_USR00"/>
+        <viewAttribute id="PLPO_USR01"/>
+        <viewAttribute id="PLPO_USR02"/>
+        <viewAttribute id="PLPO_USR03"/>
+        <viewAttribute id="PLPO_USR04"/>
+        <viewAttribute id="PLPO_USE04"/>
+        <viewAttribute id="PLPO_USR05"/>
+        <viewAttribute id="PLPO_USE05"/>
+        <viewAttribute id="PLPO_USR06"/>
+        <viewAttribute id="PLPO_USE06"/>
+        <viewAttribute id="PLPO_USR07"/>
+        <viewAttribute id="PLPO_USE07"/>
+        <viewAttribute id="PLPO_USR08"/>
+        <viewAttribute id="PLPO_USR09"/>
+        <viewAttribute id="PLPO_USR10"/>
+        <viewAttribute id="PLPO_USR11"/>
+        <viewAttribute id="PLPO_ANFKO"/>
+        <viewAttribute id="PLPO_ANFKOKRS"/>
+        <viewAttribute id="PLPO_KAPAR"/>
+        <viewAttribute id="PLPO_INDET"/>
+        <viewAttribute id="PLPO_LARNT"/>
+        <viewAttribute id="PLPO_PRKST"/>
+        <viewAttribute id="PLPO_QRASTERMNG"/>
+        <viewAttribute id="PLPO_QRASTEREH"/>
+        <viewAttribute id="PLPO_ANLZU"/>
+        <viewAttribute id="PLPO_ISTRU"/>
+        <viewAttribute id="PLPO_ISTTY"/>
+        <viewAttribute id="PLPO_ISTNR"/>
+        <viewAttribute id="PLPO_ISTKN"/>
+        <viewAttribute id="PLPO_ISTPO"/>
+        <viewAttribute id="PLPO_IUPOZ"/>
+        <viewAttribute id="PLPO_EBORT"/>
+        <viewAttribute id="PLPO_KALID"/>
+        <viewAttribute id="PLPO_FRSP"/>
+        <viewAttribute id="PLPO_VERTN"/>
+        <viewAttribute id="PLPO_ZGR01"/>
+        <viewAttribute id="PLPO_ZGR02"/>
+        <viewAttribute id="PLPO_ZGR03"/>
+        <viewAttribute id="PLPO_ZGR04"/>
+        <viewAttribute id="PLPO_ZGR05"/>
+        <viewAttribute id="PLPO_ZGR06"/>
+        <viewAttribute id="PLPO_MDLID"/>
+        <viewAttribute id="PLPO_RUZUS"/>
+        <viewAttribute id="PLPO_BMEIH"/>
+        <viewAttribute id="PLPO_BMVRG"/>
+        <viewAttribute id="PLPO_CKSELKZ"/>
+        <viewAttribute id="PLPO_KALKZ"/>
+        <viewAttribute id="PLPO_NPRIO"/>
+        <viewAttribute id="PLPO_PVZKN"/>
+        <viewAttribute id="PLPO_PHFLG"/>
+        <viewAttribute id="PLPO_PHSEQ"/>
+        <viewAttribute id="PLPO_KNOBJ"/>
+        <viewAttribute id="PLPO_ERFSICHT"/>
+        <viewAttribute id="PLPO_PSPNR"/>
+        <viewAttribute id="PLPO_QLOTYPE"/>
+        <viewAttribute id="PLPO_QLOBJEKTID"/>
+        <viewAttribute id="PLPO_QLKAPAR"/>
+        <viewAttribute id="PLPO_QKZPRZEIT"/>
+        <viewAttribute id="PLPO_QKZZTMG1"/>
+        <viewAttribute id="PLPO_QKZPRMENG"/>
+        <viewAttribute id="PLPO_QKZPRFREI"/>
+        <viewAttribute id="PLPO_QRASTZEHT"/>
+        <viewAttribute id="PLPO_QRASTZFAK"/>
+        <viewAttribute id="PLPO_QRASTMENG"/>
+        <viewAttribute id="PLPO_QPPKTABS"/>
+        <viewAttribute id="PLPO_KRIT1"/>
+        <viewAttribute id="PLPO_CLASSID"/>
+        <viewAttribute id="PLPO_PACKNO"/>
+        <viewAttribute id="PLPO_EBELN"/>
+        <viewAttribute id="PLPO_EBELP"/>
+        <viewAttribute id="PLPO_CAPOC"/>
+        <viewAttribute id="PLPO_FLG_CAPTXT"/>
+        <viewAttribute id="PLPO_CN_WEIGHT"/>
+        <viewAttribute id="PLPO_QKZTLSBEST"/>
+        <viewAttribute id="PLPO_AUFKT"/>
+        <viewAttribute id="PLPO_DAFKT"/>
+        <viewAttribute id="PLPO_RWFAK"/>
+        <viewAttribute id="PLPO_AAUFG"/>
+        <viewAttribute id="PLPO_VERDART"/>
+        <viewAttribute id="PLPO_UAVO_AUFL"/>
+        <viewAttribute id="PLPO_FRDLB"/>
+        <viewAttribute id="PLPO_QPART"/>
+        <viewAttribute id="PLPO_PRZ01"/>
+        <viewAttribute id="PLPO_TAKT"/>
+        <viewAttribute id="PLPO_OPRID"/>
+        <viewAttribute id="PLPO_NVADD"/>
+        <viewAttribute id="PLPO_EVGEW"/>
+        <viewAttribute id="PLPO_RFPNT"/>
+        <viewAttribute id="PLPO_FLG_TSK_GROUP"/>
+        <viewAttribute id="PLPO_ADPSP"/>
+        <viewAttribute id="PLPO_TPLNR"/>
+        <viewAttribute id="PLPO_EQUNR"/>
+        <viewAttribute id="PLPO_MES_OPERID"/>
+        <viewAttribute id="PLPO_MES_STEPID"/>
+        <viewAttribute id="PLPO_MANU_PROC"/>
+        <viewAttribute id="PLPO__SAPMP_MET_LRCH"/>
+        <viewAttribute id="PLPO__SAPMP_MAX_FERTL"/>
+        <viewAttribute id="PLPO__SAPMP_FIX_AS_J"/>
+        <viewAttribute id="PLPO__SAPMP_FIX_AS_E"/>
+        <viewAttribute id="PLPO__SAPMP_FIX_AS_L"/>
+        <viewAttribute id="PLPO__SAPMP_ABL_ZAHL"/>
+        <viewAttribute id="PLPO_SUBPLNAL"/>
+        <viewAttribute id="PLPO_SUBPLNNR"/>
+        <viewAttribute id="PLPO_SUBPLNTY"/>
+        <viewAttribute id="PLPO_XEXCLTL"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_PLKO_PLAS">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNTY" source="PLKO_PLNTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNNR" source="PLKO_PLNNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNAL" source="PLKO_PLNAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ZAEHL" source="PLKO_ZAEHL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_DATUV" source="PLKO_DATUV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TECHV" source="PLKO_TECHV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AENNR" source="PLKO_AENNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_LOEKZ" source="PLKO_LOEKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PARKZ" source="PLKO_PARKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ANDAT" source="PLKO_ANDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ANNAM" source="PLKO_ANNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AEDAT" source="PLKO_AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AENAM" source="PLKO_AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_VERWE" source="PLKO_VERWE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_WERKS" source="PLKO_WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STATU" source="PLKO_STATU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNME" source="PLKO_PLNME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_LOSVN" source="PLKO_LOSVN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_LOSBS" source="PLKO_LOSBS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_VAGRP" source="PLKO_VAGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_AESZN" source="PLKO_AESZN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_KTEXT" source="PLKO_KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TXTSP" source="PLKO_TXTSP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ABDAT" source="PLKO_ABDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ABANZ" source="PLKO_ABANZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PROFIDNETZ" source="PLKO_PROFIDNETZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_KOKRS" source="PLKO_KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEWERKS" source="PLKO_QVEWERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEMENGE" source="PLKO_QVEMENGE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEVERSION" source="PLKO_QVEVERSION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEDATUM" source="PLKO_QVEDATUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVEGRUPPE" source="PLKO_QVEGRUPPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVECODE" source="PLKO_QVECODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QDYNREGEL" source="PLKO_QDYNREGEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QDYNHEAD" source="PLKO_QDYNHEAD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QPRZIEHVER" source="PLKO_QPRZIEHVER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QVERSNPRZV" source="PLKO_QVERSNPRZV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QKZRASTER" source="PLKO_QKZRASTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_QDYNSTRING" source="PLKO_QDYNSTRING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STRAT" source="PLKO_STRAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PPOOL" source="PLKO_PPOOL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ISTRU" source="PLKO_ISTRU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_IWERK" source="PLKO_IWERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ANLZU" source="PLKO_ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ARBID" source="PLKO_ARBID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_EXTNUM" source="PLKO_EXTNUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_DELKZ" source="PLKO_DELKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ARBTY" source="PLKO_ARBTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STUPR" source="PLKO_STUPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_CLNDR" source="PLKO_CLNDR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PRTYP" source="PLKO_PRTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_REODAT" source="PLKO_REODAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_NETID" source="PLKO_NETID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_FLG_CHK" source="PLKO_FLG_CHK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PSPNR" source="PLKO_PSPNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TTRAS" source="PLKO_TTRAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_KZKFG" source="PLKO_KZKFG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNNR_ALT" source="PLKO_PLNNR_ALT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_FLG_CAPO" source="PLKO_FLG_CAPO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STLTY" source="PLKO_STLTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STLNR" source="PLKO_STLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_STLAL" source="PLKO_STLAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_SLWBEZ" source="PLKO_SLWBEZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PPKZTLZU" source="PLKO_PPKZTLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_CHRULE" source="PLKO_CHRULE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_CCOAA" source="PLKO_CCOAA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ST_ARBID" source="PLKO_ST_ARBID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_MEINH" source="PLKO_MEINH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_UMREZ" source="PLKO_UMREZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_UMREN" source="PLKO_UMREN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_BMSCH" source="PLKO_BMSCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_ADPSP" source="PLKO_ADPSP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_MS_FLAG" source="PLKO_MS_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TSTMP_BW" source="PLKO_TSTMP_BW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_MES_ROUTINGID" source="PLKO_MES_ROUTINGID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_XHIERTL" source="PLKO_XHIERTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_TL_EXTID" source="PLKO_TL_EXTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_PLNFL" source="PLAS_PLNFL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_PLNKN" source="PLAS_PLNKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_ZAEHL" source="PLAS_ZAEHL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_DATUV" source="PLAS_DATUV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_TECHV" source="PLAS_TECHV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_AENNR" source="PLAS_AENNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_LOEKZ" source="PLAS_LOEKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_PARKZ" source="PLAS_PARKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_ANDAT" source="PLAS_ANDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_ANNAM" source="PLAS_ANNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_AEDAT" source="PLAS_AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAS_AENAM" source="PLAS_AENAM"/>
+      </input>
+      <input node="Projn_PLPO">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PLNTY_1" source="PLNTY_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_DATUV" source="DATUV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_TECHV" source="TECHV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_AENNR" source="AENNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LOEKZ" source="LOEKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PARKZ" source="PARKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ANDAT" source="ANDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ANNAM" source="ANNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_AEDAT" source="AEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_AENAM" source="AENAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SUMNR" source="SUMNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VORNR" source="VORNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_STEUS" source="STEUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ARBID" source="ARBID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_OBJTY" source="OBJTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_KTSCH" source="KTSCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LTXA1" source="LTXA1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LTXA2" source="LTXA2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_TXTSP" source="TXTSP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VPLTY" source="VPLTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VPLNR" source="VPLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VPLAL" source="VPLAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VPLFL" source="VPLFL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VINTV" source="VINTV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MEINH" source="MEINH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_UMREN" source="UMREN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_UMREZ" source="UMREZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_BMSCH" source="BMSCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZMERH" source="ZMERH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEIER" source="ZEIER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LAR01" source="LAR01"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGE01" source="VGE01"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGW01" source="VGW01"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LAR02" source="LAR02"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGE02" source="VGE02"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGW02" source="VGW02"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LAR03" source="LAR03"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGE03" source="VGE03"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGW03" source="VGW03"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LAR04" source="LAR04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGE04" source="VGE04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGW04" source="VGW04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LAR05" source="LAR05"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGE05" source="VGE05"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGW05" source="VGW05"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LAR06" source="LAR06"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGE06" source="VGE06"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VGW06" source="VGW06"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZERMA" source="ZERMA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZGDAT" source="ZGDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZCODE" source="ZCODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZULNR" source="ZULNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RSANZ" source="RSANZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PDEST" source="PDEST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LOANZ" source="LOANZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LOART" source="LOART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QUALF" source="QUALF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ANZMA" source="ANZMA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RFGRP" source="RFGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RFSCH" source="RFSCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RASCH" source="RASCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_AUFAK" source="AUFAK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LOGRP" source="LOGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_UEMUS" source="UEMUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_UEKAN" source="UEKAN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_FLIES" source="FLIES"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEIMU" source="ZEIMU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZMINU" source="ZMINU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MINWE" source="MINWE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SPMUS" source="SPMUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SPLIM" source="SPLIM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEIMB" source="ZEIMB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZMINB" source="ZMINB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEILM" source="ZEILM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZLMAX" source="ZLMAX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEILP" source="ZEILP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZLPRO" source="ZLPRO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEIWN" source="ZEIWN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZWNOR" source="ZWNOR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEIWM" source="ZEIWM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZWMIN" source="ZWMIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEITN" source="ZEITN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZTNOR" source="ZTNOR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZEITM" source="ZEITM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZTMIN" source="ZTMIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ABLIPKZ" source="ABLIPKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RSTRA" source="RSTRA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_BZOFFB" source="BZOFFB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_OFFSTB" source="OFFSTB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EHOFFB" source="EHOFFB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_BZOFFE" source="BZOFFE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_OFFSTE" source="OFFSTE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EHOFFE" source="EHOFFE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SORTL" source="SORTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LIFNR" source="LIFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PLIFZ" source="PLIFZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PREIS" source="PREIS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PEINH" source="PEINH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SAKTO" source="SAKTO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_WAERS" source="WAERS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_INFNR" source="INFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ESOKZ" source="ESOKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EKORG" source="EKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EKGRP" source="EKGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_KZLGF" source="KZLGF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MATKL" source="MATKL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_DAUNO" source="DAUNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_DAUNE" source="DAUNE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_DAUMI" source="DAUMI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_DAUME" source="DAUME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_DDEHN" source="DDEHN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EINSA" source="EINSA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EINSE" source="EINSE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ARBEI" source="ARBEI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ARBEH" source="ARBEH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ANZZL" source="ANZZL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PRZNT" source="PRZNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VERTL" source="VERTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MLSTN" source="MLSTN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PPRIO" source="PPRIO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_BUKRS" source="BUKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SLWID" source="SLWID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR00" source="USR00"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR01" source="USR01"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR02" source="USR02"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR03" source="USR03"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR04" source="USR04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USE04" source="USE04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR05" source="USR05"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USE05" source="USE05"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR06" source="USR06"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USE06" source="USE06"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR07" source="USR07"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USE07" source="USE07"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR08" source="USR08"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR09" source="USR09"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR10" source="USR10"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_USR11" source="USR11"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ANFKO" source="ANFKO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ANFKOKRS" source="ANFKOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_KAPAR" source="KAPAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_INDET" source="INDET"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_LARNT" source="LARNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PRKST" source="PRKST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QRASTERMNG" source="QRASTERMNG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QRASTEREH" source="QRASTEREH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ISTRU" source="ISTRU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ISTTY" source="ISTTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ISTNR" source="ISTNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ISTKN" source="ISTKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ISTPO" source="ISTPO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_IUPOZ" source="IUPOZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EBORT" source="EBORT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_KALID" source="KALID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_FRSP" source="FRSP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VERTN" source="VERTN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZGR01" source="ZGR01"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZGR02" source="ZGR02"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZGR03" source="ZGR03"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZGR04" source="ZGR04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZGR05" source="ZGR05"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ZGR06" source="ZGR06"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MDLID" source="MDLID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RUZUS" source="RUZUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_BMEIH" source="BMEIH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_BMVRG" source="BMVRG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_CKSELKZ" source="CKSELKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_KALKZ" source="KALKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_NPRIO" source="NPRIO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PVZKN" source="PVZKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PHFLG" source="PHFLG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PHSEQ" source="PHSEQ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_KNOBJ" source="KNOBJ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ERFSICHT" source="ERFSICHT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PSPNR" source="PSPNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QLOTYPE" source="QLOTYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QLOBJEKTID" source="QLOBJEKTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QLKAPAR" source="QLKAPAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QKZPRZEIT" source="QKZPRZEIT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QKZZTMG1" source="QKZZTMG1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QKZPRMENG" source="QKZPRMENG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QKZPRFREI" source="QKZPRFREI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QRASTZEHT" source="QRASTZEHT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QRASTZFAK" source="QRASTZFAK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QRASTMENG" source="QRASTMENG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QPPKTABS" source="QPPKTABS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_KRIT1" source="KRIT1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_CLASSID" source="CLASSID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PACKNO" source="PACKNO"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EBELN" source="EBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EBELP" source="EBELP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_CAPOC" source="CAPOC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_FLG_CAPTXT" source="FLG_CAPTXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_CN_WEIGHT" source="CN_WEIGHT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QKZTLSBEST" source="QKZTLSBEST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_AUFKT" source="AUFKT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_DAFKT" source="DAFKT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RWFAK" source="RWFAK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_AAUFG" source="AAUFG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_VERDART" source="VERDART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_UAVO_AUFL" source="UAVO_AUFL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_FRDLB" source="FRDLB"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_QPART" source="QPART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_PRZ01" source="PRZ01"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_TAKT" source="TAKT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_OPRID" source="OPRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_NVADD" source="NVADD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EVGEW" source="EVGEW"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_RFPNT" source="RFPNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_FLG_TSK_GROUP" source="FLG_TSK_GROUP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_ADPSP" source="ADPSP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_TPLNR" source="TPLNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_EQUNR" source="EQUNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MES_OPERID" source="MES_OPERID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MES_STEPID" source="MES_STEPID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_MANU_PROC" source="MANU_PROC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO__SAPMP_MET_LRCH" source="_SAPMP_MET_LRCH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO__SAPMP_MAX_FERTL" source="_SAPMP_MAX_FERTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO__SAPMP_FIX_AS_J" source="_SAPMP_FIX_AS_J"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO__SAPMP_FIX_AS_E" source="_SAPMP_FIX_AS_E"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO__SAPMP_FIX_AS_L" source="_SAPMP_FIX_AS_L"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO__SAPMP_ABL_ZAHL" source="_SAPMP_ABL_ZAHL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SUBPLNAL" source="SUBPLNAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SUBPLNNR" source="SUBPLNNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_SUBPLNTY" source="SUBPLNTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLPO_XEXCLTL" source="XEXCLTL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNTY" source="PLNTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLKO_PLNNR" source="PLNNR"/>
+      </input>
+    <joinAttribute name="PLKO_PLNTY"/>
+    <joinAttribute name="PLKO_PLNNR"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_PLKO_PLPO">
+    <descriptions/>
+    <attributes>
+      <attribute id="PLKO_PLNTY" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task List Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PLNTY"/>
+      </attribute>
+      <attribute id="PLKO_PLNNR" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for Task List Group"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PLNNR"/>
+      </attribute>
+      <attribute id="PLKO_PLNAL" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Group Counter"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PLNAL"/>
+      </attribute>
+      <attribute id="PLKO_ZAEHL" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Internal counter"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ZAEHL"/>
+      </attribute>
+      <attribute id="PLKO_DATUV" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Valid-From Date"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_DATUV"/>
+      </attribute>
+      <attribute id="PLKO_TECHV" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical status from"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_TECHV"/>
+      </attribute>
+      <attribute id="PLKO_AENNR" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_AENNR"/>
+      </attribute>
+      <attribute id="PLKO_LOEKZ" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Deletion Indicator"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_LOEKZ"/>
+      </attribute>
+      <attribute id="PLKO_PARKZ" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: inactive changes"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PARKZ"/>
+      </attribute>
+      <attribute id="PLKO_ANDAT" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date record created on"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ANDAT"/>
+      </attribute>
+      <attribute id="PLKO_ANNAM" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User who created record"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ANNAM"/>
+      </attribute>
+      <attribute id="PLKO_AEDAT" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Last Change"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_AEDAT"/>
+      </attribute>
+      <attribute id="PLKO_AENAM" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of person who changed object"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_AENAM"/>
+      </attribute>
+      <attribute id="PLKO_VERWE" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task list usage"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_VERWE"/>
+      </attribute>
+      <attribute id="PLKO_WERKS" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_WERKS"/>
+      </attribute>
+      <attribute id="PLKO_STATU" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Status"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_STATU"/>
+      </attribute>
+      <attribute id="PLKO_PLNME" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task list unit of measure"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PLNME"/>
+      </attribute>
+      <attribute id="PLKO_VAGRP" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Responsible planner group/department"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_VAGRP"/>
+      </attribute>
+      <attribute id="PLKO_AESZN" order="21" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Document change number (without document management system)"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_AESZN"/>
+      </attribute>
+      <attribute id="PLKO_KTEXT" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task list description"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_KTEXT"/>
+      </attribute>
+      <attribute id="PLKO_TXTSP" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Language Key"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_TXTSP"/>
+      </attribute>
+      <attribute id="PLKO_ABDAT" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of the last call"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ABDAT"/>
+      </attribute>
+      <attribute id="PLKO_PROFIDNETZ" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Profile"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PROFIDNETZ"/>
+      </attribute>
+      <attribute id="PLKO_KOKRS" order="27" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Controlling Area"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_KOKRS"/>
+      </attribute>
+      <attribute id="PLKO_QVEWERKS" order="28" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant of Selected Set for Automatic Usage Decision"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QVEWERKS"/>
+      </attribute>
+      <attribute id="PLKO_QVEMENGE" order="29" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Selected Set for Usage Decision"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QVEMENGE"/>
+      </attribute>
+      <attribute id="PLKO_QVEVERSION" order="30" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Code Version Used for an Automatic Usage Decision"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QVEVERSION"/>
+      </attribute>
+      <attribute id="PLKO_QVEDATUM" order="31" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Code Used for Usage Decision"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QVEDATUM"/>
+      </attribute>
+      <attribute id="PLKO_QVEGRUPPE" order="32" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Code Group for Automatic Usage Decision"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QVEGRUPPE"/>
+      </attribute>
+      <attribute id="PLKO_QVECODE" order="33" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Code for Automatic Usage Decision"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QVECODE"/>
+      </attribute>
+      <attribute id="PLKO_QDYNREGEL" order="34" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Dynamic Modification Rule"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QDYNREGEL"/>
+      </attribute>
+      <attribute id="PLKO_QDYNHEAD" order="35" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Level at Which Dynamic Modification Parameters Are Defined"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QDYNHEAD"/>
+      </attribute>
+      <attribute id="PLKO_QPRZIEHVER" order="36" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sample-Drawing Procedure"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QPRZIEHVER"/>
+      </attribute>
+      <attribute id="PLKO_QVERSNPRZV" order="37" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Version No. of the Sample-Drawing Procedure"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QVERSNPRZV"/>
+      </attribute>
+      <attribute id="PLKO_QKZRASTER" order="38" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Inspection Point"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QKZRASTER"/>
+      </attribute>
+      <attribute id="PLKO_QDYNSTRING" order="39" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="String for Dynamic Modification Criteria (Database Relevant)"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_QDYNSTRING"/>
+      </attribute>
+      <attribute id="PLKO_STRAT" order="40" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance strategy"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_STRAT"/>
+      </attribute>
+      <attribute id="PLKO_PPOOL" order="41" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance package pool"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PPOOL"/>
+      </attribute>
+      <attribute id="PLKO_ISTRU" order="42" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Assembly"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ISTRU"/>
+      </attribute>
+      <attribute id="PLKO_IWERK" order="43" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Planning Plant"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_IWERK"/>
+      </attribute>
+      <attribute id="PLKO_ANLZU" order="44" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ANLZU"/>
+      </attribute>
+      <attribute id="PLKO_ARBID" order="45" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Work center group with planning function"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ARBID"/>
+      </attribute>
+      <attribute id="PLKO_EXTNUM" order="46" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="External Numbering of Units to be Inspected"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_EXTNUM"/>
+      </attribute>
+      <attribute id="PLKO_DELKZ" order="47" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Delete completely in reorganization run"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_DELKZ"/>
+      </attribute>
+      <attribute id="PLKO_ARBTY" order="48" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object types of the CIM resource"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ARBTY"/>
+      </attribute>
+      <attribute id="PLKO_STUPR" order="49" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Setup recipe"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_STUPR"/>
+      </attribute>
+      <attribute id="PLKO_CLNDR" order="50" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Clean-out recipe"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_CLNDR"/>
+      </attribute>
+      <attribute id="PLKO_PRTYP" order="51" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Process type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PRTYP"/>
+      </attribute>
+      <attribute id="PLKO_REODAT" order="52" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Archive date"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_REODAT"/>
+      </attribute>
+      <attribute id="PLKO_NETID" order="53" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID of the resource"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_NETID"/>
+      </attribute>
+      <attribute id="PLKO_FLG_CHK" order="54" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Ind: Task list was submitted for consistency check"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_FLG_CHK"/>
+      </attribute>
+      <attribute id="PLKO_PSPNR" order="55" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Standard WBS element"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PSPNR"/>
+      </attribute>
+      <attribute id="PLKO_TTRAS" order="56" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task lists: Internal representation of the period pattern"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_TTRAS"/>
+      </attribute>
+      <attribute id="PLKO_KZKFG" order="57" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Ind: Configurable object"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_KZKFG"/>
+      </attribute>
+      <attribute id="PLKO_PLNNR_ALT" order="58" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Old number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PLNNR_ALT"/>
+      </attribute>
+      <attribute id="PLKO_FLG_CAPO" order="59" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Recalculate standard values at order creation using CAPP"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_FLG_CAPO"/>
+      </attribute>
+      <attribute id="PLKO_STLTY" order="60" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="BOM category"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_STLTY"/>
+      </attribute>
+      <attribute id="PLKO_STLNR" order="61" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Bill of material"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_STLNR"/>
+      </attribute>
+      <attribute id="PLKO_STLAL" order="62" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Alternative BOM"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_STLAL"/>
+      </attribute>
+      <attribute id="PLKO_SLWBEZ" order="63" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Identification for the Inspection Point Field Combination"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_SLWBEZ"/>
+      </attribute>
+      <attribute id="PLKO_PPKZTLZU" order="64" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Partial Lot Assignment in an Inspection During Production"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_PPKZTLZU"/>
+      </attribute>
+      <attribute id="PLKO_CHRULE" order="65" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change rule"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_CHRULE"/>
+      </attribute>
+      <attribute id="PLKO_CCOAA" order="66" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change Type for Object"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_CCOAA"/>
+      </attribute>
+      <attribute id="PLKO_ST_ARBID" order="67" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ST_ARBID"/>
+      </attribute>
+      <attribute id="PLKO_MEINH" order="68" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of measure for activity"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_MEINH"/>
+      </attribute>
+      <attribute id="PLKO_ADPSP" order="72" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reference Element PM/PS"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ADPSP"/>
+      </attribute>
+      <attribute id="PLKO_MS_FLAG" order="73" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Multiple Specifications"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_MS_FLAG"/>
+      </attribute>
+      <attribute id="PLKO_MES_ROUTINGID" order="75" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key of a Routing from an ME System"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_MES_ROUTINGID"/>
+      </attribute>
+      <attribute id="PLKO_XHIERTL" order="76" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sign: Task List Contains Hierarchical Operations"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_XHIERTL"/>
+      </attribute>
+      <attribute id="PLKO_TL_EXTID" order="77" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="A&amp;D: External ID of Task List"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_TL_EXTID"/>
+      </attribute>
+      <attribute id="PLAS_PLNFL" order="78" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sequence"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_PLNFL"/>
+      </attribute>
+      <attribute id="PLAS_PLNKN" order="79" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of the task list node"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_PLNKN"/>
+      </attribute>
+      <attribute id="PLAS_ZAEHL" order="80" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Internal counter"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_ZAEHL"/>
+      </attribute>
+      <attribute id="PLAS_DATUV" order="81" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Valid-From Date"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_DATUV"/>
+      </attribute>
+      <attribute id="PLAS_TECHV" order="82" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical status from"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_TECHV"/>
+      </attribute>
+      <attribute id="PLAS_AENNR" order="83" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_AENNR"/>
+      </attribute>
+      <attribute id="PLAS_LOEKZ" order="84" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Deletion Indicator"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_LOEKZ"/>
+      </attribute>
+      <attribute id="PLAS_PARKZ" order="85" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: inactive changes"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_PARKZ"/>
+      </attribute>
+      <attribute id="PLAS_ANDAT" order="86" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date record created on"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_ANDAT"/>
+      </attribute>
+      <attribute id="PLAS_ANNAM" order="87" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User who created record"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_ANNAM"/>
+      </attribute>
+      <attribute id="PLAS_AEDAT" order="88" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Last Change"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_AEDAT"/>
+      </attribute>
+      <attribute id="PLAS_AENAM" order="89" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of person who changed object"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLAS_AENAM"/>
+      </attribute>
+      <attribute id="PLPO_PLNTY_1" order="90" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task List Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PLNTY_1"/>
+      </attribute>
+      <attribute id="PLPO_DATUV" order="91" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Valid-From Date"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_DATUV"/>
+      </attribute>
+      <attribute id="PLPO_TECHV" order="92" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical status from"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_TECHV"/>
+      </attribute>
+      <attribute id="PLPO_AENNR" order="93" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_AENNR"/>
+      </attribute>
+      <attribute id="PLPO_LOEKZ" order="94" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Deletion Indicator"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LOEKZ"/>
+      </attribute>
+      <attribute id="PLPO_PARKZ" order="95" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: inactive changes"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PARKZ"/>
+      </attribute>
+      <attribute id="PLPO_ANDAT" order="96" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date record created on"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ANDAT"/>
+      </attribute>
+      <attribute id="PLPO_ANNAM" order="97" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User who created record"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ANNAM"/>
+      </attribute>
+      <attribute id="PLPO_AEDAT" order="98" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Last Change"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_AEDAT"/>
+      </attribute>
+      <attribute id="PLPO_AENAM" order="99" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of person who changed object"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_AENAM"/>
+      </attribute>
+      <attribute id="PLPO_SUMNR" order="100" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Node number of the superior operation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SUMNR"/>
+      </attribute>
+      <attribute id="PLPO_VORNR" order="101" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VORNR"/>
+      </attribute>
+      <attribute id="PLPO_STEUS" order="102" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Control key"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_STEUS"/>
+      </attribute>
+      <attribute id="PLPO_ARBID" order="103" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ARBID"/>
+      </attribute>
+      <attribute id="PLPO_OBJTY" order="104" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object types of the CIM resource"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_OBJTY"/>
+      </attribute>
+      <attribute id="PLPO_WERKS" order="105" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_WERKS"/>
+      </attribute>
+      <attribute id="PLPO_KTSCH" order="106" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Standard text key"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_KTSCH"/>
+      </attribute>
+      <attribute id="PLPO_LTXA1" order="107" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Operation short text"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LTXA1"/>
+      </attribute>
+      <attribute id="PLPO_LTXA2" order="108" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Second line of the description"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LTXA2"/>
+      </attribute>
+      <attribute id="PLPO_TXTSP" order="109" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Language Key"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_TXTSP"/>
+      </attribute>
+      <attribute id="PLPO_VPLTY" order="110" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Type of the referenced task list"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VPLTY"/>
+      </attribute>
+      <attribute id="PLPO_VPLNR" order="111" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Group of the referenced task list"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VPLNR"/>
+      </attribute>
+      <attribute id="PLPO_VPLAL" order="112" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Group counter of the referenced task list"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VPLAL"/>
+      </attribute>
+      <attribute id="PLPO_VPLFL" order="113" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Referenced sequence in routing"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VPLFL"/>
+      </attribute>
+      <attribute id="PLPO_MEINH" order="115" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of measure for activity"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MEINH"/>
+      </attribute>
+      <attribute id="PLPO_ZEIER" order="120" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for Break Time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEIER"/>
+      </attribute>
+      <attribute id="PLPO_LAR01" order="121" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LAR01"/>
+      </attribute>
+      <attribute id="PLPO_VGE01" order="122" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of Measurement of Standard Value"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGE01"/>
+      </attribute>
+      <attribute id="PLPO_LAR02" order="124" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LAR02"/>
+      </attribute>
+      <attribute id="PLPO_VGE02" order="125" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of Measurement of Standard Value"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGE02"/>
+      </attribute>
+      <attribute id="PLPO_LAR03" order="127" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LAR03"/>
+      </attribute>
+      <attribute id="PLPO_VGE03" order="128" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of Measurement of Standard Value"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGE03"/>
+      </attribute>
+      <attribute id="PLPO_LAR04" order="130" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LAR04"/>
+      </attribute>
+      <attribute id="PLPO_VGE04" order="131" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of Measurement of Standard Value"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGE04"/>
+      </attribute>
+      <attribute id="PLPO_LAR05" order="133" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LAR05"/>
+      </attribute>
+      <attribute id="PLPO_VGE05" order="134" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of Measurement of Standard Value"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGE05"/>
+      </attribute>
+      <attribute id="PLPO_LAR06" order="136" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LAR06"/>
+      </attribute>
+      <attribute id="PLPO_VGE06" order="137" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit of Measurement of Standard Value"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGE06"/>
+      </attribute>
+      <attribute id="PLPO_ZERMA" order="139" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Type of standard value calculation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZERMA"/>
+      </attribute>
+      <attribute id="PLPO_ZGDAT" order="140" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date when the standard value was calculated"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZGDAT"/>
+      </attribute>
+      <attribute id="PLPO_ZCODE" order="141" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reference number for standard value code"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZCODE"/>
+      </attribute>
+      <attribute id="PLPO_ZULNR" order="142" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basis for standard value calculation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZULNR"/>
+      </attribute>
+      <attribute id="PLPO_RSANZ" order="143" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of confirmation slips"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RSANZ"/>
+      </attribute>
+      <attribute id="PLPO_PDEST" order="144" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Printer for shop papers"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PDEST"/>
+      </attribute>
+      <attribute id="PLPO_LOART" order="146" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Wage type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LOART"/>
+      </attribute>
+      <attribute id="PLPO_QUALF" order="147" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Suitability"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QUALF"/>
+      </attribute>
+      <attribute id="PLPO_RFGRP" order="149" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Setup group category"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RFGRP"/>
+      </attribute>
+      <attribute id="PLPO_RFSCH" order="150" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Setup group key"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RFSCH"/>
+      </attribute>
+      <attribute id="PLPO_RASCH" order="151" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Setup Type Key"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RASCH"/>
+      </attribute>
+      <attribute id="PLPO_LOGRP" order="153" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Wage Group"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LOGRP"/>
+      </attribute>
+      <attribute id="PLPO_UEMUS" order="154" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Required overlapping"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_UEMUS"/>
+      </attribute>
+      <attribute id="PLPO_UEKAN" order="155" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Optional overlapping"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_UEKAN"/>
+      </attribute>
+      <attribute id="PLPO_FLIES" order="156" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: continuous flow production"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_FLIES"/>
+      </attribute>
+      <attribute id="PLPO_ZEIMU" order="157" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the minimum overlap time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEIMU"/>
+      </attribute>
+      <attribute id="PLPO_SPMUS" order="160" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Required splitting"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SPMUS"/>
+      </attribute>
+      <attribute id="PLPO_ZEIMB" order="162" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the minimum processing time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEIMB"/>
+      </attribute>
+      <attribute id="PLPO_ZEILM" order="164" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the maximum wait time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEILM"/>
+      </attribute>
+      <attribute id="PLPO_ZEILP" order="166" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the required wait time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEILP"/>
+      </attribute>
+      <attribute id="PLPO_ZEIWN" order="168" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the standard queue time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEIWN"/>
+      </attribute>
+      <attribute id="PLPO_ZEIWM" order="170" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the minumum queue time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEIWM"/>
+      </attribute>
+      <attribute id="PLPO_ZEITN" order="172" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the standard move time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEITN"/>
+      </attribute>
+      <attribute id="PLPO_ZEITM" order="174" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the minimum move time"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZEITM"/>
+      </attribute>
+      <attribute id="PLPO_ABLIPKZ" order="176" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: simultaneous teardown and wait"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ABLIPKZ"/>
+      </attribute>
+      <attribute id="PLPO_RSTRA" order="177" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reduction Strategy per Operation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RSTRA"/>
+      </attribute>
+      <attribute id="PLPO_BZOFFB" order="178" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reference date for start of sub-operation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_BZOFFB"/>
+      </attribute>
+      <attribute id="PLPO_EHOFFB" order="180" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for offset to start"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EHOFFB"/>
+      </attribute>
+      <attribute id="PLPO_BZOFFE" order="181" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reference date for finish of sub-operation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_BZOFFE"/>
+      </attribute>
+      <attribute id="PLPO_EHOFFE" order="183" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for offset to finish"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EHOFFE"/>
+      </attribute>
+      <attribute id="PLPO_SORTL" order="184" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sort Term for Non-Stock Info Records"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SORTL"/>
+      </attribute>
+      <attribute id="PLPO_LIFNR" order="185" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Account Number of Vendor or Creditor"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LIFNR"/>
+      </attribute>
+      <attribute id="PLPO_SAKTO" order="189" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Cost Element"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SAKTO"/>
+      </attribute>
+      <attribute id="PLPO_WAERS" order="190" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Currency Key"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_WAERS"/>
+      </attribute>
+      <attribute id="PLPO_INFNR" order="191" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of purchasing info record"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_INFNR"/>
+      </attribute>
+      <attribute id="PLPO_ESOKZ" order="192" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchasing info record category"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ESOKZ"/>
+      </attribute>
+      <attribute id="PLPO_EKORG" order="193" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchasing Organization"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EKORG"/>
+      </attribute>
+      <attribute id="PLPO_EKGRP" order="194" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchasing Group for External Processing Activity"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EKGRP"/>
+      </attribute>
+      <attribute id="PLPO_KZLGF" order="195" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Lot-Size-Independent External Processing"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_KZLGF"/>
+      </attribute>
+      <attribute id="PLPO_MATKL" order="196" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Group"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MATKL"/>
+      </attribute>
+      <attribute id="PLPO_DAUNE" order="198" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Normal duration/unit"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_DAUNE"/>
+      </attribute>
+      <attribute id="PLPO_DAUME" order="200" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for the minimum duration"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_DAUME"/>
+      </attribute>
+      <attribute id="PLPO_DDEHN" order="201" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: flexible duration"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_DDEHN"/>
+      </attribute>
+      <attribute id="PLPO_EINSA" order="202" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Constraint on the basic start date for the activity"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EINSA"/>
+      </attribute>
+      <attribute id="PLPO_EINSE" order="203" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Constraint on the finish date of the activity"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EINSE"/>
+      </attribute>
+      <attribute id="PLPO_ARBEH" order="205" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Unit for work"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ARBEH"/>
+      </attribute>
+      <attribute id="PLPO_VERTL" order="208" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Distribution function for capacity requirements"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VERTL"/>
+      </attribute>
+      <attribute id="PLPO_MLSTN" order="209" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Usage"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MLSTN"/>
+      </attribute>
+      <attribute id="PLPO_PPRIO" order="210" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Priority"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PPRIO"/>
+      </attribute>
+      <attribute id="PLPO_BUKRS" order="211" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company Code"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_BUKRS"/>
+      </attribute>
+      <attribute id="PLPO_SLWID" order="212" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key word ID for user-defined fields"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SLWID"/>
+      </attribute>
+      <attribute id="PLPO_USR00" order="213" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field with 20 characters"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR00"/>
+      </attribute>
+      <attribute id="PLPO_USR01" order="214" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field with 20 characters"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR01"/>
+      </attribute>
+      <attribute id="PLPO_USR02" order="215" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field with 10 characters"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR02"/>
+      </attribute>
+      <attribute id="PLPO_USR03" order="216" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field with 10 characters"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR03"/>
+      </attribute>
+      <attribute id="PLPO_USE04" order="218" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field: Unit for quantity fields"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USE04"/>
+      </attribute>
+      <attribute id="PLPO_USE05" order="220" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field: Unit for quantity fields"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USE05"/>
+      </attribute>
+      <attribute id="PLPO_USE06" order="222" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field: Unit for value fields"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USE06"/>
+      </attribute>
+      <attribute id="PLPO_USE07" order="224" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field: Unit for value fields"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USE07"/>
+      </attribute>
+      <attribute id="PLPO_USR08" order="225" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field for date"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR08"/>
+      </attribute>
+      <attribute id="PLPO_USR09" order="226" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User field for date"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR09"/>
+      </attribute>
+      <attribute id="PLPO_USR10" order="227" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User-defined field: Indicator for reports"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR10"/>
+      </attribute>
+      <attribute id="PLPO_USR11" order="228" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="User-defined field: Indicator for reports"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR11"/>
+      </attribute>
+      <attribute id="PLPO_ANFKO" order="229" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Requesting cost center"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ANFKO"/>
+      </attribute>
+      <attribute id="PLPO_ANFKOKRS" order="230" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Controlling area of the requesting cost center"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ANFKOKRS"/>
+      </attribute>
+      <attribute id="PLPO_KAPAR" order="231" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Capacity category"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_KAPAR"/>
+      </attribute>
+      <attribute id="PLPO_INDET" order="232" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for calculation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_INDET"/>
+      </attribute>
+      <attribute id="PLPO_LARNT" order="233" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Activity Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LARNT"/>
+      </attribute>
+      <attribute id="PLPO_QRASTEREH" order="236" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Grid Unit of Measure"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QRASTEREH"/>
+      </attribute>
+      <attribute id="PLPO_ANLZU" order="237" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ANLZU"/>
+      </attribute>
+      <attribute id="PLPO_ISTRU" order="238" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Assembly"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ISTRU"/>
+      </attribute>
+      <attribute id="PLPO_ISTTY" order="239" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="BOM category"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ISTTY"/>
+      </attribute>
+      <attribute id="PLPO_ISTNR" order="240" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Bill of material"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ISTNR"/>
+      </attribute>
+      <attribute id="PLPO_ISTKN" order="241" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="BOM item node number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ISTKN"/>
+      </attribute>
+      <attribute id="PLPO_ISTPO" order="242" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Internal counter"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ISTPO"/>
+      </attribute>
+      <attribute id="PLPO_IUPOZ" order="243" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Subitem Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_IUPOZ"/>
+      </attribute>
+      <attribute id="PLPO_EBORT" order="244" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Installation Point for Subitem"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EBORT"/>
+      </attribute>
+      <attribute id="PLPO_KALID" order="245" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Factory Calendar"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_KALID"/>
+      </attribute>
+      <attribute id="PLPO_FRSP" order="246" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Earliest possible activity / Latest possible activity"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_FRSP"/>
+      </attribute>
+      <attribute id="PLPO_VERTN" order="247" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Distr.cap.reqmts (plant maint.,process order, network)"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VERTN"/>
+      </attribute>
+      <attribute id="PLPO_ZGR01" order="248" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for performance efficiency rate"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZGR01"/>
+      </attribute>
+      <attribute id="PLPO_ZGR02" order="249" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for performance efficiency rate"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZGR02"/>
+      </attribute>
+      <attribute id="PLPO_ZGR03" order="250" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for performance efficiency rate"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZGR03"/>
+      </attribute>
+      <attribute id="PLPO_ZGR04" order="251" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for performance efficiency rate"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZGR04"/>
+      </attribute>
+      <attribute id="PLPO_ZGR05" order="252" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for performance efficiency rate"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZGR05"/>
+      </attribute>
+      <attribute id="PLPO_ZGR06" order="253" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for performance efficiency rate"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZGR06"/>
+      </attribute>
+      <attribute id="PLPO_MDLID" order="254" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Model ID for charge calculation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MDLID"/>
+      </attribute>
+      <attribute id="PLPO_RUZUS" order="255" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key: rounding and additional values"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RUZUS"/>
+      </attribute>
+      <attribute id="PLPO_BMEIH" order="256" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Operation order quantity unit"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_BMEIH"/>
+      </attribute>
+      <attribute id="PLPO_CKSELKZ" order="258" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator for Relevancy to Costing"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_CKSELKZ"/>
+      </attribute>
+      <attribute id="PLPO_KALKZ" order="259" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Cost"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_KALKZ"/>
+      </attribute>
+      <attribute id="PLPO_NPRIO" order="260" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Priority"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_NPRIO"/>
+      </attribute>
+      <attribute id="PLPO_PVZKN" order="261" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of the task list node"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PVZKN"/>
+      </attribute>
+      <attribute id="PLPO_PHFLG" order="262" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Phase"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PHFLG"/>
+      </attribute>
+      <attribute id="PLPO_PHSEQ" order="263" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Control Recipe Destination"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PHSEQ"/>
+      </attribute>
+      <attribute id="PLPO_KNOBJ" order="264" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of Object with Assigned Dependencies"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_KNOBJ"/>
+      </attribute>
+      <attribute id="PLPO_ERFSICHT" order="265" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Recording View"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ERFSICHT"/>
+      </attribute>
+      <attribute id="PLPO_PSPNR" order="266" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Standard WBS element"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PSPNR"/>
+      </attribute>
+      <attribute id="PLPO_QLOTYPE" order="267" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QLOTYPE"/>
+      </attribute>
+      <attribute id="PLPO_QLOBJEKTID" order="268" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object ID"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QLOBJEKTID"/>
+      </attribute>
+      <attribute id="PLPO_QLKAPAR" order="269" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Capacity category"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QLKAPAR"/>
+      </attribute>
+      <attribute id="PLPO_QKZPRZEIT" order="270" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Interval = Time (Time-Related)"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QKZPRZEIT"/>
+      </attribute>
+      <attribute id="PLPO_QKZZTMG1" order="271" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Quantity Confirmation for Each Partial Lot"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QKZZTMG1"/>
+      </attribute>
+      <attribute id="PLPO_QKZPRMENG" order="272" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Creation Cycle = Quantity (Quantity-Reference)"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QKZPRMENG"/>
+      </attribute>
+      <attribute id="PLPO_QKZPRFREI" order="273" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Interval Without Reference to Time or Quantity"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QKZPRFREI"/>
+      </attribute>
+      <attribute id="PLPO_QRASTZEHT" order="274" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Time Unit"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QRASTZEHT"/>
+      </attribute>
+      <attribute id="PLPO_QPPKTABS" order="277" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Flow Variants for Inspection Point Completion"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QPPKTABS"/>
+      </attribute>
+      <attribute id="PLPO_KRIT1" order="278" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planning object"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_KRIT1"/>
+      </attribute>
+      <attribute id="PLPO_CLASSID" order="279" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Internal Class Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_CLASSID"/>
+      </attribute>
+      <attribute id="PLPO_PACKNO" order="280" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Package number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PACKNO"/>
+      </attribute>
+      <attribute id="PLPO_EBELN" order="281" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchasing Document Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EBELN"/>
+      </attribute>
+      <attribute id="PLPO_EBELP" order="282" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Item Number of Purchasing Document"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EBELP"/>
+      </attribute>
+      <attribute id="PLPO_CAPOC" order="283" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Type of CAPP calculation at order creation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_CAPOC"/>
+      </attribute>
+      <attribute id="PLPO_FLG_CAPTXT" order="284" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Ind: CAPP text exists"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_FLG_CAPTXT"/>
+      </attribute>
+      <attribute id="PLPO_QKZTLSBEST" order="286" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Operation with Stock-Related Partial Lot Assignment"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QKZTLSBEST"/>
+      </attribute>
+      <attribute id="PLPO_AAUFG" order="290" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: Work center operation set"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_AAUFG"/>
+      </attribute>
+      <attribute id="PLPO_VERDART" order="291" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Grouping Category"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VERDART"/>
+      </attribute>
+      <attribute id="PLPO_UAVO_AUFL" order="292" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Suboper. do not apply to order"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_UAVO_AUFL"/>
+      </attribute>
+      <attribute id="PLPO_FRDLB" order="293" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator: External Processing Operation with Subcontracting"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_FRDLB"/>
+      </attribute>
+      <attribute id="PLPO_QPART" order="294" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Inspection Type"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QPART"/>
+      </attribute>
+      <attribute id="PLPO_PRZ01" order="295" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business Process"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PRZ01"/>
+      </attribute>
+      <attribute id="PLPO_TAKT" order="296" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="takt within a line segment"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_TAKT"/>
+      </attribute>
+      <attribute id="PLPO_OPRID" order="297" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="External operation ID"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_OPRID"/>
+      </attribute>
+      <attribute id="PLPO_NVADD" order="298" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Indicator for non-value-added operations"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_NVADD"/>
+      </attribute>
+      <attribute id="PLPO_RFPNT" order="300" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reference point for BOM transfer"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RFPNT"/>
+      </attribute>
+      <attribute id="PLPO_FLG_TSK_GROUP" order="301" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Group operation"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_FLG_TSK_GROUP"/>
+      </attribute>
+      <attribute id="PLPO_ADPSP" order="302" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reference Element PM/PS"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ADPSP"/>
+      </attribute>
+      <attribute id="PLPO_TPLNR" order="303" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Functional Location"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_TPLNR"/>
+      </attribute>
+      <attribute id="PLPO_EQUNR" order="304" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Equipment Number"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EQUNR"/>
+      </attribute>
+      <attribute id="PLPO_MES_OPERID" order="305" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key of an Operation from an ME System"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MES_OPERID"/>
+      </attribute>
+      <attribute id="PLPO_MES_STEPID" order="306" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key of a Step in a Routing (SAP ME)"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MES_STEPID"/>
+      </attribute>
+      <attribute id="PLPO_MANU_PROC" order="307" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Manufacturing Process"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MANU_PROC"/>
+      </attribute>
+      <attribute id="PLPO__SAPMP_MET_LRCH" order="308" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Length Calculation Method"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO__SAPMP_MET_LRCH"/>
+      </attribute>
+      <attribute id="PLPO__SAPMP_ABL_ZAHL" order="313" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of Run-In Lengths"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO__SAPMP_ABL_ZAHL"/>
+      </attribute>
+      <attribute id="PLPO_SUBPLNAL" order="314" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Subordinate Task List Group Counter"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SUBPLNAL"/>
+      </attribute>
+      <attribute id="PLPO_SUBPLNNR" order="315" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Key for Subordinate Task List Group"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SUBPLNNR"/>
+      </attribute>
+      <attribute id="PLPO_SUBPLNTY" order="316" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Task List Type: Subordinate Task List"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SUBPLNTY"/>
+      </attribute>
+      <attribute id="PLPO_XEXCLTL" order="317" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sign: Exclude Subordinate Task List (and in All Tree)"/>
+        <keyMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_XEXCLTL"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="PLKO_LOSVN" order="18" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="From Lot Size"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_LOSVN"/>
+      </measure>
+      <measure id="PLKO_LOSBS" order="19" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="To lot size"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_LOSBS"/>
+      </measure>
+      <measure id="PLKO_ABANZ" order="25" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Number of calls"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_ABANZ"/>
+      </measure>
+      <measure id="PLKO_UMREZ" order="69" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Numerator for converting task list and oper. un. of measure"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_UMREZ"/>
+      </measure>
+      <measure id="PLKO_UMREN" order="70" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Denominator for converting rtg and op units of measure"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_UMREN"/>
+      </measure>
+      <measure id="PLKO_BMSCH" order="71" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Base Quantity"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_BMSCH"/>
+      </measure>
+      <measure id="PLKO_TSTMP_BW" order="74" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Time Stamp for BI Delta Extraction"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLKO_TSTMP_BW"/>
+      </measure>
+      <measure id="PLPO_VINTV" order="114" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Increment between referenced operations"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VINTV"/>
+      </measure>
+      <measure id="PLPO_UMREN" order="116" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Denominator for converting rtg and op units of measure"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_UMREN"/>
+      </measure>
+      <measure id="PLPO_UMREZ" order="117" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Numerator for converting task list and oper. un. of measure"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_UMREZ"/>
+      </measure>
+      <measure id="PLPO_BMSCH" order="118" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Base Quantity"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_BMSCH"/>
+      </measure>
+      <measure id="PLPO_ZMERH" order="119" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Break"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZMERH"/>
+      </measure>
+      <measure id="PLPO_VGW01" order="123" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard Value"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGW01"/>
+      </measure>
+      <measure id="PLPO_VGW02" order="126" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard Value"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGW02"/>
+      </measure>
+      <measure id="PLPO_VGW03" order="129" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard Value"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGW03"/>
+      </measure>
+      <measure id="PLPO_VGW04" order="132" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard Value"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGW04"/>
+      </measure>
+      <measure id="PLPO_VGW05" order="135" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard Value"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGW05"/>
+      </measure>
+      <measure id="PLPO_VGW06" order="138" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard Value"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_VGW06"/>
+      </measure>
+      <measure id="PLPO_LOANZ" order="145" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Number of Time Tickets"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_LOANZ"/>
+      </measure>
+      <measure id="PLPO_ANZMA" order="148" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Number of employees"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ANZMA"/>
+      </measure>
+      <measure id="PLPO_AUFAK" order="152" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Scrap factor"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_AUFAK"/>
+      </measure>
+      <measure id="PLPO_ZMINU" order="158" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum overlap time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZMINU"/>
+      </measure>
+      <measure id="PLPO_MINWE" order="159" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum Send-Ahead Quantity"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_MINWE"/>
+      </measure>
+      <measure id="PLPO_SPLIM" order="161" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Maximum number of splits"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_SPLIM"/>
+      </measure>
+      <measure id="PLPO_ZMINB" order="163" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum processing time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZMINB"/>
+      </measure>
+      <measure id="PLPO_ZLMAX" order="165" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Maximum wait time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZLMAX"/>
+      </measure>
+      <measure id="PLPO_ZLPRO" order="167" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum wait time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZLPRO"/>
+      </measure>
+      <measure id="PLPO_ZWNOR" order="169" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard queue time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZWNOR"/>
+      </measure>
+      <measure id="PLPO_ZWMIN" order="171" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum queue time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZWMIN"/>
+      </measure>
+      <measure id="PLPO_ZTNOR" order="173" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Standard move time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZTNOR"/>
+      </measure>
+      <measure id="PLPO_ZTMIN" order="175" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum move time"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ZTMIN"/>
+      </measure>
+      <measure id="PLPO_OFFSTB" order="179" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Offset to sub-operation start"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_OFFSTB"/>
+      </measure>
+      <measure id="PLPO_OFFSTE" order="182" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Offset to sub-operation finish"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_OFFSTE"/>
+      </measure>
+      <measure id="PLPO_PLIFZ" order="186" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Planned Delivery Time in Days"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PLIFZ"/>
+      </measure>
+      <measure id="PLPO_PREIS" order="187" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Net Price in Purchasing Info Record"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PREIS"/>
+      </measure>
+      <measure id="PLPO_PEINH" order="188" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Price unit"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PEINH"/>
+      </measure>
+      <measure id="PLPO_DAUNO" order="197" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Normal duration of the activity"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_DAUNO"/>
+      </measure>
+      <measure id="PLPO_DAUMI" order="199" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Minimum activity duration"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_DAUMI"/>
+      </measure>
+      <measure id="PLPO_ARBEI" order="204" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Work involved in the activity"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ARBEI"/>
+      </measure>
+      <measure id="PLPO_ANZZL" order="206" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Number of capacities required"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_ANZZL"/>
+      </measure>
+      <measure id="PLPO_PRZNT" order="207" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Work percentage"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PRZNT"/>
+      </measure>
+      <measure id="PLPO_USR04" order="217" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="User field for quantity (length 10.3)"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR04"/>
+      </measure>
+      <measure id="PLPO_USR05" order="219" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="User field for quantity (length 10.3)"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR05"/>
+      </measure>
+      <measure id="PLPO_USR06" order="221" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="User-defined field for values (length 10,3)"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR06"/>
+      </measure>
+      <measure id="PLPO_USR07" order="223" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="User-defined field for values (length 10,3)"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_USR07"/>
+      </measure>
+      <measure id="PLPO_PRKST" order="234" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Costs in the activity"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_PRKST"/>
+      </measure>
+      <measure id="PLPO_QRASTERMNG" order="235" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Quantity for Grid Point Definition"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QRASTERMNG"/>
+      </measure>
+      <measure id="PLPO_BMVRG" order="257" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Purchase Order Quantity: Operation"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_BMVRG"/>
+      </measure>
+      <measure id="PLPO_QRASTZFAK" order="275" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Time Factor"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QRASTZFAK"/>
+      </measure>
+      <measure id="PLPO_QRASTMENG" order="276" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Quantity Between Two Inspections"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_QRASTMENG"/>
+      </measure>
+      <measure id="PLPO_CN_WEIGHT" order="285" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Aggregation weight for POC (PS progress)"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_CN_WEIGHT"/>
+      </measure>
+      <measure id="PLPO_AUFKT" order="287" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Execution Factor"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_AUFKT"/>
+      </measure>
+      <measure id="PLPO_DAFKT" order="288" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Average execution factor"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_DAFKT"/>
+      </measure>
+      <measure id="PLPO_RWFAK" order="289" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Rework factor (is not used yet)"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_RWFAK"/>
+      </measure>
+      <measure id="PLPO_EVGEW" order="299" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Aggregation weight for POC (PS progress)"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO_EVGEW"/>
+      </measure>
+      <measure id="PLPO__SAPMP_MAX_FERTL" order="309" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Maximum Production Length"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO__SAPMP_MAX_FERTL"/>
+      </measure>
+      <measure id="PLPO__SAPMP_FIX_AS_J" order="310" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fixed Scrap - Any Length"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO__SAPMP_FIX_AS_J"/>
+      </measure>
+      <measure id="PLPO__SAPMP_FIX_AS_E" order="311" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fixed Scrap - First Length"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO__SAPMP_FIX_AS_E"/>
+      </measure>
+      <measure id="PLPO__SAPMP_FIX_AS_L" order="312" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fixed Scrap - Last Length"/>
+        <measureMapping columnObjectName="Join_PLKO_PLPO" columnName="PLPO__SAPMP_FIX_AS_L"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="176" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projn_PLKO" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projn_PLAS" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_PLKO_PLAS" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    <shape modelObjectName="Projn_PLKO" modelObjectNameSpace="Join_PLKO_PLAS" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projn_PLAS" modelObjectNameSpace="Join_PLKO_PLAS" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Projn_PLPO" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_PLKO_PLPO" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    
+    <shape modelObjectName="Join_PLKO_PLAS" modelObjectNameSpace="Join_PLKO_PLPO" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projn_PLPO" modelObjectNameSpace="Join_PLKO_PLPO" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
