@@ -1,0 +1,74 @@
+{
+    "role": {
+        "name": "algoma.general::PublicAccessObjects",
+        "object_privileges": [
+            {
+                "name": "algoma.general::COPYOFZHV_BV_CHANGE_LOG_INITIAL_PR_RELEASE",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.general::CV_Object_dependency",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.general::TIME_ATTRIB",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.general::ZHV_BV_CHNG_LOG",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.general::LOAD_BPJA_HISTORY",
+                "type": "PROCEDURE",
+                "privileges": [
+                    "EXECUTE"
+                ]
+            },
+            {
+                "name": "algoma.general::test",
+                "type": "PROCEDURE",
+                "privileges": [
+                    "EXECUTE"
+                ]
+            },
+            {
+                "name": "algoma.general::TABLE_FUNCTION_CV_Object_dependency",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.general::LOAD_BPJA_HISTORY",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.general::test",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.general::TABLE_FUNCTION_CV_Object_dependency",
+                "privileges": [
+                    "SELECT"
+                ]
+            }
+        ]
+    }
+}
