@@ -1,0 +1,13 @@
+{
+    "role": {
+        "name": "algoma.pm::PublicAccessSchema",
+        "schema_privileges": [
+            {
+                "privileges": [
+                    "SELECT",
+                    "EXECUTE"
+                ]
+            }
+        ]
+    }
+}

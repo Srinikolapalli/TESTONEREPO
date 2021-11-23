@@ -1,0 +1,358 @@
+{
+    "role": {
+        "name": "algoma.pm::PublicAccessObjects",
+        "object_privileges": [
+            {
+                "name": "algoma.pm::ZHV_BV_ALLOC_FUNCTIONAL_LOC_TASKLIST",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_CODEGROUPNAME",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_CODENAME",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_EQUIPMENT_NAME",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_EQUIP_MAS",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_EQUIP_TASK_LIST",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_FUNCTIONALLOC_ACC_ASSIGNMNT",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_FUNCTIONAL_LOCATION",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_IW38_IW37",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_IW38_IW37N",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_MAINTENANCE_NOTIFICATION",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_MAINTENANCE_NOTIFICATION_ACTIVITY",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_MAINTENANCE_NOTIFICATION_CAUSES",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_MAINTENANCE_NOTIFICATION_HEADER",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_MAINTENANCE_NOTIFICATION_ITEM",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_MAINT_PLAN",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_NOTIFICATION_TYPE",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_PGP_SCHEDULER",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_TASK_LIST",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_WORKCENTER",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_WORKORDER",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_BV_WORK_COST_CENTER",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_4WEEK",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_4WEEK_RPT",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_4WEEK_RPT_CURR",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_4WEEK_RPT_HIST",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_BACKLOG",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_BACKLOG_RPT",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_JEST_NE_DLFL_DLT_INACT",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZHV_PM_JEST_NE_TECO_INACT",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTEST",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_JEST_01",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_KPI_01",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_KPI_02",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_WKLY_KPI",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_WKLY_KPI_WO",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_WKLY_KPI_WO_V2",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_WKLY_KPI_WO_V3",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm.kpi::ZHV_PM_WKLY_TRND",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::LOAD_PM_4WEEK_RPT_SNAPSHOT",
+                "type": "PROCEDURE",
+                "privileges": [
+                    "EXECUTE"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS",
+                "type": "FUNCTION",
+                "privileges": [
+                    "EXECUTE"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS_USER_4WEEK",
+                "type": "FUNCTION",
+                "privileges": [
+                    "EXECUTE"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS_4WEEK",
+                "type": "FUNCTION",
+                "privileges": [
+                    "EXECUTE"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS_USER",
+                "type": "FUNCTION",
+                "privileges": [
+                    "EXECUTE"
+                ]
+            },
+            {
+                "name": "algoma.pm::TABLE_FUNCTION_ZTEST",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::LOAD_PM_4WEEK_RPT_SNAPSHOT",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS_4WEEK",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS_USER",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::ZTF_JEST_STAT_TRANS_USER_4WEEK",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "algoma.pm::TABLE_FUNCTION_ZTEST",
+                "privileges": [
+                    "SELECT"
+                ]
+            }
+        ]
+    }
+}

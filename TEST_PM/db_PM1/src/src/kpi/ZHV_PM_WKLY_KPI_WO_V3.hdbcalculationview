@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_PM_WKLY_KPI_WO_V3" applyPrivilegeType="NONE" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="ZHV_QV_PM_WKLY_KPI"/>
+  <metadata changedAt="2021-10-11 10:49:50.537" createdAt="2021-03-26 14:15:15.063"/>
+  <localVariables>
+    <variable id="VAR_CAL_CHANGED_ON">
+      <descriptions defaultDescription="VAR_CAL_CHANGED_ON"/>
+      <variableProperties datatype="VARCHAR" defaultValue="1" mandatory="false">
+        <valueDomain type="AttributeValue"/>
+        <selection multiLine="false" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_ILART">
+      <descriptions defaultDescription="VAR_ILART"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="ILART"/>
+        </valueDomain>
+        <selection multiLine="false" type="Range"/>
+        <defaultRange operator="NL"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="ZHV_PM_KPI_01">
+      <resourceUri>algoma.pm.kpi::ZHV_PM_KPI_01</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="WPGRP"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_COMPLIANCE"/>
+        <viewAttribute id="CAL_WITHIN_GRACE_copy_2"/>
+        <viewAttribute id="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <viewAttribute id="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <viewAttribute id="CAL_DELINQUENT_PMs"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="AEDAT"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="MAUFNR"/>
+        <viewAttribute id="QMNUM"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+      </viewAttributes>
+    <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="DATE" id="CAL_PREV_WK_START" expressionLanguage="COLUMN_ENGINE">
+          <formula>(ADDDAYS ( now() , ( WEEKDAY( now() ) * -1 ) - 8 ))</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DATE" id="CAL_PREV_WK_END" expressionLanguage="COLUMN_ENGINE">
+          <formula>(ADDDAYS ( &quot;CAL_PREV_WK_START&quot; ,6))</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_CLOSED_IN" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((date(&quot;GETRI&quot;)&gt;=&quot;CAL_PREV_WK_START&quot;) AND (date(&quot;GETRI&quot;)&lt;=&quot;CAL_PREV_WK_END&quot;),1,0)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="CAL_CHANGED_ON" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((date(&quot;AEDAT&quot;)&gt;=&quot;CAL_PREV_WK_START&quot;) AND (date(&quot;AEDAT&quot;)&lt;=&quot;CAL_PREV_WK_END&quot;),1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="ZHV_PM_KPI_01"/>
+    <filter>&quot;CAL_CHANGED_ON&quot; &gt; 0 and
+(&quot;ILART&quot;!=''  or &quot;ILART&quot;!=Null)</filter>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="WARPL" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WARPL"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WARPL"/>
+      </attribute>
+      <attribute id="AUFNR" order="2" attributeHierarchyActive="false" displayAttribute="false" keepFlag="true">
+        <descriptions defaultDescription="AUFNR"/>
+        <keyMapping columnObjectName="Projection_1" columnName="AUFNR"/>
+      </attribute>
+      <attribute id="GETRI" order="4" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Projection_1" columnName="GETRI"/>
+      </attribute>
+      <attribute id="LRMDT" order="5" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Projection_1" columnName="LRMDT"/>
+      </attribute>
+      <attribute id="PLAUF" order="6" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Projection_1" columnName="PLAUF"/>
+      </attribute>
+      <attribute id="NPLDA" order="7" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Next planned date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="NPLDA"/>
+      </attribute>
+      <attribute id="GSTRP" order="8" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic Start Date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSTRP"/>
+      </attribute>
+      <attribute id="GSTRS" order="9" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled start"/>
+        <keyMapping columnObjectName="Projection_1" columnName="GSTRS"/>
+      </attribute>
+      <attribute id="WPGRP" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WPGRP"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WPGRP"/>
+      </attribute>
+      <attribute id="CAL_PM_DIV_COMPLIANCE_PR" order="16" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CAL_PM_DIV_COMPLIANCE_PR"/>
+      </attribute>
+      <attribute id="AEDAT" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Change date for Order Master"/>
+        <keyMapping columnObjectName="Projection_1" columnName="AEDAT"/>
+      </attribute>
+      <attribute id="ERDAT" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Created on"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ERDAT"/>
+      </attribute>
+      <attribute id="MAUFNR" order="21" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of Superior Order"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MAUFNR"/>
+      </attribute>
+      <attribute id="QMNUM" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Notification No"/>
+        <keyMapping columnObjectName="Projection_1" columnName="QMNUM"/>
+      </attribute>
+      <attribute id="ILART" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance activity type"/>
+        <keyMapping columnObjectName="Projection_1" columnName="ILART"/>
+      </attribute>
+      <attribute id="INGPR" order="24" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group for Customer Service and Plant Maintenance"/>
+        <keyMapping columnObjectName="Projection_1" columnName="INGPR"/>
+      </attribute>
+      <attribute id="WO_PLANNER_GRP_DESC" order="25" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_PLANNER_GRP_DESC"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WO_PLANNER_GRP_DESC"/>
+      </attribute>
+      <attribute id="WO_ZDEPARTMENT" order="26" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_ZDEPARTMENT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WO_ZDEPARTMENT"/>
+      </attribute>
+      <attribute id="WO_ZGEN_MANAGER" order="27" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_ZGEN_MANAGER"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WO_ZGEN_MANAGER"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="CAL_ORDER_COMPLETED_copy_2" order="3" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_ORDER_COMPLETED"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_ORDER_COMPLETED_copy_2"/>
+      </measure>
+      <measure id="CAL_PLANNED_WITHIN" order="11" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_PLANNED_WITHIN"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_PLANNED_WITHIN"/>
+      </measure>
+      <measure id="CAL_COMPLIANCE" order="12" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_COMPLIANCE"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_COMPLIANCE"/>
+      </measure>
+      <measure id="CAL_WITHIN_GRACE_copy_2" order="13" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Within Grace"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_WITHIN_GRACE_copy_2"/>
+      </measure>
+      <measure id="CAL_COMPLIANCE_PLANNED_WITH_COUNT" order="14" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+      </measure>
+      <measure id="CAL_ORDER_COUNT" order="15" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_ORDER_COUNT"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_ORDER_COUNT"/>
+      </measure>
+      <measure id="CAL_ODRCOMPLETED_PLNDWITH_CNT" order="17" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+      </measure>
+      <measure id="CAL_DELINQUENT_PMs" order="18" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_DELINQUENT_PMs"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_DELINQUENT_PMs"/>
+      </measure>
+      <measure id="CAL_CLOSED_IN_DENO" order="28" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_CLOSED_IN_DENO"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_CLOSED_IN"/>
+      </measure>
+      <measure id="CAL_CHANGED_ON" order="29" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_CHANGED_ON"/>
+        <measureMapping columnObjectName="Projection_1" columnName="CAL_CHANGED_ON"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="80" y="260"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+</layout>
+</Calculation:scenario>

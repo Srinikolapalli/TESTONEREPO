@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="ZHV_PM_WKLY_KPI" applyPrivilegeType="NONE" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+<origin/>
+  <descriptions defaultDescription="ZHV_QV_PM_WKLY_KPI"/>
+  <metadata changedAt="2021-10-11 10:49:50.132"/>
+  <localVariables>
+    <variable id="VAR_CAL_TOTAL_FLAG">
+      <descriptions defaultDescription="VAR_CAL_TOTAL_FLAG"/>
+      <variableProperties datatype="VARCHAR" defaultValue="1" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CAL_TOTAL_FLAG"/>
+        </valueDomain>
+        <selection multiLine="false" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_AUART">
+      <descriptions defaultDescription="VAR_AUART"/>
+      <variableProperties datatype="VARCHAR" defaultExpressionLanguage="COLUMN_ENGINE" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="AUART"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+        <defaultExpression>in ('AM03','AM04','AM05','AM07','AM08','AM11')</defaultExpression>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="35"/>
+  <dataSources>
+    <DataSource id="ZHV_PM_KPI_02">
+      <resourceUri>algoma.pm.kpi::ZHV_PM_KPI_02</resourceUri>
+    </DataSource>
+    <DataSource id="T353I_T">
+      <resourceUri>algoma.pm::T353I_T</resourceUri>
+    </DataSource>
+    <DataSource id="ZPM20_DELINQ_ROS">
+      <resourceUri>algoma.pm::ZPM20_DELINQ_ROS</resourceUri>
+    </DataSource>
+  </dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="WPGRP"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_COMPLIANCE"/>
+        <viewAttribute id="CAL_WITHIN_GRACE_copy_2"/>
+        <viewAttribute id="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <viewAttribute id="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <viewAttribute id="CAL_DELINQUENT_PMs"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="CAL_COMPLETED_PLAN_WITHIN"/>
+        <viewAttribute id="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN_NPLDA"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZHV_PM_KPI_02"/>
+    <filter>in (&quot;AUART&quot;, 'AM03','AM04','AM05','AM07','AM08','AM11')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="ILATX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="T353I_T"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="WPGRP"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_COMPLIANCE"/>
+        <viewAttribute id="CAL_WITHIN_GRACE_copy_2"/>
+        <viewAttribute id="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <viewAttribute id="CAL_DELINQUENT_PMs"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="CAL_COMPLETED_PLAN_WITHIN"/>
+        <viewAttribute id="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN_NPLDA"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="ILATX"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZDEPARTMENT" source="ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LRMDT" source="LRMDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WPGRP" source="WPGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZP:NGRP_DESC" source="ZP:NGRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZPLNGRP_ID" source="ZPLNGRP_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PM_DIV_COMPLIANCE_PR" source="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_START_copy_2" source="CAL_PREV_WK_START_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_END_copy_2" source="CAL_PREV_WK_END_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COMPLETED_copy_2" source="CAL_ORDER_COMPLETED_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN" source="CAL_PLANNED_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLIANCE" source="CAL_COMPLIANCE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_WITHIN_GRACE_copy_2" source="CAL_WITHIN_GRACE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLIANCE_PLANNED_WITH_COUNT" source="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COUNT" source="CAL_ORDER_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ODRCOMPLETED_PLNDWITH_CNT" source="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_DELINQUENT_PMs" source="CAL_DELINQUENT_PMs"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETION_copy_2" source="CAL_COMPLETION_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETED_PLAN_WITHIN" source="CAL_COMPLETED_PLAN_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLAN_WITHIN_NOT_IN_GRACE" source="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN_NPLDA" source="CAL_PLANNED_WITHIN_NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZGEN_MANAGER" source="ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+      </input>
+      <input node="Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILATX" source="ILATX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+      </input>
+    <joinAttribute name="ILART"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="L4_AREA"/>
+        <viewAttribute id="L3_AREA"/>
+        <viewAttribute id="INGPR"/>
+        <viewAttribute id="INNAM"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="VATXT"/>
+        <viewAttribute id="WORK_CENTER_GRP"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GLTRP"/>
+        <viewAttribute id="NPLDA"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="ZPM20_DELINQ_ROS"/>
+    </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="leftOuter">
+    <descriptions/>
+    <viewAttributes>
+        <viewAttribute id="ZDEPARTMENT"/>
+        <viewAttribute id="WARPL"/>
+        <viewAttribute id="AUFNR"/>
+        <viewAttribute id="GETRI"/>
+        <viewAttribute id="LRMDT"/>
+        <viewAttribute id="PLAUF"/>
+        <viewAttribute id="NPLDA"/>
+        <viewAttribute id="GSTRP"/>
+        <viewAttribute id="GSTRS"/>
+        <viewAttribute id="WPGRP"/>
+        <viewAttribute id="ZP:NGRP_DESC"/>
+        <viewAttribute id="ZPLNGRP_ID"/>
+        <viewAttribute id="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <viewAttribute id="CAL_PREV_WK_START_copy_2"/>
+        <viewAttribute id="CAL_PREV_WK_END_copy_2"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="ILART"/>
+        <viewAttribute id="ILATX"/>
+        <viewAttribute id="KTEXT"/>
+        <viewAttribute id="ZGEN_MANAGER"/>
+        <viewAttribute id="WO_PLANNER_GRP_DESC"/>
+        <viewAttribute id="WO_ZDEPARTMENT"/>
+        <viewAttribute id="WO_ZGEN_MANAGER"/>
+        <viewAttribute id="CAL_ORDER_COMPLETED_copy_2"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN"/>
+        <viewAttribute id="CAL_COMPLIANCE"/>
+        <viewAttribute id="CAL_WITHIN_GRACE_copy_2"/>
+        <viewAttribute id="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <viewAttribute id="CAL_ORDER_COUNT"/>
+        <viewAttribute id="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <viewAttribute id="CAL_DELINQUENT_PMs"/>
+        <viewAttribute id="CAL_COMPLETION_copy_2"/>
+        <viewAttribute id="CAL_COMPLETED_PLAN_WITHIN"/>
+        <viewAttribute id="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <viewAttribute id="CAL_PLANNED_WITHIN_NPLDA"/>
+        <viewAttribute id="VAPLZ"/>
+        <viewAttribute id="L4_AREA"/>
+        <viewAttribute id="L3_AREA"/>
+        <viewAttribute id="INNAM"/>
+        <viewAttribute id="VATXT"/>
+        <viewAttribute id="WORK_CENTER_GRP"/>
+        <viewAttribute id="GSTRP_1"/>
+        <viewAttribute id="GLTRP"/>
+        <viewAttribute id="NPLDA_1"/>
+        <viewAttribute id="ANLZU"/>
+        <viewAttribute id="ANLZUX"/>
+      </viewAttributes>
+    <calculatedViewAttributes/>
+      <input node="Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZDEPARTMENT" source="ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WARPL" source="WARPL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GETRI" source="GETRI"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LRMDT" source="LRMDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLAUF" source="PLAUF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRS" source="GSTRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WPGRP" source="WPGRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZP:NGRP_DESC" source="ZP:NGRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZPLNGRP_ID" source="ZPLNGRP_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PM_DIV_COMPLIANCE_PR" source="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_START_copy_2" source="CAL_PREV_WK_START_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PREV_WK_END_copy_2" source="CAL_PREV_WK_END_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILART" source="ILART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ILATX" source="ILATX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTEXT" source="KTEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZGEN_MANAGER" source="ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_PLANNER_GRP_DESC" source="WO_PLANNER_GRP_DESC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZDEPARTMENT" source="WO_ZDEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WO_ZGEN_MANAGER" source="WO_ZGEN_MANAGER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COMPLETED_copy_2" source="CAL_ORDER_COMPLETED_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN" source="CAL_PLANNED_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLIANCE" source="CAL_COMPLIANCE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_WITHIN_GRACE_copy_2" source="CAL_WITHIN_GRACE_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLIANCE_PLANNED_WITH_COUNT" source="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ORDER_COUNT" source="CAL_ORDER_COUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_ODRCOMPLETED_PLNDWITH_CNT" source="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_DELINQUENT_PMs" source="CAL_DELINQUENT_PMs"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETION_copy_2" source="CAL_COMPLETION_copy_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_COMPLETED_PLAN_WITHIN" source="CAL_COMPLETED_PLAN_WITHIN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLAN_WITHIN_NOT_IN_GRACE" source="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CAL_PLANNED_WITHIN_NPLDA" source="CAL_PLANNED_WITHIN_NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZU" source="ANLZU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ANLZUX" source="ANLZUX"/>
+      </input>
+      <input node="Projection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="L4_AREA" source="L4_AREA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L3_AREA" source="L3_AREA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INNAM" source="INNAM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VATXT" source="VATXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WORK_CENTER_GRP" source="WORK_CENTER_GRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GSTRP_1" source="GSTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GLTRP" source="GLTRP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NPLDA_1" source="NPLDA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZPLNGRP_ID" source="INGPR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VAPLZ" source="VAPLZ"/>
+      </input>
+    <joinAttribute name="ZPLNGRP_ID"/>
+    <joinAttribute name="VAPLZ"/>
+  </calculationView>
+</calculationViews>
+  <logicalModel id="Join_2">
+    <descriptions/>
+    <attributes>
+      <attribute id="ZDEPARTMENT" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Department - KPI"/>
+        <keyMapping columnObjectName="Join_2" columnName="ZDEPARTMENT"/>
+      </attribute>
+      <attribute id="WARPL" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance Plan"/>
+        <keyMapping columnObjectName="Join_2" columnName="WARPL"/>
+      </attribute>
+      <attribute id="AUFNR" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Number"/>
+        <keyMapping columnObjectName="Join_2" columnName="AUFNR"/>
+      </attribute>
+      <attribute id="GETRI" order="16" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Confirmed Order Finish Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="GETRI"/>
+      </attribute>
+      <attribute id="LRMDT" order="17" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of last completion in maintenance plan"/>
+        <keyMapping columnObjectName="Join_2" columnName="LRMDT"/>
+      </attribute>
+      <attribute id="PLAUF" order="18" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date of Routing Explosion"/>
+        <keyMapping columnObjectName="Join_2" columnName="PLAUF"/>
+      </attribute>
+      <attribute id="NPLDA" order="19" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Next planned date"/>
+        <keyMapping columnObjectName="Join_2" columnName="NPLDA"/>
+      </attribute>
+      <attribute id="GSTRP" order="20" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic Start Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="GSTRP"/>
+      </attribute>
+      <attribute id="GSTRS" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled start"/>
+        <keyMapping columnObjectName="Join_2" columnName="GSTRS"/>
+      </attribute>
+      <attribute id="WPGRP" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group - KPI"/>
+        <keyMapping columnObjectName="Join_2" columnName="WPGRP"/>
+      </attribute>
+      <attribute id="ZP:NGRP_DESC" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Planner Group Description"/>
+        <keyMapping columnObjectName="Join_2" columnName="ZP:NGRP_DESC"/>
+      </attribute>
+      <attribute id="ZPLNGRP_ID" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZPLNGRP_ID"/>
+        <keyMapping columnObjectName="Join_2" columnName="ZPLNGRP_ID"/>
+      </attribute>
+      <attribute id="CAL_PM_DIV_COMPLIANCE_PR" order="25" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CAL_PM_DIV_COMPLIANCE_PR"/>
+        <keyMapping columnObjectName="Join_2" columnName="CAL_PM_DIV_COMPLIANCE_PR"/>
+      </attribute>
+      <attribute id="CAL_PREV_WK_START_copy_2" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Previous Week Start Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="CAL_PREV_WK_START_copy_2"/>
+      </attribute>
+      <attribute id="CAL_PREV_WK_END_copy_2" order="27" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Previous Week End Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="CAL_PREV_WK_END_copy_2"/>
+      </attribute>
+      <attribute id="AUART" order="28" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Order Type"/>
+        <keyMapping columnObjectName="Join_2" columnName="AUART"/>
+      </attribute>
+      <attribute id="ILART" order="29" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Maintenance activity type"/>
+        <keyMapping columnObjectName="Join_2" columnName="ILART"/>
+      </attribute>
+      <attribute id="ILATX" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description of maintenance activity type"/>
+        <keyMapping columnObjectName="Join_2" columnName="ILATX"/>
+      </attribute>
+      <attribute id="KTEXT" order="31" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Description"/>
+        <keyMapping columnObjectName="Join_2" columnName="KTEXT"/>
+      </attribute>
+      <attribute id="ZGEN_MANAGER" order="32" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ZGEN_MANAGER"/>
+        <keyMapping columnObjectName="Join_2" columnName="ZGEN_MANAGER"/>
+      </attribute>
+      <attribute id="WO_PLANNER_GRP_DESC" order="33" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_PLANNER_GRP_DESC"/>
+        <keyMapping columnObjectName="Join_2" columnName="WO_PLANNER_GRP_DESC"/>
+      </attribute>
+      <attribute id="WO_ZDEPARTMENT" order="34" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_ZDEPARTMENT"/>
+        <keyMapping columnObjectName="Join_2" columnName="WO_ZDEPARTMENT"/>
+      </attribute>
+      <attribute id="WO_ZGEN_MANAGER" order="35" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WO_ZGEN_MANAGER"/>
+        <keyMapping columnObjectName="Join_2" columnName="WO_ZGEN_MANAGER"/>
+      </attribute>
+      <attribute id="VAPLZ" order="48" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Main work center for maintenance tasks"/>
+        <keyMapping columnObjectName="Join_2" columnName="VAPLZ"/>
+      </attribute>
+      <attribute id="L4_AREA" order="49" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="L4 Area"/>
+        <keyMapping columnObjectName="Join_2" columnName="L4_AREA"/>
+      </attribute>
+      <attribute id="L3_AREA" order="50" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="L3 Area"/>
+        <keyMapping columnObjectName="Join_2" columnName="L3_AREA"/>
+      </attribute>
+      <attribute id="INNAM" order="51" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Name of the Maintenance Planner Group"/>
+        <keyMapping columnObjectName="Join_2" columnName="INNAM"/>
+      </attribute>
+      <attribute id="VATXT" order="52" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Short text for the work center"/>
+        <keyMapping columnObjectName="Join_2" columnName="VATXT"/>
+      </attribute>
+      <attribute id="WORK_CENTER_GRP" order="53" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Work Center Group"/>
+        <keyMapping columnObjectName="Join_2" columnName="WORK_CENTER_GRP"/>
+      </attribute>
+      <attribute id="GSTRP_1" order="54" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic start date"/>
+        <keyMapping columnObjectName="Join_2" columnName="GSTRP_1"/>
+      </attribute>
+      <attribute id="GLTRP" order="55" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic finish date"/>
+        <keyMapping columnObjectName="Join_2" columnName="GLTRP"/>
+      </attribute>
+      <attribute id="NPLDA_1" order="56" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Next planned date"/>
+        <keyMapping columnObjectName="Join_2" columnName="NPLDA_1"/>
+      </attribute>
+      <attribute id="ANLZU" order="57" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Syst.Condition"/>
+        <keyMapping columnObjectName="Join_2" columnName="ANLZU"/>
+      </attribute>
+      <attribute id="ANLZUX" order="58" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Text on Operating Condition"/>
+        <keyMapping columnObjectName="Join_2" columnName="ANLZUX"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="CAL_INC_GOLIVE_TO_FISCAL_START" hidden="false" order="4" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Incomplete - Go live to Fiscal Year Start"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;LRMDT&quot;= '00000000' and date(&quot;NPLDA&quot;) &lt; &quot;CAL_FISCAL_START&quot; and &quot;NPLDA&quot; != '00000000',1,0)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CAL_FISCAL_START" hidden="false" order="5" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Start"/>
+        <keyCalculation datatype="DATE" expressionLanguage="SQL">
+          <formula>ADD_DAYS(to_date(concat(to_varchar(YEAR(ADD_DAYS (CURRENT_DATE , -200 ))),'-01-01'),'YYYY-MM-DD'),91)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CAL_BAS_START_TO_WEEKEND_PERIOD" hidden="false" order="6" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Basic start to weekend period"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="SQL">
+          <formula>DAYS_BETWEEN(to_date(&quot;NPLDA&quot;),&quot;CAL_PREV_WK_END_copy_2&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CAL_SCH_ST_TO_FISCAL_START" hidden="false" order="7" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Scheduled Start to Fiscal Year Start"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="SQL">
+          <formula>DAYS_BETWEEN(&quot;CAL_FISCAL_START&quot;,to_date(&quot;NPLDA&quot;))</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CAL_ALL_WO_FISCAL_END_TO_PERIOD_END" hidden="false" order="8" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="All WO - Fiscal Year to Period End"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_SCH_ST_TO_FISCAL_START&quot; &gt;= 0 and &quot;CAL_BAS_START_TO_WEEKEND_PERIOD&quot; &gt;=0,1,0)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CAL_TOTAL_FLAG" hidden="false" order="9" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Total Flag"/>
+        <localVariable>VAR_CAL_TOTAL_FLAG</localVariable>
+        <keyCalculation datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;CAL_INC_GOLIVE_TO_FISCAL_START&quot;=1 or &quot;CAL_ALL_WO_FISCAL_END_TO_PERIOD_END&quot; = 1, 1, 0)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="CAL_ORDER_COMPLETED_copy_2" order="36" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Order Completed"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_ORDER_COMPLETED_copy_2"/>
+      </measure>
+      <measure id="CAL_PLANNED_WITHIN" order="37" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Planned Within"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_PLANNED_WITHIN"/>
+      </measure>
+      <measure id="CAL_COMPLIANCE" order="38" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Compliance"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_COMPLIANCE"/>
+      </measure>
+      <measure id="CAL_WITHIN_GRACE_copy_2" order="39" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Within Grace"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_WITHIN_GRACE_copy_2"/>
+      </measure>
+      <measure id="CAL_COMPLIANCE_PLANNED_WITH_COUNT" order="40" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_COMPLIANCE_PLANNED_WITH_COUNT"/>
+      </measure>
+      <measure id="CAL_ORDER_COUNT" order="41" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Order Count"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_ORDER_COUNT"/>
+      </measure>
+      <measure id="CAL_ODRCOMPLETED_PLNDWITH_CNT" order="42" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_ODRCOMPLETED_PLNDWITH_CNT"/>
+      </measure>
+      <measure id="CAL_DELINQUENT_PMs" order="43" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="# of Delinquent PMs"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_DELINQUENT_PMs"/>
+      </measure>
+      <measure id="CAL_COMPLETION_copy_2" order="44" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Completion"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_COMPLETION_copy_2"/>
+      </measure>
+      <measure id="CAL_COMPLETED_PLAN_WITHIN" order="45" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_COMPLETED_PLAN_WITHIN"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_COMPLETED_PLAN_WITHIN"/>
+      </measure>
+      <measure id="CAL_PLAN_WITHIN_NOT_IN_GRACE" order="46" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_PLAN_WITHIN_NOT_IN_GRACE"/>
+      </measure>
+      <measure id="CAL_PLANNED_WITHIN_NPLDA" order="47" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping columnObjectName="Join_2" columnName="CAL_PLANNED_WITHIN_NPLDA"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures>
+      <measure id="CAL_PM_COMPLIANCE_PERIOD" hidden="false" order="1" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="37" scale="7">
+        <descriptions defaultDescription="PM Compliance % for Period"/>
+        <formula>IF (&quot;CAL_PM_COMPLIANCE_PERIOD_DIVISOR&quot;!= 0, (&quot;CAL_COMPLIANCE_PLANNED_WITH_COUNT&quot;/&quot;CAL_PM_COMPLIANCE_PERIOD_DIVISOR&quot;)*100,0)</formula>
+      </measure>
+      <measure id="CAL_PM_COMPLIANCE_PERIOD_DIVISOR" hidden="false" order="2" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="CAL_PM_COMPLIANCE_PERIOD_DIVISOR"/>
+        <formula>&quot;CAL_PLANNED_WITHIN_NPLDA&quot; - &quot;CAL_WITHIN_GRACE_copy_2&quot;+&quot;CAL_ODRCOMPLETED_PLNDWITH_CNT&quot;</formula>
+      </measure>
+      <measure id="TEST_CAL_PM_DIV" hidden="false" order="3" aggregationType="sum" measureType="simple" aggregatable="true" calculatedMeasureType="counter" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="TEST_CAL _PM_DIV"/>
+        <exceptionAggregation exceptionAggregationType="countDistinct">
+          <attribute attributeName="CAL_PM_DIV_COMPLIANCE_PR"/>
+          <attribute attributeName="AUFNR"/>
+        </exceptionAggregation>
+        <formula>1</formula>
+      </measure>
+      <measure id="CAL_PM_COMPLIANCE_FYTD_DIVISOR" hidden="false" order="10" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="CAL_PM_COMPLIANCE_FYTD_DIVISOR"/>
+        <formula>&quot;CAL_ORDER_COUNT&quot; - &quot;CAL_WITHIN_GRACE_copy_2&quot;</formula>
+      </measure>
+      <measure id="CAL_PM_COMPLIANCE_FYTD" hidden="false" order="11" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="37" scale="7">
+        <descriptions defaultDescription="PM Compliance% FYTD"/>
+        <formula>if(&quot;CAL_PM_COMPLIANCE_FYTD_DIVISOR&quot;!= 0 , (&quot;CAL_COMPLIANCE&quot;/&quot;CAL_PM_COMPLIANCE_FYTD_DIVISOR&quot;) *100,0)</formula>
+      </measure>
+      <measure id="CAL_PM_COMPLITION" hidden="false" order="12" aggregationType="sum" engineAggregation="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="37" scale="7">
+        <descriptions defaultDescription="PM Completion %"/>
+        <formula>if(&quot;CAL_PLAN_WITHIN_NOT_IN_GRACE&quot;!= 0 , (&quot;CAL_COMPLETED_PLAN_WITHIN&quot;/&quot;CAL_PLAN_WITHIN_NOT_IN_GRACE&quot;) *100,0)</formula>
+      </measure>
+    </calculatedMeasures>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+<layout>
+  <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="176" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="261"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+      <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="165"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

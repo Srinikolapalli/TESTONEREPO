@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="algoma.pm::ZHV_PM_JEST_NE_TECO_INACT" applyPrivilegeType="NONE" defaultClient="" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="ZHV_PM_BACKLOG"/>
+  <metadata changedAt="2021-10-11 10:49:51.771"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="22"/>
+  <dataSources>
+    <DataSource id="JEST">
+      <resourceUri>algoma.pm::JEST</resourceUri>
+    </DataSource>
+    <DataSource id="Projn_INACT$$$$JEST$$">
+      <resourceUri>algoma.pm::JEST</resourceUri>
+    </DataSource>
+    <DataSource id="Projection_2$$$$JEST$$">
+      <resourceUri>algoma.pm::JEST</resourceUri>
+    </DataSource>
+    <DataSource id="TJ02T">
+      <resourceUri>algoma.pm::TJ02T</resourceUri>
+    </DataSource>
+    <DataSource id="TJ30T">
+      <resourceUri>algoma.pm::TJ30T</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projn_TECO" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="TECO_ORD" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((&quot;STAT&quot; =  'I0045' ) AND (&quot;INACT&quot; =''),1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#JEST">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT" source="INACT"/>
+      </input>
+      <filter>(match(&quot;OBJNR&quot;,'OR*')) and &quot;INACT&quot;=''</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:AggregationView" id="Aggrn_TECO">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute aggregationType="sum" id="TECO_ORD"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projn_TECO">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TECO_ORD" source="TECO_ORD"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projn_INACT" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="INACT_ORD" expressionLanguage="COLUMN_ENGINE">
+          <formula>if ((&quot;STAT&quot; =  'I0320' OR &quot;STAT&quot; = 'I0076' OR &quot;STAT&quot; = 'I0013' ) AND (&quot;INACT&quot; =''),1,0)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#Projn_INACT$$$$JEST$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT" source="INACT"/>
+      </input>
+      <filter>(match(&quot;OBJNR&quot;,'OR*')) and &quot;INACT&quot;=''</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:AggregationView" id="Aggrn_INACT">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute aggregationType="sum" id="INACT_ORD"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projn_INACT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_ORD" source="INACT_ORD"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_8" joinOrder="OUTSIDE_IN" joinType="inner">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="OBJNR_1"/>
+        <viewAttribute id="TECO_ORD"/>
+        <viewAttribute id="INACT_ORD"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Aggrn_TECO">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TECO_ORD" source="TECO_ORD"/>
+      </input>
+      <input node="#Aggrn_INACT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR_1" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_ORD" source="INACT_ORD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+      <joinAttribute name="OBJNR"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="TECO_ORD"/>
+        <viewAttribute id="INACT_ORD"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_8">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TECO_ORD" source="TECO_ORD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_ORD" source="INACT_ORD"/>
+      </input>
+      <filter>&quot;TECO_ORD&quot;=0 and &quot;INACT_ORD&quot;=0</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="INACT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_2$$$$JEST$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT" source="INACT"/>
+      </input>
+      <filter>(match(&quot;OBJNR&quot;,'OR*')) and &quot;INACT&quot;=''</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinOrder="OUTSIDE_IN" joinType="inner">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="INACT_ORD"/>
+        <viewAttribute id="TECO_ORD"/>
+        <viewAttribute id="STAT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_ORD" source="INACT_ORD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TECO_ORD" source="TECO_ORD"/>
+      </input>
+      <input node="#Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+      </input>
+      <joinAttribute name="OBJNR"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="INACT_ORD"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="TECO_ORD"/>
+        <viewAttribute id="STAT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_ORD" source="INACT_ORD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TECO_ORD" source="TECO_ORD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="ISTAT"/>
+        <viewAttribute id="SPRAS"/>
+        <viewAttribute id="TXT04"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#TJ02T">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISTAT" source="ISTAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPRAS" source="SPRAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TXT04" source="TXT04"/>
+      </input>
+      <filter>&quot;SPRAS&quot;='E'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinOrder="OUTSIDE_IN" joinType="leftOuter">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="TECO_ORD"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="INACT_ORD"/>
+        <viewAttribute id="TXT04"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Aggregation_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TECO_ORD" source="TECO_ORD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_ORD" source="INACT_ORD"/>
+      </input>
+      <input node="#Projection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="TXT04" source="TXT04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="ISTAT"/>
+      </input>
+      <joinAttribute name="STAT"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="STSMA"/>
+        <viewAttribute id="ESTAT"/>
+        <viewAttribute id="SPRAS"/>
+        <viewAttribute id="TXT04"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#TJ30T">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STSMA" source="STSMA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ESTAT" source="ESTAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPRAS" source="SPRAS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TXT04" source="TXT04"/>
+      </input>
+      <filter>(match(&quot;STSMA&quot;,'MO*')) and &quot;SPRAS&quot;='E'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_3" joinOrder="OUTSIDE_IN" joinType="leftOuter">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="STAT"/>
+        <viewAttribute id="OBJNR"/>
+        <viewAttribute id="TXT04"/>
+        <viewAttribute id="TECO_ORD"/>
+        <viewAttribute id="INACT_ORD"/>
+        <viewAttribute id="TXT04_USER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="STAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR" source="OBJNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TXT04" source="TXT04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TECO_ORD" source="TECO_ORD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="INACT_ORD" source="INACT_ORD"/>
+      </input>
+      <input node="#Projection_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="TXT04_USER" source="TXT04"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STAT" source="ESTAT"/>
+      </input>
+      <joinAttribute name="STAT"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_3">
+    <descriptions/>
+    <attributes>
+      <attribute id="STAT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Object status"/>
+        <keyMapping columnObjectName="Join_3" columnName="STAT"/>
+      </attribute>
+      <attribute id="OBJNR" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="OBJNR"/>
+        <keyMapping columnObjectName="Join_3" columnName="OBJNR"/>
+      </attribute>
+      <attribute id="TXT04" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Individual status of an object (short form)"/>
+        <keyMapping columnObjectName="Join_3" columnName="TXT04"/>
+      </attribute>
+      <attribute id="TXT04_USER" order="6" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Individual status of an object (short form)"/>
+        <keyMapping columnObjectName="Join_3" columnName="TXT04_USER"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="TECO_ORD" order="4" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="TECO_ORD"/>
+        <measureMapping columnObjectName="Join_3" columnName="TECO_ORD"/>
+      </measure>
+      <measure id="INACT_ORD" order="5" aggregationType="sum" engineAggregation="sum" measureType="simple">
+        <descriptions defaultDescription="INACT_ORD"/>
+        <measureMapping columnObjectName="Join_3" columnName="INACT_ORD"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="325" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projn_TECO" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="783"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Aggrn_TECO" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="705"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projn_INACT" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="783"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Aggrn_INACT" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="705"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_8" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="97" y="609"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="97" y="531"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="251" y="531"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="172" y="435"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="172" y="357"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="326" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="248" y="261"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="402" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="325" y="165"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>
